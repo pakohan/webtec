@@ -17,9 +17,6 @@
     <script src="../js/jquery-1.9.1.min.js"></script>
     <script src="../js/bootstrap.js"></script>
     <script src="../js/bootstrap-datepicker.js"></script>
-    <script>
-	   $('.datepicker').datepicker();
-    </script>
     <style type="text/css">
       #logo {
         border-radius: 3px 3px 3px 3px;
