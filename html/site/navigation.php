@@ -4,7 +4,7 @@
       <div class="navbar">
         <div class="navbar-inner">
           <a href="index.html" class="brand">
-          <img src='../img/icons/seapal_normal.png' alt='Icon-Small-50' id="logo"/>
+          <img src='../img/icons/seapal_normal.png' alt='Icon-Small-50' class="logo"/>
           Seapal
           </a>
           <div class="navigation-points">

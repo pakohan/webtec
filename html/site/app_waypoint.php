@@ -161,11 +161,11 @@
           </div>
           <div id="markerMap">
             <h4>Map</h4>
-            <img src="../img/icons/marker_map.png" id="appInfoPhoto" />
+            <img src="../img/icons/marker_map.png" id="appInfoPhoto" class="logo"/>
           </div>
           <div id="appPhotos">
             <h4>Photos</h4>
-            <img src="../img/icons/no_image.jpg" id="appInfoPhoto" />
+            <img src="../img/icons/no_image.jpg" id="appInfoPhoto" class="logo"/>
           </div>
         </div>
       </div>

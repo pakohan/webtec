@@ -9,22 +9,24 @@
     	<!-- Container -->
     	<div>
 	    	<div>
-		    	<div>
+		    	  <div class="container">
+
 		    	
 		    		<!-- Sidebar -->
-			    	<div>
-				    	<div>
-					    	<ul id="sidebar">
-		                        <li><a href="#">Welcome</a></li>
-		                        <li><a href="#">Overview</a></li>
-		                        <li><a href="#">Extension</a></li>
-		                        <li><a href="#">Warning</a></li>
+					    <div class="row">
+					      <div class="span3 bs-docs-sidebar">
+					        <ul class="nav nav-list bs-docs-sidenav">
+		                        <li><a href="#welcome"><i class="icon-chevron-right"></i> Welcome</a></li>
+		                        <li><a href="#overview"><i class="icon-chevron-right"></i> Overview</a></li>
+		                        <li><a href="#extension"><i class="icon-chevron-right"></i> Extension</a></li>
+		                        <li><a href="#warning"><i class="icon-chevron-right"></i> Warning</a></li>
 					        </ul>
 					    </div>
 					</div><!-- Sidebar -->
 
 					<!-- Content -->
-					<div>  
+      				<div class="span9">
+      				       <section id="welcome">
 						<div id="welcome">
 							<h2>Welcome to SeaPal</h2>
 	                    	<div>
@@ -49,8 +51,10 @@
 		                        </p>
 		                   </div>
 						</div>
+						</section>
 						<br><br>
-						<div id="overview">
+					      	<section id="overview">
+							<div id="overview">
 	                    	<h2>Function Overview</h2>
 	                    	<div>
 		                        <p><img src="../img/screenshots/SeaPal-Horiz3.jpg" alt="" height="200" width="620"></p>
@@ -79,6 +83,7 @@
 		                        <br><br>
 	                    	</div>
 						</div>
+						</section id="extension">
                         <div id="extension">
 	                        <h1>Extensions</h1>
 	                        <p>
@@ -92,14 +97,17 @@
 	                            <li> Collection of regional Points of Interest </li>
 	                        </ul>
                         </div>
+                        </section>
                         <br><br>
-                        <div id="warning">
+ 						<section id="warning">
+                       <div id="warning">
                         	<h1>Warning</h1>
                         	<p>
                             	<b>SeaPal</b> is a valuable addition to your navigational equipment, but no replacement. Always use official sea maps in conjunction. All positions are provided so that a transition to paper sea maps is simple. The responsibility for the proper use lies with the skipper. The manufacturer of <b>SeaPal</b> assume no liability.
                             </p>
                             <br><br>
                         </div>
+                        </section>
 	                </div><!-- Content -->
 				</div>
 			</div>	
