@@ -1,14 +1,14 @@
 
 <!-- Navigation -->
 <div>
-	<div>
-		<div>
-			<a href="index.php">
-				<img src='../img/icons/seapal_normal.png' alt='Icon-Small-50' width='50' height='50' />
-				<h2>Seapal</h2>
-			</a>
-			<div>
-				<ul>
+      <div class="navbar">
+        <div class="navbar-inner">
+          <a href="index.html" class="brand">
+          <img src='../img/icons/seapal_normal.png' alt='Icon-Small-50' id="logo"/>
+          Seapal
+          </a>
+          <div class="navigation-points">
+            <ul class="nav">
 					<li><a href='index.php'>Home</a></li>
 					<li><a href='app_waypoint.php'>App</a></li>
 					<li><a href='userguide.php'>User Guide</a></li>

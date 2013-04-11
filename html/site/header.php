@@ -9,5 +9,30 @@
 	<meta name='description' content='SeaPal is a mobile app for sailors to do navigation, tracking and more.'/>
 	<meta name="author" content="Prof. Dr. Marko Boger, Dominic Eschbach und Timo Partl">
 	<title>Seapal</title>
+
+    <!--link rel='stylesheet' href='../css/stylesheet.css'/-->
+    <link rel='stylesheet' href='../css/bootstrap.css' />
+    <script src="../js/jquery-1.9.1.min.js"></script>
+    <script src="../js/bootstrap.js"></script>
+    <script src="../js/bootstrap-datepicker.js"></script>
+    <script>
+	   $('.datepicker').datepicker();
+    </script>
+    <style type="text/css">
+      #logo {
+        border-radius: 3px 3px 3px 3px;
+        -moz-border-radius: 3px 3px 3px 3px;
+        -webkit-border-radius: 3px 3px 3px 3px;
+        border: 0px solid #000000;
+        -webkit-box-shadow: 0px 0px 15px -2px rgba(0,0,0,1);
+        -moz-box-shadow: 0px 0px 15px -2px rgba(0,0,0,1);
+        box-shadow: 0px 0px 15px -2px rgba(0,0,0,1);
+        margin-right: 14px;
+        margin-left: 14px;
+      }
+      li {
+        margin-top: 15px;
+      }
+    </style>
 	
 </head>
