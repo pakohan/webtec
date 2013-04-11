@@ -9,9 +9,11 @@
 	<meta name='description' content='SeaPal is a mobile app for sailors to do navigation, tracking and more.'/>
 	<meta name="author" content="Prof. Dr. Marko Boger, Dominic Eschbach und Timo Partl">
 	<title>Seapal</title>
-
-    <!--link rel='stylesheet' href='../css/stylesheet.css'/-->
-    <link rel='stylesheet' href='../css/bootstrap.css' />
+    <?php
+        $config = file_get_contents('../../config/style.txt');
+        $template = "<link rel='stylesheet' href='../css/".$config.".css'/>";
+        echo $template;
+    ?>
     <script src="../js/jquery-1.9.1.min.js"></script>
     <script src="../js/bootstrap.js"></script>
     <script src="../js/bootstrap-datepicker.js"></script>
