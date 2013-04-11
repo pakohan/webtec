@@ -1,61 +1,8 @@
 <!DOCTYPE html>
 <html lang="de">
-  <head>
-    <!-- Meta Informations -->
-    <meta charset="utf-8">
-    <meta http-equiv='content-type' content='text/html; charset=utf-8'/>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name='keywords' content='sailing, app, navigation, sea map, boat, skipper'/>
-    <meta name='description' content='SeaPal is a mobile app for sailors to do navigation, tracking and more.'/>
-    <meta name="author" content="Prof. Dr. Marko Boger, Dominic Eschbach und Timo Partl">
-    <title>Seapal</title>
-    <!--link rel='stylesheet' href='./stylesheet.css'/-->
-    <link rel='stylesheet' href='./css/bootstrap.css' />
-    <script src="./js/jquery-1.9.1.min.js"></script>
-    <script src="./js/bootstrap.js"></script>
-    <script src="./js/bootstrap-datepicker.js"></script>
-    <script>
-	   $('.datepicker').datepicker();
-    </script>
-    <style type="text/css">
-      #logo {
-        border-radius: 3px 3px 3px 3px;
-        -moz-border-radius: 3px 3px 3px 3px;
-        -webkit-border-radius: 3px 3px 3px 3px;
-        border: 0px solid #000000;
-        -webkit-box-shadow: 0px 0px 15px -2px rgba(0,0,0,1);
-        -moz-box-shadow: 0px 0px 15px -2px rgba(0,0,0,1);
-        box-shadow: 0px 0px 15px -2px rgba(0,0,0,1);
-        margin-right: 14px;
-        margin-left: 14px;
-      }
-      li {
-        margin-top: 15px;
-      }
-    </style>
-  </head>
+  <?php include("header.php") ?>
   <body>
-    <!-- Navigation -->
-    <div>
-      <div class="navbar">
-        <div class="navbar-inner">
-          <a href="index.html" class="brand">
-          <img src='../img/icons/seapal_normal.png' alt='Icon-Small-50' id="logo"/>
-          Seapal
-          </a>
-          <div class="navigation-points">
-            <ul class="nav">
-              <li><a href='index.html'>Home</a></li>
-              <li><a href='app_waypoint.html' class="active">App</a></li>
-              <li><a href='userguide.html'>User Guide</a></li>
-              <li><a href='screenshots.html'>Screenshots</a></li>
-              <li><a href='about.html'>About</a></li>
-              <li><a href='contact.html'>Contact</a></li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </div>
+    <?php include("navigation.php") ?>
     <!-- Container -->
     <div class="container">
       <!-- Content -->		

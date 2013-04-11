@@ -1,69 +1,3 @@
-<!DOCTYPE html>
-
-<html lang="de">
-  	<?php include("header.php") ?>
-	<body>
-		<?php include("navigation.php") ?>
-
-    	<!-- Container -->
-    	<div> 
-	    	<div>
-		    	<div>
-		    	
-		    		<!-- Sidebar -->
-			    	<div>
-				    	<div>
-					    	<ul id="sidebar">
-						    	<li><a href="#">IBN</a></li>
-								<li><a href="#">HTWG Konstanz</a></li>
-					        </ul>
-					    </div>
-					</div><!-- Sidebar -->
-
-					<!-- Content -->
-					<div>
-						<div id="ibn">
-							<h2>IBN</h2>
-							<div>	
-								<img src="../img/icons/ibn.jpg" alt="IBN Konstanz"/>
-								<br><br>							
-								<p>
-									 IBN Redaktion <br>
-									 Hans-Dieter M&ouml;hlhenrich<br>
-									 Malvine-Schiesser-Weg 3<br>
-									 78315 Radolfzell<br>
-									 Germany<br>
-									 <br>
-									 <a href="http://www.ibn-online.de">www.ibn-online.de</a><br>
-									 ibn at ibn-online.de
-								</p>		 
-							</div>
-						</div>
-						<br><br>
-						<div id="htwg">
-							<h2>HTWG Konstanz</h2>
-							<div>
-								<img src="../img/icons/htwg.png" alt="HTWG Konstanz"/>
-								<br><br>
-								<p>
-									 HTWG Konstanz<br>
-									 Informatik<br>
-									 Prof. Dr. Marko Boger<br>
-									 Brauneggerstr. 55<br>
-									 78462 Konstanz<br>
-									 Germany<br>
-									 <br>
-									 <a href="http://www.htwg-konstanz.de">www.htwg-konstanz.de</a><br>
-									 marko.boger at htwg-konstanz.de
-								</p>
-								<br>
-								<br>	 
-							</div>
-				      	</div>
-					</div><!-- Content -->
-				</div>
-			</div>		
-		</div><!-- Container -->
 
 		<!-- Footer -->
 		<footer>
@@ -97,8 +31,8 @@
 						SeaPal is a cooperation that is open for participation. If you have ideas for extensions or want to provide content, please send us a message.
 					</p>
 					<ul>
-						<li><a href="impressum.html">Impressum</a></li>
-						<li><a href="legal.html">Legal notice</a></li>
+						<li><a href="impressum.php">Impressum</a></li>
+						<li><a href="legal.php">Legal notice</a></li>
 					</ul>
 				</div>
 			</div>
@@ -107,6 +41,3 @@
 				<p>&copy; 2012 IBN Verlag</p>
 			</div>
 		</footer>
-
-  </body>
-</html>

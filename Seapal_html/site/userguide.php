@@ -1,41 +1,9 @@
 <!DOCTYPE html>
 
 <html lang="de">
-  	<head>
-  		
-		<!-- Meta Informations -->
-		<meta charset="utf-8">
-		<meta http-equiv='content-type' content='text/html; charset=utf-8'/>
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<meta name='keywords' content='sailing, app, navigation, sea map, boat, skipper'/>
-		<meta name='description' content='SeaPal is a mobile app for sailors to do navigation, tracking and more.'/>
-		<meta name="author" content="Prof. Dr. Marko Boger, Dominic Eschbach und Timo Partl">
-		<title>Seapal</title>
-	  	
-  	</head>
-  	<body>
-  	
-		<!-- Navigation -->
-		<div>
-			<div>
-				<div>
-					<a href="index.html">
-						<img src='../img/icons/seapal_normal.png' alt='Icon-Small-50' width='50' height='50' />
-						<h2>Seapal</h2>
-					</a>
-					<div>
-						<ul>
-							<li><a href='index.html'>Home</a></li>
-							<li><a href='app_waypoint.html'>App</a></li>
-							<li><a href='userguide.html'>User Guide</a></li>
-							<li><a href='screenshots.html'>Screenshots</a></li>
-							<li><a href='about.html'>About</a></li>
-							<li><a href='contact.html'>Contact</a></li>
-						</ul>
-					</div>
-				</div>
-			</div>
-		</div>
+  	<?php include("header.php") ?>
+	<body>
+		<?php include("navigation.php") ?>
     	
     	<!-- Container -->
     	<div>
