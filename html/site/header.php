@@ -19,7 +19,7 @@
 	   $('.datepicker').datepicker();
     </script>
     <style type="text/css">
-      #logo {
+      img {
         border-radius: 3px 3px 3px 3px;
         -moz-border-radius: 3px 3px 3px 3px;
         -webkit-border-radius: 3px 3px 3px 3px;
