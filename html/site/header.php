@@ -1,6 +1,3 @@
-
-<head>
-		
 	<!-- Meta Informations -->
 	<meta charset="utf-8">
 	<meta http-equiv='content-type' content='text/html; charset=utf-8'/>
@@ -18,7 +15,7 @@
     <script src="../js/bootstrap.js"></script>
     <script src="../js/bootstrap-datepicker.js"></script>
     <style type="text/css">
-      .logo {
+      #picture {
         border-radius: 3px 3px 3px 3px;
         -moz-border-radius: 3px 3px 3px 3px;
         -webkit-border-radius: 3px 3px 3px 3px;
@@ -33,5 +30,3 @@
         margin-top: 15px;
       }
     </style>
-	
-</head>
