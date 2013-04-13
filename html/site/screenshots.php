@@ -4,7 +4,11 @@
     <head>
 
         <style type="text/css">
-.carousel-inner > .item > img { margin: 0 auto; }
+            .carousel-inner > .item > img {
+                margin: 0 auto;
+                overflow:hidden;
+                position:relative;
+            }
         </style>
         <title></title>
     </head>
