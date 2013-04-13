@@ -66,27 +66,15 @@
                     Weather
                 </h2>
                 <?php
-                  //TODO validate form, SQL injection!!!
-                  if ($_POST['wind_strength'] != NULL) {
-                    $con = mysql_connect("localhost","server","server");
-                    if (!$con) {
-                      die('Could not connect: ' . mysql_error());
-                    }
-                    mysql_select_db("seapal", $con);
-                    $sql = "INSERT INTO seapal.f_weather (wind_strength,wind_direction,air_pressure,cloudiness,raininess,wave_height,wave_direction,date_measured) VALUES (".$_POST['wind_strength'].",".$_POST['wind_direction'].",".$_POST['air_pressure'].",".$_POST['cloudiness'].",".$_POST['raininess'].",'".$_POST['wave_height']."',".$_POST['wave_direction'].",'".$_POST['date_measured']."')";
-                    if (!mysql_query($sql,$con))
-                    {
-                      die('Error: ' . mysql_error());
-                    }
-                    mysql_close($con);
-                  }
+                    require_once('../../scripts/utils.php');
+                    insert_weather();
                 ?>
-                <form>
+                <form method="post">
                     <fieldset>
                         <div>
                             <div>
                                 <div>
-                                    <label>Wind strength</label> <select name="windStrength">
+                                    <label>Wind strength</label> <select name="wind_strength">
                                         <option value="0" selected="selected">
                                             0
                                         </option>
@@ -129,10 +117,10 @@
                                     </select>
                                 </div>
                                 <div>
-                                    <label>Wind direction</label> <input type="number" name="windDirection" pattern="\d[\d][\d]" min="0" max="359" value="0">
+                                    <label>Wind direction</label> <input type="number" name="wind_direction" pattern="\d[\d][\d]" min="0" max="359" value="0">
                                 </div>
                                 <div>
-                                    <label>Air pressure (mBar)</label> <input type="number" name="airPressure" pattern="\d\d\d[\d]" min="500" max="2000" value="1000">
+                                    <label>Air pressure (mBar)</label> <input type="number" name="air_pressure" pattern="\d\d\d[\d]" min="500" max="2000" value="1000">
                                 </div>
                                 <div>
                                     <label>Cloudiness level</label> <select name="cloudiness">
@@ -199,13 +187,13 @@
                                     </select>
                                 </div>
                                 <div>
-                                    <label>wave height</label> <input type="text" name="waveHeight">
+                                    <label>wave height</label> <input type="text" name="wave_height">
                                 </div>
                                 <div>
-                                    <label>wave direction</label> <input type="number" name="waveDirection" pattern="\d[\d][\d]" min="0" max="359" value="0">
+                                    <label>wave direction</label> <input type="number" name="wave_direction" pattern="\d[\d][\d]" min="0" max="359" value="0">
                                 </div>
                                 <div>
-                                    <label>date of recognition</label> <input type="datetime" name="date">
+                                    <label>date of recognition</label> <input type="datetime" name="date_measured">
                                 </div>
                             </div>
                         </div><input type="submit" class="btn btn-primary">
