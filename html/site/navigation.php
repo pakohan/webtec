@@ -1,9 +1,4 @@
 <!-- Navigation -->
-<html>
-	<head>
-		<title></title>
-	</head>
-	<body>
 		<div>
 			<div class="navbar">
 				<div class="navbar-inner">
@@ -33,5 +28,3 @@
 				</div>
 			</div>
 		</div>
-	</body>
-</html>

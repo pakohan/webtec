@@ -1,8 +1,7 @@
 <!DOCTYPE html>
 <html lang="de">
-	<?php include("header.php") ?>
 	<head>
-		<title></title>
+		<?php include("header.php") ?>
 	</head>
 	<body>
 		<?php include("navigation.php") ?><!-- Container -->

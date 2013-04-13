@@ -1,8 +1,7 @@
 <!DOCTYPE html>
 <html lang="de">
-    <?php include("header.php") ?>
     <head>
-        <title></title>
+        <?php include("header.php") ?>
     </head>
     <body>
         <?php include("navigation.php") ?><!-- Container -->
@@ -201,8 +200,7 @@
                         <h4>
                             Notes
                         </h4>
-                        <textarea>
-</textarea>
+                        <textarea></textarea>
                     </div>
                     <div id="markerMap">
                         <h4>
