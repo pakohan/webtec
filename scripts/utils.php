@@ -1,6 +1,6 @@
 <?php
 function insert_weather() {
-  $config = json_decode(file_get_contents('../config/mysql.json'),true);
+  $config = json_decode(file_get_contents('../../config/mysql.json'),true);
   if ($_POST['wind_strength'] != NULL) {
     $con = mysql_connect("localhost",$config['username'],$config['password']);
     if (!$con) {
