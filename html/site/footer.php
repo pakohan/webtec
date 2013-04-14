@@ -46,6 +46,12 @@
 			</ul>
 		</div>
 	</div>
+	<?php
+		$hit_count = @file_get_contents('../../config/count.txt');
+		echo $hit_count." Hits";
+		$hit_count++;
+		file_put_contents('../../config/count.txt', $hit_count);
+	?>
 	<div align="center">
 		<br>
 		<p>
