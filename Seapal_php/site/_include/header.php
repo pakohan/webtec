@@ -22,3 +22,4 @@
     <!-- Java-Script -->
     <script src="../js/jquery/jquery.js" type="text/javascript"></script>
     <script src="../js/site/scroll.js" type="text/javascript"></script>   
+    <script src="../js/site/focus-blur.js" type="text/javascript"></script>
