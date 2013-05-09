@@ -5,7 +5,7 @@
 	
 		<!-- Header -->
 	    <?php include('_include/header.php'); ?>
-	    
+	    <script src="../js/site/focus-blur.js" type="text/javascript"></script>
 	</head>
 	<body>
 	    
