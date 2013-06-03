@@ -2,20 +2,22 @@
 	$action = $_POST['action'];
 	$field = $_POST['field'];
 	$value = $_POST['value'];
-	$change_value = 2;
+	$change_value;
 
 	switch($action) {
 		case('send'):
 			switch($field) {
 				case '#wind_strength':
-					// get predicted value for wave height from database.
-					$change_value = $value / 2;
-					// store ind_strength in database.
+					// get predicted value for wave height from database. 0.5 is a dummy.
+					$valueFromDatabase = 0.5;
+					$change_value = $valueFromDatabase;
+					// store wind_strength in database.
 					break;
 				case '#wind_direction':
-					// get predicted value for wave direction from database.
-					$change_value = $value;
-					// store value in database.
+					// get predicted value for wave direction from database. 275 is a dummy.
+					$valueFromDatabase = 275;
+					$change_value = $valueFromDatabase;
+					// store wind_direction in database.
 				    break;
 				case '#air_pressure':
 					// store value in database.
@@ -27,12 +29,22 @@
 					// store value in database.
 					break;
                 case '#wave_height':
-                	// calculate new wave height value for wind strength and
-                	// store value in database.
+                	// get number of values from database. 5 is a dummy.
+                	$numberOfValuesFromDatabase = 5;
+                	// get value from database. 3 is a dummy.
+                	$valueFromDatabase = 3;
+                	// calculate new wave direction value for wind strength.
+                	$valueToDatabase = ($value + $valueFromDatabase) / ($numberOfValuesFromDatabase + 1);
+                	// store $valueToDatabase in database.
                 	break;
                 case '#wave_direction':
-                	// calculate new wave direction value for wind strength and
-                	// store value in database.
+                	// get number of values from database. 5 is a dummy.
+                	$numberOfValuesFromDatabase = 5;
+                	// get value from database. 3 is a dummy.
+                	$valueFromDatabase = 3;
+                	// calculate new wave direction value for wind strength.
+                	$valueToDatabase = ($value + $valueFromDatabase) / ($numberOfValuesFromDatabase + 1);
+                	// store $valueToDatabase in database.
                 	break;
                 case '#date_measured':
                 	// store value in database.
