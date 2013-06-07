@@ -28,7 +28,7 @@ label {
     font-weight: bold;
 }
 
-#routeMenuContainer, #distanceToolContainer, #followCurrentPositionContainer, #navigationContainer {
+#routeMenuContainer, #distanceToolContainer, #followCurrentPositionContainer, #navigationContainer, #weatherModeContainer {
     position: relative;
     margin-right: auto;
     margin-left: auto;
@@ -94,3 +94,33 @@ label {
     margin-left: 7px;
 }
 
+#weatherMode_choices {
+    padding: 5px 5px 5px 5px;
+    margin-top: 7px;
+    margin-left: 200px;
+    position: absolute;
+    z-index: 2;
+}
+
+ul{
+   list-style-type:none;
+   padding:0;
+   margin:0;
+}
+
+label { 
+   float:left; 
+   display:block;
+   margin:0 0 0 5px;
+   color: #A9A9A9;
+}
+
+input[type=radio], input.radio { 
+   float:left; 
+   margin:3px 0 0 5px; 
+}
+
+input[type=checkbox], input.checkbox { 
+   float:left; 
+   margin:3px 0 0 5px; 
+}
