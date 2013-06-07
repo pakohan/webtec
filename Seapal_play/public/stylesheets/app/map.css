@@ -94,6 +94,7 @@ label {
     margin-left: 7px;
 }
 
+/* weather overlay */
 #weatherMode_choices {
     padding: 5px 5px 5px 5px;
     margin-top: 7px;
@@ -123,4 +124,18 @@ input[type=radio], input.radio {
 input[type=checkbox], input.checkbox { 
    float:left; 
    margin:3px 0 0 5px; 
+}
+
+/* load and store routes buttons */
+
+#loadStoreButtons {
+	margin: 0 0 20px 0;
+}
+
+#load_button {
+	margin: 0 5px 0 0;
+}
+
+#save_button {
+	margin: 0 0 0 5px;
 }
