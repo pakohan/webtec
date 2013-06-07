@@ -108,7 +108,7 @@ ul{
    margin:0;
 }
 
-label { 
+label.modeLabel { 
    float:left; 
    display:block;
    margin:0 0 0 5px;
