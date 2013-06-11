@@ -87,7 +87,7 @@
 		            	</div>
 		            </form>      	 
 	            </div>
-<<<<<<< HEAD
+
 			    <br />
 			    <br />
 			    <h2>
@@ -158,12 +158,12 @@
                     </fieldset>
                 </form>
 			    <div class="container" align="center">
-=======
+
 	        </div>
 			<br />
 			<br />
 			<div class="container" align="center">
->>>>>>> weather_map
+
 			    <div class="row" style="margin-left:5%;">
 			        <div class="span4" id="appNotes">
 			        	<h4>Notes</h4>
@@ -218,11 +218,9 @@
 		<!-- Additional Java-Script -->
 		<script src="../js/app/ajax/waypoint.js" type="text/javascript"></script>
 
-<<<<<<< HEAD
 		<script src="../js/app/ajax/weatherForm.js" type="text/javascript"></script>
-=======
+
 		<script src="../js/app/map/weatherMap.js" type="text/javascript"></script>
->>>>>>> weather_map
 		
 	</body>
 </html>
