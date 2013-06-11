@@ -4,10 +4,10 @@ import play.api._
 import play.api.mvc._
 import play.api.db.DB
 import play.api.Play.current
-import play.libs.Json
 import play.data.DynamicForm
 import play.api.data._
 import play.api.data.Forms._
+import play.api.libs.json._
 
 import views.html._
 import views.html._include._
@@ -21,8 +21,7 @@ import org.codehaus.jackson.node.ObjectNode
 object Trip extends Controller {
 	
 	def insert() = {
-		val data: DynamicForm = Form.bindFromRequest
-		val respJSON = Json.newObject
+		val data = new DynamicForm().bindFromRequest()
 		var nextId = 0
 
 		DB.withConnection { implicit c =>
@@ -43,23 +42,19 @@ object Trip extends Controller {
 		     if (result.next) {
 		         nextId = result.getInt("Auto_increment")
 		     }
-		     respJSON.put("tnr", "" + (nextId - 1))
 		 }
-		Ok(respJSON)
+		Ok(Json.obj("status" -> "OK", "tnr" -> (nextId - 1).toString))
 	}
 
 	def delete(tnr: Int) = {
-		val respJSON = Json.newObject
-
 		DB.withConnection { implicit c =>
 		    SQL("DELETE FROM seapal.tripinfo WHERE tnr = " + tnr).execute
-		    respJSON.put("tnr", "ok")
 		}
-		Ok(respJSON)
+		Ok(Json.obj("status" -> "OK", "tnr" -> "ok"))
 	}
   
 	def load(tnr: Int) = {
-		val respJSON = Json.newObject
+		val respJSON = Json.obj()
 
 		DB.withConnection { implicit c =>
 		    val result = SQL("SELECT * FROM seapal.tripinfo WHERE tnr = " + tnr).resultSet
@@ -70,7 +65,7 @@ object Trip extends Controller {
 		    while (result.next) {
 		        for (i <- 1 to numColumns) {
 		            val columnName = rsmd.getColumnName(i)
-		            respJSON.put(columnName, result.getString(i))
+		            respJSON ++ Json.obj(columnName -> result.getString(i))
 		        }
 		    }
 		}
@@ -103,6 +98,6 @@ object Trip extends Controller {
 		        data.append("</tr>")
 		    }
 		}
-		Ok(trip(header.render(), navigation.render("app_map"), navigation_app.render("app_trip"), data.toString))
+		Ok(trip(navigation.render("app_map"), navigation_app.render("app_trip"), data.toString))
 	}
 }

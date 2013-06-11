@@ -4,7 +4,8 @@ import play.api._
 import play.api.mvc._
 import play.api.db.DB
 import play.api.Play.current
-import play.libs.Json
+import play.api.libs.json._
+
 import play.data.DynamicForm
 
 import views.html._
@@ -13,14 +14,11 @@ import views.html._include._
 import anorm._ 
 import anorm.SqlParser._
 
-import org.codehaus.jackson.node.ObjectNode
-
 
 object TripInfo extends Controller {
 	
-	def insert() = {
-		val data = form().bindFromRequest
-		val respJSON = Json.newObject
+	/*def insert() = {
+		val data = new DynamicForm().bindFromRequest()
 		var nextId = 0
 
 		DB.withConnection { implicit c =>
@@ -45,23 +43,19 @@ object TripInfo extends Controller {
 				nextId = result.getInt("Auto_increment")
 			}
 
-			respJSON.put("wnr", "" + (nextId - 1))
+			Ok(Json.obj("status" -> "OK", "wnr" -> (nextId - 1).toString))
 		}
-		Ok(respJSON)
 	}
 
 	def delete(wnr: Int) = {
-		val respJSON = Json.newObject
-
 		DB.withConnection { implicit c =>
 		    SQL("DELETE FROM seapal.wegpunkte WHERE wnr = " + wnr).execute
-			respJSON.put("wnr", "ok");
+		    Ok(Json.obj("status" -> "OK", "wnr" -> "ok"))
 		}
-		Ok(respJSON)
 	}
   
 	def load(wnr: Int) = {
-		val respJSON = Json.newObject
+		val respJSON = Json.obj()
 
 		DB.withConnection { implicit c =>
 		    val result = SQL("SELECT * FROM seapal.wegpunkte WHERE wnr = " + wnr).resultSet
@@ -71,12 +65,12 @@ object TripInfo extends Controller {
             while (result.next) {
                 for (i <- 1 to numColumns) {
                     val columnName = rsmd.getColumnName(i)
-                    respJSON.put(columnName, result.getString(i))
+                    respJSON ++ Json.obj(columnName -> result.getString(i))
                 }
             }
 		}
 		Ok(respJSON)
-	}
+	}*/
 
 	def index(tnr: Int) = {
 		val data = new java.lang.StringBuilder()
@@ -108,6 +102,6 @@ object TripInfo extends Controller {
 				data.append("</tr>");
 			}
 		}
-		Ok(tripinfo(header.render(), navigation.render("app_map"), navigation_app.render("app_tripinfo"), data.toString))
+		Ok(tripinfo(navigation.render("app_map"), navigation_app.render("app_tripinfo"), data.toString))
 	}
 }
