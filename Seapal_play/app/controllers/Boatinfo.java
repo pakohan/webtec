@@ -134,8 +134,8 @@ public class Boatinfo extends Controller {
     						    navigation_app.render("app_boatinfo"),
     						    logbook_boatinfo.render(),
     						    logbook_weatherinfo.render(),
-    						    data),
-    						    logbook_selection_menu.render());
+    						    data,
+    						    logbook_selection_menu.render(data)));
   }
 
 	public static String loadEntries() {
