@@ -15,7 +15,7 @@ import anorm._
 import anorm.SqlParser._
 
 
-object TripInfo extends Controller {
+object Tripinfo extends Controller {
 	
 	/*def insert() = {
 		val data = new DynamicForm().bindFromRequest()
