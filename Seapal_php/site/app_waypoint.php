@@ -5,9 +5,10 @@
 		
 		<!-- Header -->
 		<?php include('_include/header.php'); ?>
+		<?php include('_include/initialiseMap.php'); ?>
 		
 	</head>
-	<body>
+	<body onload=initialiseMap()>
 		
 		<!-- Navigation -->
 		<?php include('_include/navigation.php'); ?>
@@ -83,9 +84,10 @@
 			            			<select name="vorsegel" id="vorsegel" style="width: 165px;"></select>
 			            		</div>
 		            		</div>
-		            	</div>      	 
-	            	</div>
+		            	</div>
+		            </form>      	 
 	            </div>
+<<<<<<< HEAD
 			    <br />
 			    <br />
 			    <h2>
@@ -156,6 +158,12 @@
                     </fieldset>
                 </form>
 			    <div class="container" align="center">
+=======
+	        </div>
+			<br />
+			<br />
+			<div class="container" align="center">
+>>>>>>> weather_map
 			    <div class="row" style="margin-left:5%;">
 			        <div class="span4" id="appNotes">
 			        	<h4>Notes</h4>
@@ -170,10 +178,36 @@
 				        <img src="../img/icons/no_image.jpg" id="appInfoPhoto" style="width:100%; heigt: 100%;"/>
 				    </div>
 				</div>
-			    </div>
+			</div>
+			<div class="container" align="left">
+			  	<div class="row">
+			    	<div class="span6" id="appNotes">
+			            <p>Map Mode:</p>
+			            <p>
+				            <div id="radio_form">
+				                <input type="radio" name="map_mode" id="sailor_mode" value="sailor_mode"> Sailor
+				                <input type="radio" name="map_mode" id="tourist_mode" value="tourist_mode"> Tourist
+				                <input type="radio" name="map_mode" id="expert_mode" value="expert_mode"> Expert
+				            </div>
+				            <div id="checkbox_form">
+				                <input type="checkbox" name="exp_mode_chkbx_value[]" id="exp_mode_chkbx_Wind" value="Wind"> Wind
+				                <input type="checkbox" name="exp_mode_chkbx_value[]" id="exp_mode_chkbx_Pressure" value="Pressure"> Pressure
+				                <input type="checkbox" name="exp_mode_chkbx_value[]" id="exp_mode_chkbx_Waves" value="Waves"> Waves
+				                <input type="checkbox" name="exp_mode_chkbx_value[]" id="exp_mode_chkbx_Temperature" value="Temperature"> Temperature
+				                <input type="checkbox" name="exp_mode_chkbx_value[]" id="exp_mode_chkbx_Rain" value="Rain"> Rain
+				            </div>
+			            </p>
+			            
+			        </div>
+				</div>
 			</div><!-- Content -->
-			
-		</div><!-- Container -->
+
+			<div class="container">
+				<div class="row" style="width:100%; height:600px;">
+					<div class="span6" id="map_canvas" style="width:100%; height:100%"></div>
+				</div>
+			</div>
+		</div><!-- Content -->
 		
 		<!-- Java Script -->
 		<script src="../js/bootstrap/bootstrap-transition.js"></script>
@@ -184,7 +218,11 @@
 		<!-- Additional Java-Script -->
 		<script src="../js/app/ajax/waypoint.js" type="text/javascript"></script>
 
+<<<<<<< HEAD
 		<script src="../js/app/ajax/weatherForm.js" type="text/javascript"></script>
+=======
+		<script src="../js/app/map/weatherMap.js" type="text/javascript"></script>
+>>>>>>> weather_map
 		
 	</body>
 </html>
