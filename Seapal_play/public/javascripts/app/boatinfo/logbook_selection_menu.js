@@ -1,12 +1,12 @@
 $(function() {
-    $('#activator').click(function(){
-        $('#overlay').fadeIn('fast',function(){
-            $('#box').animate({'top':'160px'},500);
+    $('#load_boat_info').click(function(){
+        $('#overlay_boat_info').fadeIn('fast',function(){
+            $('#box_boat_info').animate({'top':'160px'},500);
         });
     });
-    $('#boxclose').click(function(){
-        $('#box').animate({'top':'-200px'},500,function(){
-            $('#overlay').fadeOut('fast');
+    $('#boxclose_boat_info').click(function(){
+        $('#box_boat_info').animate({'top':'-1000px'},500,function(){
+            $('#overlay_boat_info').fadeOut('fast');
         });
     });
  
