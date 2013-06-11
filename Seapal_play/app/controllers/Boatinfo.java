@@ -131,7 +131,9 @@ public class Boatinfo extends Controller {
 		
 	  return ok(boatinfo.render(header.render(), 
     						    navigation.render("app_map"), 
-    						    navigation_app.render("app_boatinfo"), 
+    						    navigation_app.render("app_boatinfo"),
+    						    logbook_boatinfo.render(),
+    						    logbook_weatherinfo.render(),
     						    data));
   }
 

@@ -1,0 +1,84 @@
+<h2>Wetter Informationen</h2>
+<br />
+<div class="container-fluid">
+	<form class="form-horizontal">
+		<div class="row well" style="margin-left: 15%;">
+			<div class="span4" align="center">
+				<div class="control-group">
+					<label class="control-label">Windst&auml;rke</label> <select
+						name="wind_strength" id="wind_strength">
+						<option value="0" selected="selected">0</option>
+						<option value="1">1</option>
+						<option value="2">2</option>
+						<option value="3">3</option>
+						<option value="4">4</option>
+						<option value="5">5</option>
+						<option value="6">6</option>
+						<option value="7">7</option>
+						<option value="8">8</option>
+						<option value="9">9</option>
+						<option value="10">10</option>
+						<option value="11">11</option>
+						<option value="12">12</option>
+					</select>
+				</div>
+				<div class="control-group">
+					<label class="control-label">Windrichtung</label> <input
+						type="number" name="wind_direction" id="wind_direction"
+						pattern="\d[\d][\d]" min="0" max="359" value="0">
+				</div>
+			</div>
+			<div class="span4">
+				<div class="control-group">
+					<label class="control-label">Luftdruck (mBar)</label> <input
+						type="number" name="air_pressure" id="air_pressure"
+						pattern="\d\d\d[\d]" min="500" max="2000" value="1000">
+				</div>
+				<div class="control-group">
+					<label class="control-label">Bew&ouml;lkung</label> <select
+						name="cloudiness" id="cloudiness">
+						<option value="0" selected="selected">0</option>
+						<option value="1">1</option>
+						<option value="2">2</option>
+						<option value="3">3</option>
+						<option value="4">4</option>
+						<option value="5">5</option>
+						<option value="6">6</option>
+						<option value="7">7</option>
+					</select>
+				</div>
+			</div>
+			<div class="span4">
+				<div class="control-group">
+					<label class="control-label">Regen</label> <select
+						name="raininess" id="raininess">
+						<option value="0" selected="selected">0</option>
+						<option value="1">1</option>
+						<option value="2">2</option>
+						<option value="3">3</option>
+						<option value="4">4</option>
+						<option value="5">5</option>
+						<option value="6">6</option>
+						<option value="7">7</option>
+					</select>
+				</div>
+				<div class="control-group">
+					<label class="control-label">Wellenh&ouml;he</label> <input type="text"
+						name="wave_height" id="wave_height">
+				</div>
+
+			</div>
+			<div class="span4">
+				<div class="control-group">
+					<label class="control-label">Wellenrichtung</label> <input
+						type="number" name="wave_direction" id="wave_direction"
+						pattern="\d[\d][\d]" min="0" max="359" value="0">
+				</div>
+				<div class="control-group">
+					<label class="control-label">Datum</label> <input
+						type="datetime" name="date_measured" id="date_measured">
+				</div>
+			</div>
+		</div>
+	</form>
+</div>
