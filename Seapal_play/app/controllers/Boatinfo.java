@@ -129,13 +129,16 @@ public class Boatinfo extends Controller {
 	    
 	  String data = loadEntries();
 		
-	  return ok(boatinfo.render(header.render(), 
+	  return ok(boatinfo.render(header.render(),
+			  					header_app.render(),
     						    navigation.render("app_map"), 
     						    navigation_app.render("app_boatinfo"),
+    						    logbook_boatinfo_menu.render(data),
+    						    logbook_trip_menu.render("TRIPINFOS"),
     						    logbook_boatinfo.render(),
     						    logbook_weatherinfo.render(),
-    						    data,
-    						    logbook_selection_menu.render(data)));
+    						    map_content.render()
+    						    ));
   }
 
 	public static String loadEntries() {
