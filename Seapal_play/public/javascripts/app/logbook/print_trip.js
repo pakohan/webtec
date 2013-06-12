@@ -1,14 +1,15 @@
 $(function() {
 
-	$('#show_trip').click(
-			function printTrip() {
+	$('a.view').click(
+			function printTrip(data[]) {
 
 				// should get coordinates from server
 
-				var tripCoordinates = [ new google.maps.LatLng(47.39, 9.14),
-						new google.maps.LatLng(47.39, 9.15),
-						new google.maps.LatLng(47.39, 9.16),
-						new google.maps.LatLng(47.39, 9.17) ];
+				var tripCoordinates = [
+						new google.maps.LatLng(47.3934, 9.1241),
+						new google.maps.LatLng(47.3996, 9.1517),
+						new google.maps.LatLng(47.3842, 9.1640),
+						new google.maps.LatLng(47.3888, 9.1334) ];
 
 				var tripPath = new google.maps.Polyline({
 					path : tripCoordinates,
@@ -25,14 +26,16 @@ $(function() {
 						title : 'Marker No ' + x
 					});
 
-					google.maps.event.addListener(marker, 'click',
-						function() {
-							alert(this.title);
-						});
+					google.maps.event.addListener(marker, 'click', function() {
+						var lat = marker.getPosition().lat();
+						var lng = marker.getPosition().lng();
+
+						getHistoricWeatherById(lat, lng);
+					});
 				}
 
 				tripPath.setMap(map);
-				map.setCenter(new google.maps.LatLng(47.39, 9.14));
+				map.setCenter(tripCoordinates[0]);
 			});
 
 });

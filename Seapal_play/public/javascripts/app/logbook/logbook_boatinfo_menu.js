@@ -9,5 +9,15 @@ $(function() {
             $('#overlay_boat_info').fadeOut('fast');
         });
     });
+    $('a.view').click(function(){
+        $('#box_boat_info').animate({'top':'-1000px'},500,function(){
+            $('#overlay_boat_info').fadeOut('fast');
+        });
+    });
+    $('a.remove').click(function(){
+        $('#box_boat_info').animate({'top':'-1000px'},500,function(){
+            $('#overlay_boat_info').fadeOut('fast');
+        });
+    });
  
 });
