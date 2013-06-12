@@ -17,7 +17,7 @@ import anorm.SqlParser._
 
 object Tripinfo extends Controller {
 	
-	/*def insert() = {
+	def insert() = Action {
 		val data = new DynamicForm().bindFromRequest()
 		var nextId = 0
 
@@ -47,14 +47,14 @@ object Tripinfo extends Controller {
 		}
 	}
 
-	def delete(wnr: Int) = {
+	def delete(wnr: Int) = Action {
 		DB.withConnection { implicit c =>
 		    SQL("DELETE FROM seapal.wegpunkte WHERE wnr = " + wnr).execute
 		    Ok(Json.obj("status" -> "OK", "wnr" -> "ok"))
 		}
 	}
   
-	def load(wnr: Int) = {
+	def load(wnr: Int) = Action {
 		val respJSON = Json.obj()
 
 		DB.withConnection { implicit c =>
@@ -70,9 +70,9 @@ object Tripinfo extends Controller {
             }
 		}
 		Ok(respJSON)
-	}*/
+	}
 
-	def index(tnr: Int) = {
+	def index(tnr: Int) = Action {
 		val data = new java.lang.StringBuilder()
 		    
 		DB.withConnection { implicit c =>

@@ -1,19 +1,15 @@
 package controllers
 
-import play.api._
 import play.api.mvc._
 import play.api.db.DB
 import play.api.Play.current
-import play.libs.Json
+import play.api.libs.json._
 import play.data.DynamicForm
 
 import views.html._
 import views.html._include._
 
-import anorm._ 
-import anorm.SqlParser._
-
-import org.codehaus.jackson.node.ObjectNode
+import anorm._
 
 
 object Boatinfo extends Controller {
@@ -21,15 +17,13 @@ object Boatinfo extends Controller {
 	def index = Action {	    
 		val data = loadEntries();
 		
-	  	Ok(boatinfo(header.render(), 
-			    	navigation.render("app_map"), 
+	  	Ok(boatinfo(navigation.render("app_map"), 
 				    navigation_app.render("app_boatinfo"), 
 				    data))
   	}
 
-  	/*def insert() {
-	    val data: DynamicForm = form().bindFromRequest      
-	    val respJSON = Json.newObject
+  	def insert() = Action {
+	    val data = new DynamicForm().bindFromRequest()    
 	    var nextId = 0
 
 	    DB.withConnection { implicit c =>
@@ -67,25 +61,19 @@ object Boatinfo extends Controller {
 	         if (result.next) {
 	             nextId = result.getInt("Auto_increment")
 	         }
-
-	         respJSON.put("bnr", "" + (nextId - 1))
 	    }
-	    Ok(respJSON)
-	}*/
+	    Ok(Json.obj("bnr" -> (nextId - 1).toString))
+	}
 
-  	/*def delete(bnr: Int) = {
-		var respJSON = Json.newObject()
-
+  	def delete(bnr: Int) = Action {
 		DB.withConnection { implicit c =>
 		    SQL("DELETE FROM seapal.bootinfo WHERE bnr = " + bnr).execute
-		    respJSON.put("bnr", "ok");
 		}
+		Ok(Json.obj("bnr" -> "ok"))
+	}
 
-		Ok(respJSON);
-	}*/
-
-	/*def load(bnr: Int) {
-	    var respJSON: ObjectNode = Json.newObject
+	def load(bnr: Int) = Action {
+	    val respJSON = Json.obj()
 
 	    DB.withConnection { implicit c =>
 	        val result = SQL("SELECT * FROM seapal.bootinfo WHERE bnr = " + bnr).resultSet
@@ -95,13 +83,13 @@ object Boatinfo extends Controller {
 
             while (result.next) {
                 for (i <- 1 to numColumns) {
-                    val columnName: String = rsmd.getColumnName(i)
-                    respJSON.put(columnName, result.getString(i))
+                    val columnName = rsmd.getColumnName(i)
+                    respJSON ++ Json.obj(columnName -> result.getString(i))
                 }
             }
 	  }
 	  Ok(respJSON)
-	}*/
+	}
 
 	def loadEntries() = {
 		DB.withConnection { implicit c =>

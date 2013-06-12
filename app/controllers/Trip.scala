@@ -1,26 +1,20 @@
 package controllers
 
-import play.api._
 import play.api.mvc._
 import play.api.db.DB
 import play.api.Play.current
 import play.data.DynamicForm
-import play.api.data._
-import play.api.data.Forms._
 import play.api.libs.json._
 
 import views.html._
 import views.html._include._
 
 import anorm._ 
-import anorm.SqlParser._
-
-import org.codehaus.jackson.node.ObjectNode
 
 
 object Trip extends Controller {
 	
-	def insert() = {
+	def insert() = Action {
 		val data = new DynamicForm().bindFromRequest()
 		var nextId = 0
 
@@ -46,14 +40,14 @@ object Trip extends Controller {
 		Ok(Json.obj("status" -> "OK", "tnr" -> (nextId - 1).toString))
 	}
 
-	def delete(tnr: Int) = {
+	def delete(tnr: Int) = Action {
 		DB.withConnection { implicit c =>
 		    SQL("DELETE FROM seapal.tripinfo WHERE tnr = " + tnr).execute
 		}
 		Ok(Json.obj("status" -> "OK", "tnr" -> "ok"))
 	}
   
-	def load(tnr: Int) = {
+	def load(tnr: Int) = Action {
 		val respJSON = Json.obj()
 
 		DB.withConnection { implicit c =>
@@ -72,7 +66,7 @@ object Trip extends Controller {
 		Ok(respJSON)
 	}
 
-	def index() = {
+	def index() = Action {
 		val data = new java.lang.StringBuilder()
 		    
 		DB.withConnection { implicit c =>
