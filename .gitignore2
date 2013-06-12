@@ -1,0 +1,38 @@
+<<<<<<< HEAD
+logs
+project/project
+project/target
+target
+tmp
+.history
+dist
+/.idea
+/*.iml
+/out
+/.idea_modules
+/.classpath
+/.project
+/RUNNING_PID
+/.settings
+=======
+# Extracted from https://github.com/ulrich/macaron-factory/blob/master/.gitignore
+# Ignore all dotfiles...
+.*
+# except for .gitignore
+!.gitignore
+
+
+##OSX start
+.DS_Store
+.AppleDouble
+.LSOverride
+Icon
+# Thumbnails
+._*
+# Files that might appear on external disk
+.Spotlight-V100
+.Trashes
+##OSX end
+config/count.txt
+
+>>>>>>> 207343b46ad93ad79dfd7d441266a2de1da4bd96
