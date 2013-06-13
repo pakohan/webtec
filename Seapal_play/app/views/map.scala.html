@@ -1,4 +1,4 @@
-@(header: Html)(header_app: Html)(navigation: Html)(navigation_app: Html)
+@(header: Html)(header_app: Html)(navigation: Html)(navigation_app: Html)(map_content: Html)
 
 <!DOCTYPE html>
 
@@ -23,103 +23,9 @@
     		<!-- Navigation -->
     		@navigation_app
 
-			<!-- Route Menu -->
-			<div id="routeMenuContainer">
-		    	<div id="routeMenu" class="well">
-		    		<h4>Routen Menü</h4>
-		        	<div class="btn-group btn-group-vertical">
-		                <input type="button" class="btn" value="l&ouml;schen" id="deleteRouteButton" class="routeButton" onclick="javascript: deleteRoute()" />
-		                <input type="button" class="btn" value="speichern" id="saveRouteButton" class="routeButton" onclick="javascript: saveRoute()" />
-		                <input type="button" class="btn" value="beenden" id="stopRouteButton" class="routeButton" onclick="javascript: stopRouteMode()" />
-		            </div>
-		        	<br><br>
-		            <div id="route_distance">Routen-L&auml;nge: <span id="route_distance_number"></span> m</div>
-		        </div>
-		    </div>
-		    
-		    <!-- Distance Menu -->
-		    <div id="distanceToolContainer">
-		        <div id="distanceToolMenu" class="well">
-		        	<h4>Distanztool</h4>
-		        	<input type="button" class="btn" value="beenden" id="stopDistanceToolButton" class="distanceToolbutton" onclick="javascript: stopDistanceToolMode()" />
-		        	<br><br>
-		        	<div id="distanceTool_distance">Distanz: <span id="distanceTool_number"></span> m</div>
-		        </div>
-		    </div>
-		    
-		     <!-- Navigation Menu -->
-		    <div id="navigationContainer">
-		        <div id="navigationMenu" class="well">
-		        	<h4>Navigation</h4>
-		        	<input type="button" class="btn" value="beenden" id="stopNavigationButton" class="distanceToolbutton" onclick="javascript: stopNavigationMode()" />
-		        	<br><br>
-		        	<div id="navigation_distance">Distanz: <span id="navigation_number"></span> m</div>
-		        </div>
-		    </div>
-		    
-		    <!-- load and store routes -->
-		    <div class="btn-group" id="loadStoreButtons">
-		    
-			  <a class="btn dropdown-toggle" data-toggle="dropdown" href="#" id="load_button">
-			    load
-			    <span class="caret"></span>
-			  </a>
-			  <ul class="dropdown-menu">
-			    <!-- dropdown menu links -->
-			  </ul>
-			  
-		      <input type="button" class="btn" value="save" id="save_button"/>
-		      
-			</div>
-		    
-		    <!-- Current Position -->
-		    <div id="followCurrentPositionContainer">
-		        <div id="followCurrentPosition_button" class="well">
-		            <input type="button" class="btn" value="Eigener Position folgen" id="followCurrentPositionbutton" onclick="javascript: toggleFollowCurrentPosition()" />
-		        </div>
-		    </div>
-		    
-		    <!-- Weather overlay -->
-		    <div id="weatherModeContainer">
-		        <div id="weatherMode_choices" class="well">
-			        Weather Mode:
-				    <div id="radio_form">
-				        <input type="radio" name="map_mode" id="sailor_mode" value="sailor_mode">
-				        <label for = "sailor_mode" class="modeLabel">Sailor</label>
-				        <input type="radio" name="map_mode" id="tourist_mode" value="tourist_mode">
-				        <label for = "tourist_mode" class="modeLabel">Tourist</label>
-				        <input type="radio" name="map_mode" id="expert_mode" value="expert_mode">
-				        <label for = "expert_mode" class="modeLabel">Expert</label>
-				    </div>
-				    <br>
-				    <div id="checkbox_form">
-				        <input type="checkbox" name="exp_mode_chkbx_value[]" id="exp_mode_chkbx_Wind" value="Wind">
-				        <label for = "exp_mode_chkbx_Wind" class="modeLabel">Wind</label>
-				        <input type="checkbox" name="exp_mode_chkbx_value[]" id="exp_mode_chkbx_Pressure" value="Pressure">
-				        <label for = "exp_mode_chkbx_Pressure" class="modeLabel">Pressure</label>
-				        <input type="checkbox" name="exp_mode_chkbx_value[]" id="exp_mode_chkbx_Waves" value="Waves">
-				        <label for = "exp_mode_chkbx_Waves" class="modeLabel">Waves</label>
-				        <input type="checkbox" name="exp_mode_chkbx_value[]" id="exp_mode_chkbx_Temperature" value="Temperature">
-				        <label for = "exp_mode_chkbx_Temperature" class="modeLabel">Temperature</label>
-				        <input type="checkbox" name="exp_mode_chkbx_value[]" id="exp_mode_chkbx_Rain" value="Rain">
-				        <label for = "exp_mode_chkbx_Rain" class="modeLabel">Rain</label>
-				    </div>
-				</div>
-			</div><!-- Content -->
-		    
-		    <!-- Map -->
-		    <div id="appWrapper">
-		        <div id="map_canvas"></div>
-		    </div>
-		
-		    <!-- Context Menus -->
-		    <div id="temporaryMarkerContextMenu"></div>
-		    <div id="fixedMarkerContextMenu"></div>
-		    <div id="routeContextMenu_active"></div>
-		    <div id="routeContextMenu_inactive"></div>	
-			<div id="chat" align="center">
-		        <div id="chat-area" style="height:200px; width:200px; background-color: white; overflow: auto;"></div>
-			</div>
+			<!-- Map -->
+			@map_content
+
 		</div><!-- Container -->
 	</body>
 </html>
