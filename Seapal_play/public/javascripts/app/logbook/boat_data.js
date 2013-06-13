@@ -31,7 +31,7 @@ function registerBoatFields(id) {
 
 	$(id).change(function() {
 		var value = $(this).val();
-		alert(id, value);
+		alert(id + " " + value);
 		// saveValue(id, value);
 	});
 
