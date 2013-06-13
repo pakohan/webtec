@@ -5,6 +5,7 @@ import play.mvc.*;
 
 import views.html.*;
 import views.html._include.*;
+import views.html._include.map.*;
 
 public class Map extends Controller {
   
