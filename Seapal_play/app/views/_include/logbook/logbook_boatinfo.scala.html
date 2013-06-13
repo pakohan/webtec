@@ -1,8 +1,10 @@
-<h2>Boot Informationen</h2>
-<br />
-<div class="container-fluid">
+
+<div class="container-fluid" id="boat_info_table"
+	style="display: none">
+	<h2>Boot Informationen</h2>
+	<br />
 	<form class="form-horizontal">
-		<div class="row well" id="boat_info_table" style="margin-left: 15%;">
+		<div class="row well" style="margin-left: 15%;">
 			<div class="span4" align="center">
 				<div class="control-group">
 					<label class="control-label">Bootname</label> <input
@@ -121,11 +123,10 @@
 			</div>
 		</div>
 		<div class="control-group">
-			<input class="btn" type="button" id="load_boat_info" value="Laden" class="button" style="visibility:hidden"/>
-			<input type="reset" class="btn" id="delete" value="L&ouml;schen"
-				class="button" style="visibility:hidden"/>
-			<input type="submit" class="btn" id="save"
-				name="submit" value="Speichern" class="button" style="visibility:hidden"/>
+			<input class="btn" type="button" id="load_boat_info" value="Laden"
+				class="button" style="display: none" />
+			<!-- <input type="submit" class="btn" id="save"
+				name="submit" value="Speichern" class="button" style="visibility:hidden"/> -->
 		</div>
 	</form>
 </div>

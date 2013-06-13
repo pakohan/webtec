@@ -1,6 +1,8 @@
-<h2>Wetter Informationen</h2>
-<br />
-<div class="container-fluid">
+
+<div class="container-fluid" id="weather_info_table"
+	style="display: none">
+	<h2>Wetter Informationen</h2>
+	<br />
 	<form class="form-horizontal">
 		<div class="row well" style="margin-left: 15%;">
 			<div class="span4" align="center">
@@ -50,8 +52,8 @@
 			</div>
 			<div class="span4">
 				<div class="control-group">
-					<label class="control-label">Regen</label> <select
-						name="raininess" id="raininess">
+					<label class="control-label">Regen</label> <select name="raininess"
+						id="raininess">
 						<option value="0" selected="selected">0</option>
 						<option value="1">1</option>
 						<option value="2">2</option>
@@ -63,8 +65,8 @@
 					</select>
 				</div>
 				<div class="control-group">
-					<label class="control-label">Wellenh&ouml;he</label> <input type="text"
-						name="wave_height" id="wave_height">
+					<label class="control-label">Wellenh&ouml;he</label> <input
+						type="text" name="wave_height" id="wave_height">
 				</div>
 
 			</div>
@@ -75,8 +77,8 @@
 						pattern="\d[\d][\d]" min="0" max="359" value="0">
 				</div>
 				<div class="control-group">
-					<label class="control-label">Datum</label> <input
-						type="datetime" name="date_measured" id="date_measured">
+					<label class="control-label">Datum</label> <input type="datetime"
+						name="date_measured" id="date_measured">
 				</div>
 			</div>
 		</div>

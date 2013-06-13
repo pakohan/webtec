@@ -4,9 +4,11 @@ $(function() {
 			
 			function printTrip(coordinates) {
 				
-				document.getElementById("load_boat_info").style.visibility = 'visible';
-				document.getElementById("delete").style.visibility = 'visible';
-				document.getElementById("save").style.visibility = 'visible';
+				document.getElementById("load_boat_info").style.display = 'block';
+				document.getElementById("boat_info_table").style.display = 'block';
+				document.getElementById("weather_info_table").style.display = 'block';
+				document.getElementById("map_canvas").style.visibility = 'visible';
+				//TODO: delete this if ok: document.getElementById("save").style.visibility = 'visible';
 				
 				//TODO: should get coordinates from server
 

@@ -57,7 +57,6 @@ $(function() {
 
 	$('a.view').live("click", function(event) {
 		loadEntry($(this).attr('id'));
-		document.getElementById("boat_info_table").style.display = 'block';
 	});
 
 	$('a.remove').live("click", function(event) {
@@ -84,8 +83,6 @@ $(function() {
 	});
 
 	$('#save').click(function(event) {
-
-		document.getElementById("boat_info_table").style.display = 'none';
 	
 		event.preventDefault();
 		
