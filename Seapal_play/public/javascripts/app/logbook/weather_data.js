@@ -13,12 +13,16 @@ $(function() {
 
 function registerWeatherFields(id) {
 
-	$(id).keyup(function(e) {
-		if (e.keyCode == 13) {
-			var value = $(this).val();
-			// sendValue(id, value);
+	$(id).change(function() {
+		var value = $(this).val();
+		alert(id, value);
+		// sendValue(id, value);
+
+		if (id === '#wind_strength' || id === '#wind_direction') {
+			processWind();
 		}
 	});
+
 }
 
 function sendValue(field, value) {
@@ -44,8 +48,8 @@ function sendValue(field, value) {
 
 function getHistoricWeatherById(lat, lng) {
 
-	var find = 'http://api.openweathermap.org/data/2.1/find/city?'
-			+ 'lat=' + lat + '&lon=' + lng + '&cnt=1';
+	var find = 'http://api.openweathermap.org/data/2.1/find/city?' + 'lat='
+			+ lat + '&lon=' + lng + '&cnt=1';
 
 	$.ajax({
 		dataType : "jsonp",
@@ -76,26 +80,51 @@ function getWeather(data) {
 function fillInData(data) {
 
 	var date = '';
-	
-	if (data.list[0].wind !== undefined && data.list[0].wind.speed !== undefined) {
-		$('#wind_strength').val(msToBeauf(data.list[0].wind.speed));
+
+	if (data.list[0].wind !== undefined
+			&& data.list[0].wind.speed !== undefined) {
+		var id = '#wind_strength';
+		var value = msToBeauf(data.list[0].wind.speed);
+
+		$(id).val(value);
+		saveData(id, value);
 	}
-	
+
 	if (data.list[0].wind !== undefined && data.list[0].wind.deg !== undefined) {
-		$('#wind_direction').val(data.list[0].wind.deg);
+		var id = '#wind_direction';
+		var value = data.list[0].wind.deg;
+
+		$(id).val(value);
+		saveData(id, value);
 	}
-	
-	if (data.list[0].main !== undefined && data.list[0].main.pressure !== undefined) {
-		$('#air_pressure').val(data.list[0].main.pressure);
+
+	if (data.list[0].main !== undefined
+			&& data.list[0].main.pressure !== undefined) {
+		var id = '#air_pressure';
+		var value = data.list[0].main.pressure;
+
+		$(id).val(value);
+		saveData(id, value);
 	}
-	
-	if (data.list[0].clouds !== undefined && data.list[0].clouds.all !== undefined) {
-		$('#cloudiness').val(data.list[0].clouds.all);
+
+	if (data.list[0].clouds !== undefined
+			&& data.list[0].clouds.all !== undefined) {
+		var id = '#cloudiness';
+		var value = data.list[0].clouds.all / 10;
+
+		$(id).val(value);
+		saveData(id, value);
 	}
-	
+
 	if (data.list[0].rain !== undefined && data.list[0].rain.day !== undefined) {
-		$('#raininess').val(data.list[0].rain.day);
+		var id = '#raininess';
+		var value = data.list[0].rain.day;
+
+		$(id).val(value);
+		saveData(id, value);
 	}
+	
+	processWind();
 
 }
 
@@ -112,7 +141,7 @@ function convertToUnixTime(date) {
 
 function msToBeauf(ms) {
 	var beauf;
-	
+
 	if (ms >= 0 && ms < 0.3) {
 		return 0;
 	} else if (ms >= 0.3 && ms < 1.6) {
@@ -138,5 +167,28 @@ function msToBeauf(ms) {
 	} else if (ms > 32.7) {
 		return 1;
 	}
+
+}
+
+function processWind() {
 	
+	var strength = $('#wind_strength').val();
+	var direction = $('#wind_direction').val();
+	
+	var height = predictWaveHeight(strength);
+
+	$('#wave_height').val(height);
+	saveData('#wave_height', height);
+
+	$('#wave_direction').val(direction);
+	saveData('#wave_direction', direction);
+
+}
+
+function saveData(id, value) {
+	// sendValue(id, value);
+}
+
+function predictWaveHeight(value) {
+	return 7;
 }

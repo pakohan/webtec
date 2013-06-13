@@ -8,7 +8,7 @@ $(function() {
 				document.getElementById("delete").style.visibility = 'visible';
 				document.getElementById("save").style.visibility = 'visible';
 				
-				// should get coordinates from server
+				//TODO: should get coordinates from server
 
 				var tripCoordinates = [
 						new google.maps.LatLng(47.655733, 9.206272),
@@ -28,8 +28,7 @@ $(function() {
 
 					marker = new google.maps.Marker({
 						position : tripCoordinates[x],
-						map : map,
-						title : 'Marker No ' + x
+						map : map
 					});
 
 					google.maps.event.addListener(marker, 'click', function() {
