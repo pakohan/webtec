@@ -16,7 +16,7 @@ function registerWeatherFields(id) {
 	$(id).change(function() {
 		var value = $(this).val();
 		alert(id, value);
-		// sendValue(id, value);
+		// saveValue(id, value);
 
 		if (id === '#wind_strength' || id === '#wind_direction') {
 			processWind();
@@ -25,7 +25,7 @@ function registerWeatherFields(id) {
 
 }
 
-function sendValue(field, value) {
+function saveValue(field, value) {
 
 	$.ajax({
 		type : "POST",
@@ -87,7 +87,7 @@ function fillInData(data) {
 		var value = msToBeauf(data.list[0].wind.speed);
 
 		$(id).val(value);
-		saveData(id, value);
+		saveValue(id, value);
 	}
 
 	if (data.list[0].wind !== undefined && data.list[0].wind.deg !== undefined) {
@@ -95,7 +95,7 @@ function fillInData(data) {
 		var value = data.list[0].wind.deg;
 
 		$(id).val(value);
-		saveData(id, value);
+		saveValue(id, value);
 	}
 
 	if (data.list[0].main !== undefined
@@ -104,7 +104,7 @@ function fillInData(data) {
 		var value = data.list[0].main.pressure;
 
 		$(id).val(value);
-		saveData(id, value);
+		saveValue(id, value);
 	}
 
 	if (data.list[0].clouds !== undefined
@@ -113,7 +113,7 @@ function fillInData(data) {
 		var value = data.list[0].clouds.all / 10;
 
 		$(id).val(value);
-		saveData(id, value);
+		saveValue(id, value);
 	}
 
 	if (data.list[0].rain !== undefined && data.list[0].rain.day !== undefined) {
@@ -121,7 +121,7 @@ function fillInData(data) {
 		var value = data.list[0].rain.day;
 
 		$(id).val(value);
-		saveData(id, value);
+		saveValue(id, value);
 	}
 	
 	processWind();
@@ -178,15 +178,11 @@ function processWind() {
 	var height = predictWaveHeight(strength);
 
 	$('#wave_height').val(height);
-	saveData('#wave_height', height);
+	saveValue('#wave_height', height);
 
 	$('#wave_direction').val(direction);
-	saveData('#wave_direction', direction);
+	saveValue('#wave_direction', direction);
 
-}
-
-function saveData(id, value) {
-	// sendValue(id, value);
 }
 
 function predictWaveHeight(value) {
