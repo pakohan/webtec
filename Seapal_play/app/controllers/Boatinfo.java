@@ -10,6 +10,7 @@ import play.data.DynamicForm;
 import org.codehaus.jackson.node.ObjectNode; 
 import views.html.*;
 import views.html._include.*;
+import views.html._include.logbook.*;
 
 public class Boatinfo extends Controller {
   
