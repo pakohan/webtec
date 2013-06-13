@@ -11,10 +11,11 @@ $(function() {
 				// should get coordinates from server
 
 				var tripCoordinates = [
-						new google.maps.LatLng(47.3934, 9.1241),
-						new google.maps.LatLng(47.3996, 9.1517),
-						new google.maps.LatLng(47.3842, 9.1640),
-						new google.maps.LatLng(47.3888, 9.1334) ];
+						new google.maps.LatLng(47.655733, 9.206272),
+						new google.maps.LatLng(47.656196, 9.223953),
+						new google.maps.LatLng(47.656080, 9.254681),
+						new google.maps.LatLng(47.656369, 9.288326),
+						new google.maps.LatLng(47.521780, 9.719282) ];
 
 				var tripPath = new google.maps.Polyline({
 					path : tripCoordinates,
@@ -32,9 +33,10 @@ $(function() {
 					});
 
 					google.maps.event.addListener(marker, 'click', function() {
-						var lat = marker.getPosition().lat();
-						var lng = marker.getPosition().lng();
+						var lat = this.getPosition().lat();
+						var lng = this.getPosition().lng();
 
+						map.setCenter(new google.maps.LatLng(lat, lng));
 						getHistoricWeatherById(lat, lng);
 					});
 				}
