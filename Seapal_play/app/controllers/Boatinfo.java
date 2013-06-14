@@ -10,6 +10,7 @@ import play.data.DynamicForm;
 import org.codehaus.jackson.node.ObjectNode; 
 import views.html.*;
 import views.html._include.*;
+import views.html._include.logbook.*;
 
 public class Boatinfo extends Controller {
   
@@ -128,11 +129,25 @@ public class Boatinfo extends Controller {
   public static Result index() {
 	    
 	  String data = loadEntries();
+	  
+	  String test = "<tbody id='entries_boat_info'><tr class='selectable' id='1'><td>Reise nach Jerusalem</td><td>Captain Kirk</td><td>11.11.2014</td><td>12.11.2014</td><td>2</td>" +
+			  		"<td>nein</td><td style='width:30px; text-align:left;'><div class='btn-group'><a class='btn btn-small view' id='1'><span><i class='icon-eye-open'></i></span>" +
+			  		"</a><a class='btn btn-small remove' id='1'><span><i class='icon-remove'></i></span></a></div></td></tr><tr class='selectable' id='2'>" +
+			  		"<td>Reise nach Jerusalem</td><td>Captain Kirk</td><td>11.11.2014</td><td>12.11.2014</td><td>2</td><td>nein</td><td style='width:30px; text-align:left;'><div class='btn-group'>" +
+			  		"<a class='btn btn-small view' id='2'><span><i class='icon-eye-open'></i></span></a><a class='btn btn-small remove' id='2'><span><i class='icon-remove'></i>" +
+			  		"</span></a></div></td></tr><tr class='selectable' id='3'><td>Reise nach Jerusalem</td><td>Captain Kirk</td><td>11.11.2014</td>" +
+			  		"<td>12.11.2014</td><td>2</td><td>nein</td><td style='width:30px; text-align:left;'><div class='btn-group'><a class='btn btn-small view' id='3'><span><i class='icon-eye-open'>" +
+			  		"</i></span></a><a class='btn btn-small remove' id='3'><span><i class='icon-remove'></i></span></a></div></td></tr></table>";
 		
-	  return ok(boatinfo.render(header.render(), 
+	  return ok(boatinfo.render(header.render(),
     						    navigation.render("app_map"), 
-    						    navigation_app.render("app_boatinfo"), 
-    						    data));
+    						    navigation_app.render("app_boatinfo"),
+    						    logbook_boatinfo_menu.render(data),
+    						    logbook_trip_menu.render(test),
+    						    logbook_boatinfo.render(),
+    						    logbook_weatherinfo.render(),
+    						    simple_map.render()
+    						    ));
   }
 
 	public static String loadEntries() {
