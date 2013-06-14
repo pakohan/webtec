@@ -22,29 +22,20 @@ $(function() {
 							strokeColor : '#FF0000',
 							strokeOpacity : 1.0,
 							strokeWeight : 2,
-							draggable: true
+							editable : true
 						});
 
-						for (x in tripCoordinates) {
+						google.maps.event.addListener(tripPath, "mouseup", getPath);
 
-							marker = new google.maps.Marker({
-								position : tripCoordinates[x],
-								map : map
-							});
-
-							google.maps.event.addListener(marker, 'click',
-									function() {
-										var lat = this.getPosition().lat();
-										var lng = this.getPosition().lng();
-
-										map.setCenter(new google.maps.LatLng(
-												lat, lng));
-										getHistoricWeatherById(lat, lng);
-									});
+						function getPath() {
+							var path = tripPath.getPath();
+							var len = path.getLength();
+							alert("dragend");
 						}
 
 						tripPath.setMap(map);
 						map.setCenter(tripCoordinates[0]);
 
 					});
+
 });
