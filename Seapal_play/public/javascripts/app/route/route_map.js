@@ -30,7 +30,7 @@ $(function() {
 						function getPath() {
 							var path = tripPath.getPath();
 							var len = path.getLength();
-							alert("dragend");
+							alert("store route");
 						}
 
 						tripPath.setMap(map);
