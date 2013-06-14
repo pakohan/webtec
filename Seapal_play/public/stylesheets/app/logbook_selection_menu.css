@@ -1,4 +1,4 @@
-.overlay_boat_info{
+.overlay_boat_info, .overlay_trip_info, .overlay_route{
     position:fixed;
     top:0px;
     bottom:0px;
@@ -10,7 +10,7 @@
     opacity: 0.5;
 }
 
-.box_boat_info{
+.box_boat_info, .box_trip_info, .box_route{
     position:fixed;
     top:-1000px;
     left:10%;
@@ -28,7 +28,7 @@
     z-index:101;
 }
 
-a.boxclose_boat_info{
+a.boxclose_boat_info, a.boxclos_trip_info, a.boxclose_route{
     float:right;
     width:16px;
     height:16px;
