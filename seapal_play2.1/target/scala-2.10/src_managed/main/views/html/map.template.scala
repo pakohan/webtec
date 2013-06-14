@@ -112,7 +112,7 @@ Seq[Any](format.raw/*1.112*/("""
 }
                 /*
                     -- GENERATED --
-                    DATE: Wed Jun 12 16:41:29 CEST 2013
+                    DATE: Fri Jun 14 09:59:07 CEST 2013
                     SOURCE: /home/stefano/Dokumente/Programming/Web/Seapal2/seapal_play2.1/app/views/map.scala.html
                     HASH: dd6e9810686f0313b63781471f34916f55241666
                     MATRIX: 516->1|704->111|811->183|838->189|921->236|953->246|1080->338|1112->348|1252->453|1288->467

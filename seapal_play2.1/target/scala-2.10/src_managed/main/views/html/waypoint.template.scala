@@ -160,7 +160,7 @@ Seq[Any](format.raw/*1.94*/("""
 }
                 /*
                     -- GENERATED --
-                    DATE: Wed Jun 12 16:41:29 CEST 2013
+                    DATE: Fri Jun 14 09:59:07 CEST 2013
                     SOURCE: /home/stefano/Dokumente/Programming/Web/Seapal2/seapal_play2.1/app/views/waypoint.scala.html
                     HASH: 0acff1d018dc72296fd3628a5621f23acd53df04
                     MATRIX: 516->1|685->93|792->165|819->171|915->232|947->242|1087->347|1123->361|4766->3967|4782->3973|4846->4014|5053->4184|5069->4190|5131->4229|5805->4866|5821->4872|5890->4918

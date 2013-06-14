@@ -149,7 +149,7 @@ Seq[Any](format.raw/*1.124*/("""
 }
                 /*
                     -- GENERATED --
-                    DATE: Wed Jun 12 16:41:29 CEST 2013
+                    DATE: Fri Jun 14 09:59:07 CEST 2013
                     SOURCE: /home/stefano/Dokumente/Programming/Web/Seapal2/seapal_play2.1/app/views/index.scala.html
                     HASH: 2bea661a2f0943ce70e997cfb3ce70d3cf06b93b
                     MATRIX: 513->1|713->123|820->195|847->201|951->270|983->280|1931->1192|1946->1198|2018->1248|4649->3843|4664->3849|4736->3899|7863->6990|7892->6996

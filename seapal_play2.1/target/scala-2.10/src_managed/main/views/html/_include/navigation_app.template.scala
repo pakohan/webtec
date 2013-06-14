@@ -47,7 +47,7 @@ Seq[Any](format.raw/*1.16*/("""
 }
                 /*
                     -- GENERATED --
-                    DATE: Wed Jun 12 16:41:29 CEST 2013
+                    DATE: Fri Jun 14 09:59:07 CEST 2013
                     SOURCE: /home/stefano/Dokumente/Programming/Web/Seapal2/seapal_play2.1/app/views/_include/navigation_app.scala.html
                     HASH: eadd513c1e0197ffbba34716b5b4d39dfb282f11
                     MATRIX: 523->1|614->15|776->143|805->164|844->166|884->189|896->194|934->195|972->202|1048->244|1082->270|1121->272|1161->295|1173->300|1211->301|1249->308|1335->359|1418->433|1458->435|1500->458|1514->463|1554->464|1594->471

@@ -1,6 +1,6 @@
 // @SOURCE:/home/stefano/Dokumente/Programming/Web/Seapal2/seapal_play2.1/conf/routes
 // @HASH:e7ed6284d6e379806aa87addef6482c11524c098
-// @DATE:Wed Jun 12 16:41:28 CEST 2013
+// @DATE:Fri Jun 14 09:59:05 CEST 2013
 
 import Routes.{prefix => _prefix, defaultPrefix => _defaultPrefix}
 import play.core._

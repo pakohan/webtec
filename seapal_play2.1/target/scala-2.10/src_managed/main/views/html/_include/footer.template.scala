@@ -74,7 +74,7 @@ Seq[Any](format.raw/*2.2*/("""<!-- Footer -->
 }
                 /*
                     -- GENERATED --
-                    DATE: Wed Jun 12 16:41:29 CEST 2013
+                    DATE: Fri Jun 14 09:59:08 CEST 2013
                     SOURCE: /home/stefano/Dokumente/Programming/Web/Seapal2/seapal_play2.1/app/views/_include/footer.scala.html
                     HASH: 4cc0e488118f810fc749e3e9f429d2eca0310290
                     MATRIX: 579->2|936->322|952->328|1019->372|1258->574|1274->580|1341->624|4182->3437|4211->3438|4304->3503|4333->3504|4472->3614|4502->3615|4532->3616
