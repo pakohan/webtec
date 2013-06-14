@@ -31,8 +31,8 @@ Seq[Any]()}
 }
                 /*
                     -- GENERATED --
-                    DATE: Sat Jun 08 18:13:52 CEST 2013
-                    SOURCE: /home/stefano/Dokumente/Programming/Web/Seapal2/app/views/_include/default_header_footer.scala.html
+                    DATE: Wed Jun 12 16:41:29 CEST 2013
+                    SOURCE: /home/stefano/Dokumente/Programming/Web/Seapal2/seapal_play2.1/app/views/_include/default_header_footer.scala.html
                     HASH: b30aaa490f5e19162e54465b84249ca32818b4be
                     MATRIX: 538->1
                     LINES: 19->1

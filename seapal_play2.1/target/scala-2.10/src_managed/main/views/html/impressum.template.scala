@@ -112,8 +112,8 @@ Seq[Any](format.raw/*1.124*/("""
 }
                 /*
                     -- GENERATED --
-                    DATE: Sat Jun 08 18:19:01 CEST 2013
-                    SOURCE: /home/stefano/Dokumente/Programming/Web/Seapal2/app/views/impressum.scala.html
+                    DATE: Wed Jun 12 16:41:29 CEST 2013
+                    SOURCE: /home/stefano/Dokumente/Programming/Web/Seapal2/seapal_play2.1/app/views/impressum.scala.html
                     HASH: 909caade5c5ef29c9a7854319c360b210f0b6873
                     MATRIX: 517->1|717->123|824->195|851->201|955->270|987->280|2988->2246|3016->2252
                     LINES: 19->1|22->1|30->9|30->9|36->15|36->15|100->79|100->79

@@ -14,56 +14,64 @@ import anorm._
 
 object Trip extends Controller {
 	
-	def insert() = Action {
-		val data = new DynamicForm().bindFromRequest()
-		var nextId = 0
+	def insert() = Action { implicit request =>
+		try {
+			val data = request.body.asFormUrlEncoded
+			var nextId = 0
 
-		DB.withConnection { implicit c =>
-		    SQL("INSERT INTO seapal.tripinfo (titel, von, nach, skipper, crew, tstart, tende, tdauer, motor, tank) VALUES ("
-		            + "'" + data.get("titel") + "',"
-		            + "'" + data.get("von") + "',"
-		            + "'" + data.get("nach") + "',"
-		            + "'" + data.get("skipper") + "',"
-		            + "'" + data.get("crew") + "',"
-		            + "'" + data.get("tstart") + "',"
-		            + "'" + data.get("tende") + "',"
-		            + "'" + data.get("tdauer") + "',"
-		            + "'" + data.get("motor") + "',"
-		            + " " + data.get("tank") + ");").execute
+			DB.withConnection { implicit c =>
+			    SQL("INSERT INTO seapal.tripinfo (titel, von, nach, skipper, crew, tstart, tende, tdauer, motor, tank) VALUES ("
+			            + "'" + data.get("titel")(0) + "',"
+			            + "'" + data.get("von")(0) + "',"
+			            + "'" + data.get("nach")(0) + "',"
+			            + "'" + data.get("skipper")(0) + "',"
+			            + "'" + data.get("crew")(0) + "',"
+			            + "'" + data.get("tstart")(0) + "',"
+			            + "'" + data.get("tende")(0) + "',"
+			            + "'" + data.get("tdauer")(0) + "',"
+			            + "'" + data.get("motor")(0) + "',"
+			            + " " + data.get("tank")(0) + ");").execute
 
-		     val result = SQL("SHOW TABLE STATUS FROM seapal LIKE 'tripinfo'").resultSet
-		     
-		     if (result.next) {
-		         nextId = result.getInt("Auto_increment")
-		     }
-		 }
-		Ok(Json.obj("status" -> "OK", "tnr" -> (nextId - 1).toString))
+			     val result = SQL("SHOW TABLE STATUS FROM seapal LIKE 'tripinfo'").resultSet
+			     
+			     if (result.next) {
+			         nextId = result.getInt("Auto_increment")
+			     }
+			 }
+			Ok(Json.obj("tnr" -> (nextId - 1).toString))
+		} catch {
+  		  case e: Exception => Ok(Json.obj("tnr" -> ("Error: " + e.toString)))
+  		}
 	}
 
 	def delete(tnr: Int) = Action {
 		DB.withConnection { implicit c =>
 		    SQL("DELETE FROM seapal.tripinfo WHERE tnr = " + tnr).execute
 		}
-		Ok(Json.obj("status" -> "OK", "tnr" -> "ok"))
+		Ok(Json.obj("tnr" -> "ok"))
 	}
   
 	def load(tnr: Int) = Action {
-		val respJSON = Json.obj()
+		try {
+			var respJSON = Json.obj()
 
-		DB.withConnection { implicit c =>
-		    val result = SQL("SELECT * FROM seapal.tripinfo WHERE tnr = " + tnr).resultSet
-		    
-		    val rsmd = result.getMetaData
-		    val numColumns = rsmd.getColumnCount
+			DB.withConnection { implicit c =>
+			    val result = SQL("SELECT * FROM seapal.tripinfo WHERE tnr = " + tnr).resultSet
+			    
+			    val rsmd = result.getMetaData
+			    val numColumns = rsmd.getColumnCount
 
-		    while (result.next) {
-		        for (i <- 1 to numColumns) {
-		            val columnName = rsmd.getColumnName(i)
-		            respJSON ++ Json.obj(columnName -> result.getString(i))
-		        }
-		    }
-		}
-		Ok(respJSON)
+			    while (result.next) {
+			        for (i <- 1 to numColumns) {
+			            val columnName = rsmd.getColumnName(i)
+			            respJSON = respJSON ++ Json.obj(columnName -> result.getString(i))
+			        }
+			    }
+			}
+			Ok(Json.toJson(respJSON))
+		} catch {
+  		  case e: Exception => BadRequest("Error: " + e.toString)
+  		}
 	}
 
 	def index() = Action {

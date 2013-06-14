@@ -22,47 +22,53 @@ object Boatinfo extends Controller {
 				    data))
   	}
 
-  	def insert() = Action {
-	    val data = new DynamicForm().bindFromRequest()    
-	    var nextId = 0
+  	def insert() = Action { implicit request =>
+  		try {
+		    val data = request.body.asFormUrlEncoded
+		    var nextId = 0
 
-	    DB.withConnection { implicit c =>
-	        SQL("INSERT INTO seapal.bootinfo(bootname, registernummer, segelzeichen, heimathafen, yachtclub, eigner, versicherung,"
-	                + "rufzeichen, typ, konstrukteur, laenge, breite, tiefgang, masthoehe, verdraengung, rigart,"
-	                + "baujahr, motor, tankgroesse, wassertankgroesse, abwassertankgroesse, grosssegelgroesse,"
-	                + "genuagroesse, spigroesse) "
-	                + "VALUES('" + data.get("bootname") + "',"
-	                + "'" + data.get("registernummer") + "',"
-	                + "'" + data.get("segelzeichen") + "',"
-	                + "'" + data.get("heimathafen") + "',"
-	                + "'" + data.get("yachtclub") + "',"
-	                + "'" + data.get("eigner") + "',"
-	                + "'" + data.get("versicherung") + "',"
-	                + "'" + data.get("rufzeichen") + "',"
-	                + "'" + data.get("typ") + "',"
-	                + "'" + data.get("konstrukteur") + "',"
-	                + "'" + data.get("laenge") + "',"
-	                + "'" + data.get("breite") + "',"
-	                + "'" + data.get("tiefgang") + "',"
-	                + "'" + data.get("masthoehe") + "',"
-	                + "'" + data.get("verdraengung") + "',"
-	                + "'" + data.get("rigart") + "',"
-	                + "'" + data.get("baujahr") + "',"
-	                + "'" + data.get("motor") + "',"
-	                + "'" + data.get("tankgroesse") + "',"
-	                + "'" + data.get("wassertankgroesse") + "',"
-	                + "'" + data.get("abwassertankgroesse") + "',"
-	                + "'" + data.get("grosssegelgroesse") + "',"
-	                + "'" + data.get("genuagroesse") + "',"
-	                + "'" + data.get("spigroesse") + "');").execute
+		    DB.withConnection { implicit c =>
+		        SQL("INSERT INTO seapal.bootinfo(bootname, registernummer, segelzeichen, heimathafen, yachtclub, eigner, versicherung,"
+		                + "rufzeichen, typ, konstrukteur, laenge, breite, tiefgang, masthoehe, verdraengung, rigart,"
+		                + "baujahr, motor, tankgroesse, wassertankgroesse, abwassertankgroesse, grosssegelgroesse,"
+		                + "genuagroesse, spigroesse) "
+		                + "VALUES('" + data.get("bootname")(0) + "',"
+		                + "'" + data.get("registernummer")(0) + "',"
+		                + "'" + data.get("segelzeichen")(0)  + "',"
+		                + "'" + data.get("heimathafen")(0) + "',"
+		                + "'" + data.get("yachtclub")(0) + "',"
+		                + "'" + data.get("eigner")(0) + "',"
+		                + "'" + data.get("versicherung")(0) + "',"
+		                + "'" + data.get("rufzeichen")(0) + "',"
+		                + "'" + data.get("typ")(0) + "',"
+		                + "'" + data.get("konstrukteur")(0) + "',"
+		                + "'" + data.get("laenge")(0) + "',"
+		                + "'" + data.get("breite")(0) + "',"
+		                + "'" + data.get("tiefgang")(0) + "',"
+		                + "'" + data.get("masthoehe")(0) + "',"
+		                + "'" + data.get("verdraengung")(0) + "',"
+		                + "'" + data.get("rigart")(0) + "',"
+		                + "'" + data.get("baujahr")(0) + "',"
+		                + "'" + data.get("motor")(0) + "',"
+		                + "'" + data.get("tankgroesse")(0) + "',"
+		                + "'" + data.get("wassertankgroesse")(0) + "',"
+		                + "'" + data.get("abwassertankgroesse")(0) + "',"
+		                + "'" + data.get("grosssegelgroesse")(0) + "',"
+		                + "'" + data.get("genuagroesse")(0) + "',"
+		                + "'" + data.get("spigroesse")(0) + "');").execute
+				
 
-	         val result = SQL("SHOW TABLE STATUS FROM seapal LIKE 'bootinfo'").resultSet
-	         
-	         if (result.next) {
-	             nextId = result.getInt("Auto_increment")
-	         }
-	    }
-	    Ok(Json.obj("bnr" -> (nextId - 1).toString))
+		         val result = SQL("SHOW TABLE STATUS FROM seapal LIKE 'bootinfo'").resultSet
+		         
+		         if (result.next) {
+		             nextId = result.getInt("Auto_increment")
+		         }
+		    }
+		    Ok(Json.obj("bnr" -> (nextId - 1).toString))
+	    } catch {
+  		  case e: Exception => Ok(Json.obj("bnr" -> ("Error: " + e.toString)))
+  		} 
+	    
 	}
 
   	def delete(bnr: Int) = Action {
@@ -73,7 +79,7 @@ object Boatinfo extends Controller {
 	}
 
 	def load(bnr: Int) = Action {
-	    val respJSON = Json.obj()
+	    var respJSON = Json.obj()
 
 	    DB.withConnection { implicit c =>
 	        val result = SQL("SELECT * FROM seapal.bootinfo WHERE bnr = " + bnr).resultSet
@@ -84,7 +90,7 @@ object Boatinfo extends Controller {
             while (result.next) {
                 for (i <- 1 to numColumns) {
                     val columnName = rsmd.getColumnName(i)
-                    respJSON ++ Json.obj(columnName -> result.getString(i))
+                    respJSON = respJSON ++ Json.obj(columnName -> result.getString(i))
                 }
             }
 	  }

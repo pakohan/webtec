@@ -46,8 +46,8 @@ Seq[Any](format.raw/*1.32*/("""
 }
                 /*
                     -- GENERATED --
-                    DATE: Sat Jun 08 14:56:07 CEST 2013
-                    SOURCE: /home/stefano/Dokumente/Programming/Web/Seapal2/app/views/main.scala.html
+                    DATE: Wed Jun 12 16:41:29 CEST 2013
+                    SOURCE: /home/stefano/Dokumente/Programming/Web/Seapal2/seapal_play2.1/app/views/main.scala.html
                     HASH: 27f8edb770da492742673119002f624cb384b42b
                     MATRIX: 509->1|616->31|704->84|730->89|827->151|841->157|896->191|992->252|1006->258|1059->290|1120->315|1135->321|1202->366|1305->433|1334->440
                     LINES: 19->1|22->1|28->7|28->7|29->8|29->8|29->8|30->9|30->9|30->9|31->10|31->10|31->10|34->13|34->13

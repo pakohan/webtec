@@ -100,8 +100,8 @@ Seq[Any](format.raw/*1.48*/("""
 }
                 /*
                     -- GENERATED --
-                    DATE: Sat Jun 08 14:56:07 CEST 2013
-                    SOURCE: /home/stefano/Dokumente/Programming/Web/Seapal2/app/views/about.scala.html
+                    DATE: Wed Jun 12 16:41:29 CEST 2013
+                    SOURCE: /home/stefano/Dokumente/Programming/Web/Seapal2/seapal_play2.1/app/views/about.scala.html
                     HASH: 89112ed3f7e677cf8cfd5fe6cb4f95db5eea039a
                     MATRIX: 513->1|636->47|743->119|770->125|874->194|906->204|3556->2818|3571->2824|3627->2858|3802->2997|3817->3003|3874->3038|4186->3315|4214->3321
                     LINES: 19->1|22->1|30->9|30->9|36->15|36->15|73->52|73->52|73->52|76->55|76->55|76->55|88->67|88->67

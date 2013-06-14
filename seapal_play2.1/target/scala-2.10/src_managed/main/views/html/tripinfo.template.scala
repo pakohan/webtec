@@ -165,8 +165,8 @@ Seq[Any](format.raw/*1.108*/("""
 }
                 /*
                     -- GENERATED --
-                    DATE: Tue Jun 11 22:52:35 CEST 2013
-                    SOURCE: /home/stefano/Dokumente/Programming/Web/Seapal2/app/views/tripinfo.scala.html
+                    DATE: Wed Jun 12 16:41:29 CEST 2013
+                    SOURCE: /home/stefano/Dokumente/Programming/Web/Seapal2/seapal_play2.1/app/views/tripinfo.scala.html
                     HASH: 6c49d606b36abb8f8fe3dc49eedfe8859ef513b3
                     MATRIX: 523->1|707->107|814->179|841->185|945->254|977->264|1117->369|1153->383|5410->4603|5443->4613|6108->5241|6124->5247|6193->5293
                     LINES: 19->1|22->1|30->9|30->9|36->15|36->15|42->21|42->21|131->110|131->110|153->132|153->132|153->132

@@ -111,8 +111,8 @@ Seq[Any](format.raw/*1.124*/("""
 }
                 /*
                     -- GENERATED --
-                    DATE: Sat Jun 08 18:17:27 CEST 2013
-                    SOURCE: /home/stefano/Dokumente/Programming/Web/Seapal2/app/views/contact.scala.html
+                    DATE: Wed Jun 12 16:41:29 CEST 2013
+                    SOURCE: /home/stefano/Dokumente/Programming/Web/Seapal2/seapal_play2.1/app/views/contact.scala.html
                     HASH: 496e191bb9d8e7144b1a006868d1696ba622a160
                     MATRIX: 515->1|715->123|822->195|849->201|953->270|985->280|1672->931|1687->937|1743->971|2307->1499|2322->1505|2379->1540|2973->2099|3001->2105
                     LINES: 19->1|22->1|30->9|30->9|36->15|36->15|58->37|58->37|58->37|76->55|76->55|76->55|99->78|99->78

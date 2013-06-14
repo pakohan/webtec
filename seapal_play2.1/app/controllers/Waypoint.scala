@@ -4,7 +4,6 @@ import play.api.mvc._
 import play.api.db.DB
 import play.api.Play.current
 import play.api.libs.json._
-import play.data.DynamicForm
 
 import views.html._
 import views.html._include._
@@ -22,10 +21,10 @@ object Waypoint extends Controller {
 
 
 	def load(wnr: Int) = Action {
-	    val respJSON = Json.obj()
+	    var respJSON = Json.obj()
 
 	    DB.withConnection { implicit c =>
-	        val result = SQL("SELECT * FROM seapal.wegpunkte WHERE wnr = " + wnr).resultSet
+	        var result = SQL("SELECT * FROM seapal.wegpunkte WHERE wnr = " + wnr).resultSet
 	        
             val rsmd = result.getMetaData
             val numColumns = rsmd.getColumnCount
@@ -33,7 +32,7 @@ object Waypoint extends Controller {
             while (result.next) {
                 for (i <- 1 to numColumns) {
                     val columnName = rsmd.getColumnName(i)
-                    respJSON ++ Json.obj(columnName -> result.getString(i))
+                    respJSON = respJSON ++ Json.obj(columnName -> result.getString(i))
                 }
             }
 	  }

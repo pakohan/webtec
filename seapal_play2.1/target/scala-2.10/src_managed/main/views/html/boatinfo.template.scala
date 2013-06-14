@@ -219,8 +219,8 @@ Seq[Any](format.raw/*1.108*/("""
 }
                 /*
                     -- GENERATED --
-                    DATE: Tue Jun 11 23:59:34 CEST 2013
-                    SOURCE: /home/stefano/Dokumente/Programming/Web/Seapal2/app/views/boatinfo.scala.html
+                    DATE: Wed Jun 12 16:41:29 CEST 2013
+                    SOURCE: /home/stefano/Dokumente/Programming/Web/Seapal2/seapal_play2.1/app/views/boatinfo.scala.html
                     HASH: a8f9b2d406c10f8b2059563204695004dbb3c0e7
                     MATRIX: 523->1|707->107|814->179|841->185|945->254|977->264|1117->369|1153->383|8797->7990|8830->8000|9505->8638|9521->8644|9590->8690
                     LINES: 19->1|22->1|30->9|30->9|36->15|36->15|42->21|42->21|184->163|184->163|207->186|207->186|207->186
