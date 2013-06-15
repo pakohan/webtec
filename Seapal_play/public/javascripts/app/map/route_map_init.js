@@ -48,4 +48,6 @@ function initialize() {
 			draggable: true
 		});
 	});
+	
+	route_draggable_marker.buildDraggable();
 }
