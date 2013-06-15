@@ -47,12 +47,6 @@ function createDraggedMarker(positionParam, urlParam) {
 		anchor : new google.maps.Point(15, 32)
 	};
 
-	var shadowOptions = {
-		url : "http://maps.gstatic.com/mapfiles/kml/paddle/A_maps.shadow.png",
-		size : new google.maps.Size(59, 32),
-		anchor : new google.maps.Point(15, 32)
-	};
-
 	var marker = new google.maps.Marker({
 		position : positionParam,
 		map : map,
@@ -61,16 +55,21 @@ function createDraggedMarker(positionParam, urlParam) {
 		optimized : false,
 		raiseOnDrag : false,
 		icon : iconOptions,
-		shadow : shadowOptions,
 		zIndex : highestOrder()
 	});
+	
+	alert("ich wurde gerade gemacht");
 
 	google.maps.event.addListener(marker, "click", function() {
 		actual = marker;
 		var a = actual.getPosition().lat();
 		var b = actual.getPosition().lng();
 		infoWindow.setContent(a.toFixed(6) + ", " + b.toFixed(6));
-		infoWindow.open(map, this)
+		infoWindow.open(map, this);
+	});
+	
+	google.maps.event.addListener(marker, "dragend", function() {
+		alert(this.position);
 	});
 
 	google.maps.event.addListener(marker, "dragstart", function() {

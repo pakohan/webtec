@@ -1,9 +1,9 @@
 #map_canvas {
 	float: left;
-    width: 85%;
-	height: 70%;
-    height: 800px;
+    width: 60%;
+    height: 500px;
     margin: auto;
+    margin-left: 20%;
 }
 
 #appWrapper {
