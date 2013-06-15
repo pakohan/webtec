@@ -13,7 +13,6 @@ CREATE TABLE seapal.benutzer (
 	PRIMARY KEY (bnr)
 );
 
-
 /* table for bootinformations */
 CREATE TABLE seapal.bootinfo (
 	bnr INT NOT NULL AUTO_INCREMENT,
