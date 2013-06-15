@@ -7,6 +7,7 @@ $(function() {
 
 						document.getElementById("route_info_table").style.display = 'block';
 						document.getElementById("map_canvas").style.visibility = 'visible';
+						document.getElementById("markers").style.visibility = 'visible';
 
 						// TODO: should get coordinates from server
 

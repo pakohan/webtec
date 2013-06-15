@@ -1,4 +1,3 @@
-var map
 var infoWindow
 var drag_area
 var actual
@@ -37,7 +36,7 @@ function fillMarker(param) {
 }
 
 function highestOrder() {
-	return z_index
+	return z_index;
 }
 
 function createDraggedMarker(positionParam, urlParam) {
@@ -75,8 +74,10 @@ function createDraggedMarker(positionParam, urlParam) {
 	});
 
 	google.maps.event.addListener(marker, "dragstart", function() {
-		if (actual == marker)
+		if (actual == marker) {
 			infoWindow.close();
+		}
+		
 		z_index += 1;
 		marker.setZIndex(highestOrder())
 	})
@@ -87,14 +88,16 @@ function initDrag(eventParam) {
 		var b = {};
 		if (param && param.touches && param.touches.length) {
 			b.x = param.touches[0].clientX;
-			b.y = param.touches[0].clientY
+			b.y = param.touches[0].clientY;
 		} else {
-			if (!param)
+			if (!param) {
 				var param = window.event;
+			}
+			
 			b.x = param.clientX;
-			b.y = param.clientY
+			b.y = param.clientY;
 		}
-		return b
+		return b;
 	};
 
 	var markerDragFunc = function(param) {
@@ -129,11 +132,11 @@ function initDrag(eventParam) {
 					var backimg = obj.style.backgroundImage.slice(4, -1)
 							.replace(/"/g, "");
 					createDraggedMarker(pos, backimg);
-					fillMarker(backimg)
+					fillMarker(backimg);
 				}
 			}
 		}
-		return false
+		return false;
 	};
 
 	if (!eventParam) {
@@ -150,9 +153,7 @@ function initDrag(eventParam) {
 		}
 
 		obj = null;
-		return
-
-		
+		return;
 
 	} else {
 		z_index += 1;
@@ -168,7 +169,7 @@ function initDrag(eventParam) {
 			obj.ontouchend = function() {
 				obj.ontouchmove = null;
 				obj.ontouchend = null;
-				obj.ontouchstart = initDrag
+				obj.ontouchstart = initDrag;
 			}
 
 		} else {
@@ -176,8 +177,9 @@ function initDrag(eventParam) {
 			document.onmouseup = function() {
 				document.onmousemove = null;
 				document.onmouseup = null;
-				if (obj)
-					obj = null
+				if (obj) {
+					obj = null;
+				}
 			}
 		}
 	}
@@ -189,8 +191,9 @@ function buildDraggable() {
 	infoWindow = new google.maps.InfoWindow();
 
 	google.maps.event.addListener(map, "click", function() {
-		if (infoWindow)
-			infoWindow.close()
+		if (infoWindow) {
+			infoWindow.close();
+		}
 	});
 
 	drag_area = document.getElementById("markers");
@@ -198,8 +201,8 @@ function buildDraggable() {
 
 	for ( var i = 0; i < markerDivs.length; i++) {
 		var div = markerDivs[i];
-		div.onmousedown = div.ontouchstart = initDrag
+		div.onmousedown = div.ontouchstart = initDrag;
 	}
 
-	dummy = new DummyOView()
+	dummy = new DummyOView();
 }

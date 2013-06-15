@@ -39,15 +39,7 @@ function initialize() {
 		name : "OpenSeaMap",
 		maxZoom : 18
 	}));
-
-	google.maps.event.addListener(map, 'click', function() {
-		var marker = new google.maps.Marker({
-			position : event.latLng,
-			map : map,
-			title : "Hello World!",
-			draggable: true
-		});
-	});
 	
-	route_draggable_marker.buildDraggable();
+	$.getScript("route_draggable_marker.js");
+	buildDraggable();
 }
