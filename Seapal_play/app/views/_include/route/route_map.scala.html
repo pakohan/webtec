@@ -1,20 +1,60 @@
 <link rel="stylesheet" media="screen" href="@routes.Assets.at("stylesheets/app/route_map.css")">
 <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBCnaCuuuXCzfGbzbXN699vudQ4fWTNmiY&libraries=geometry&sensor=false"></script>
-<script src="@routes.Assets.at("javascripts/app/map/route_map_init.js")" type="text/javascript"></script>
-<script src="@routes.Assets.at("javascripts/app/route/route_draggable_marker.js")" type="text/javascript"></script>
 
-<!-- Map -->
+<link rel="stylesheet" media="screen" href="@routes.Assets.at("stylesheets/app/map.css")">
+<link rel="stylesheet" media="screen" href="@routes.Assets.at("stylesheets/app/contextMenu.css")">
 
-<div id="map_canvas" style="visibility: hidden"></div>
+<script src="@routes.Assets.at("javascripts/app/map/labels.js")" type="text/javascript"></script>
+<script src="@routes.Assets.at("javascripts/app/map/validation.js")" type="text/javascript"></script>
+<script src="@routes.Assets.at("javascripts/app/map/TxtOverlay.js")" type="text/javascript"></script>
+<script src="@routes.Assets.at("javascripts/app/map/contextMenu.js")" type="text/javascript"></script>
+<script src="@routes.Assets.at("javascripts/app/map/map_routes.js")" type="text/javascript"></script>
 
-<div id="markers" style="visibility: hidden">
-	<div id="m1" class="drag"
-		style="left: 0; background-image: url('/assets/images/icons/tonne_gruen.png')">
-	</div>
-	<div id="m2" class="drag"
-		style="left: 50px; background-image: url('/assets/images/icons/tonne_rot.png')">
-	</div>
-	<div id="m3" class="drag"
-		style="left: 100px; background-image: url('/assets/images/icons/tonne_lila.png')">
+<script src="@routes.Assets.at("javascripts/app/route/route_map.js")" type="text/javascript"></script>
+<script src="@routes.Assets.at("javascripts/app/route/print_route.js")" type="text/javascript" ></script>
+
+<!-- Distance Menu -->
+<div id="distanceToolContainer">
+	<div id="distanceToolMenu" class="well">
+		<h4>Distanztool</h4>
+		<input type="button" class="btn" value="beenden"
+			id="stopDistanceToolButton" class="distanceToolbutton"
+			onclick="javascript: stopDistanceToolMode()" /> <br>
+		<br>
+		<div id="distanceTool_distance">
+			Distanz: <span id="distanceTool_number"></span> m
+		</div>
 	</div>
 </div>
+
+<!-- Route Menu -->
+<div id="routeMenuContainer">
+	<div id="routeMenu" class="well">
+		<h4>Routen Men&uuml;</h4>
+		<div class="btn-group btn-group-vertical">
+			<input type="button" class="btn" value="l&ouml;schen"
+				id="deleteRouteButton" class="routeButton"
+				onclick="javascript: deleteRoute()" /> <input type="button"
+				class="btn" value="speichern" id="saveRouteButton"
+				class="routeButton" onclick="javascript: saveRoute()" /> <input
+				type="button" class="btn" value="beenden" id="stopRouteButton"
+				class="routeButton" onclick="javascript: stopRouteMode()" />
+		</div>
+		<br>
+		<br>
+		<div id="route_distance">
+			Routen-L&auml;nge: <span id="route_distance_number"></span> m
+		</div>
+	</div>
+</div>
+
+<!-- Content -->
+
+<!-- Map -->
+<div id="map_canvas" style="visibility: hidden"></div>
+
+<!-- Context Menus -->
+<div id="temporaryMarkerContextMenu"></div>
+<div id="fixedMarkerContextMenu"></div>
+<div id="routeContextMenu_active"></div>
+<div id="routeContextMenu_inactive"></div>

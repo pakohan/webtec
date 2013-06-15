@@ -160,7 +160,6 @@ public class Trip extends Controller {
     						navigation.render("app_map"),
     						navigation_app.render("app_trip"),
     						route_menu.render(data),
-    						route_info.render(),
     						route_map.render()));
   }
   

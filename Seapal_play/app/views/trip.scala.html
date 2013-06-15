@@ -1,4 +1,4 @@
-@(header: Html)(navigation: Html)(navigation_app: Html)(route_menu: Html)(route_info: Html)(route_map: Html)
+@(header: Html)(navigation: Html)(navigation_app: Html)(route_menu: Html)(route_map: Html)
 
 <!DOCTYPE html>
 
@@ -19,15 +19,14 @@
     	
 	    	<!-- Navigation -->
 	    	@navigation_app
-	    	
+
 	    	<!-- route selection menu -->
 	    	@route_menu
 
 			<!-- Content -->
 			<div id="appWrapper" align="center">
 				<input class="btn" type="button" id="load_route" value="Route laden" class="button" />
-	            @route_info
-	            
+
 	            <!-- simple map to show trip -->
 				@route_map
 	        </div><!-- Content --> 
