@@ -1,0 +1,28 @@
+<script src="http://code.highcharts.com/highcharts.js"></script>
+<script src="http://code.highcharts.com/highcharts-more.js"></script>
+<script src="http://code.highcharts.com/modules/data.js"></script>
+<script src="http://code.highcharts.com/modules/exporting.js"></script>
+<script src="@routes.Assets.at("javascripts/app/map/weather_chart.js")" type="text/javascript"></script>
+
+<link rel="stylesheet" media="screen" href="@routes.Assets.at("stylesheets/app/weather_chart.css")">
+
+<div id="windContainer"
+	style="width: 500px; height: 400px; margin: 0 auto"></div>
+<div id="waveContainer"
+	style="width: 500px; height: 400px; margin: 0 auto"></div>
+<div id="pressureContainer"
+	style="width: 400px; height: 300px; margin: 0 auto"></div>
+
+<input type="range" min="0" max="8" value="0" step="1" style="width: 300px"/><br>
+
+<div id="rangeValue" style="width: 300px">
+	<div id="zeroEight">0/8</div>
+	<div id="oneEight">1/8</div>
+	<div id="twoEight">2/8</div>
+	<div id="threeEight">3/8</div>
+	<div id="fourEight">4/8</div>
+	<div id="fiveEight">5/8</div>
+	<div id="sixEight">6/8</div>
+	<div id="sevenEight">7/8</div>
+	<div id="eightEight">8/8</div>
+</div>
