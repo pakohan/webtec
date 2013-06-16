@@ -157,7 +157,23 @@ function initialize() {
         } else {
             noToggleOfFollowCurrentPositionButton = false;
         }
+        
+        $.getScript("map_weather_data.js").getWeather(map.getCenter());
     });
+    
+    google.maps.event.addListener(map, 'zoom_changed', function() {
+        var level = map.getZoom();
+        if (level === 8) {
+        	document.getElementById("mapDiv").className = "span8";
+        	$("#chartDiv").show();
+        	google.maps.event.trigger(map, 'resize');
+        } else if (level === 7) {
+        	$("#chartDiv").hide();
+        	document.getElementById("mapDiv").className = "span12";
+        	google.maps.event.trigger(map, 'resize');
+        }
+    });
+
 }
 
 // temporary marker context menu ----------------------------------------- //
