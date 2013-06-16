@@ -26,7 +26,7 @@ $(function () {
 	    },
 	    
 	    title: {
-	        text: 'Windstärke / Windrichtung'
+	        text: null
 	    },
 	    
 	    pane: {
@@ -55,6 +55,10 @@ $(function () {
 	        	groupPadding: 0,
 	        	pointPlacement: 'on'
 	        }
+	    },
+	    
+	    tooltip: {
+	    	enabled: false
 	    },
 	    
 	    legend: {
@@ -96,7 +100,7 @@ $(function () {
 	    },
 	    
 	    title: {
-	        text: 'Wellenhöhe / Wellenrichtung'
+	        text: null
 	    },
 	    
 	    pane: {
@@ -127,6 +131,10 @@ $(function () {
 	        }
 	    },
 	    
+	    tooltip: {
+	    	enabled: false
+	    },
+	    
 	    legend: {
 	    	enabled: false
 	    },
@@ -155,9 +163,9 @@ $(function () {
 					plotShadow : false
 				},
 
-				title : {
-					text : 'Luftdruck'
-				},
+				title: {
+			        text: null
+			    },
 
 				pane : {
 					startAngle : -150,
@@ -194,6 +202,10 @@ $(function () {
 						text : 'mBar'
 					}
 				},
+				
+				tooltip: {
+			    	enabled: false
+			    },
 				
 				legend: {
 			    	enabled: false
