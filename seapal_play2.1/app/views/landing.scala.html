@@ -1,0 +1,94 @@
+@(navigation: Html, header: Html = views.html._include.header.render(), footer: Html = views.html._include.footer.render())
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        @header
+        <style type="text/css">
+        body, html { overflow-x: hidden; overflow-y: hidden; }
+        #video_background {
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        min-width:100%;
+        min-height:100%;
+        max-height:4000%;
+        max-width:1000%;
+        width: auto;
+        height: auto;
+        z-index: -1000;
+        overflow: hidden;
+        }
+        /*eigenes pattern generierien auf http://www.patternify.com/*/
+        #video_pattern{
+        background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAICAYAAADED76LAAAAcUlEQVQYV02PbRmAIAyEWQysgTG0BsYwB9bQGFpDY+A7H4b7dTu2+0BCCKnWmsAgIhHY4HPjRSCZxcXDxPy0xQ7e8MUOVHk4pwIf1EkYVqdUp1OV5qQH0WfCR9/JInpmU/ZOdtAz3W++ThoB/pnw7Du9uZtVX/47PEMAAAAASUVORK5CYII=); 
+        position:absolute; 
+        opacity: 0.8; 
+        left: 0px; 
+        top: 0px; 
+        width: 100%; 
+        height: 100%; 
+        z-index: 1;
+        }
+        *{  
+        margin:0;  
+        padding:0;  
+        } 
+        #main_content{
+        width:1000px;
+        height:200px;
+        position:absolute;
+        left:50%;
+        top:50%;
+        margin:-100px 0 0 -500px;
+        z-index: 20;
+        }
+        #white_text{
+        color:white;
+        text-align: center;
+        font-size: 5.5em;
+        margin-bottom: 50px;
+        }
+        #but{
+        width: 400px;
+        height:75px;
+        position:absolute;
+        left:50%;
+        top:50%;
+        margin:0 0 0 -200px;
+        font-size: 2.4em;
+        }
+        #pic{
+        border-radius: 3px 3px 3px 3px;
+        -moz-border-radius: 3px 3px 3px 3px;
+        -webkit-border-radius: 3px 3px 3px 3px;
+        border: 0px solid #000000;
+        -webkit-box-shadow: 0px 0px 15px -2px rgba(0,0,0,1);
+        -moz-box-shadow: 0px 0px 15px -2px rgba(0,0,0,1);
+        box-shadow: 0px 0px 15px -2px rgba(0,0,0,1);
+        margin-right: 20px;
+        margin-left: 20px;
+        margin-top: -80px;
+        position: absolute;
+        z-index: 20;
+        border:2px solid white;
+        }
+        </style>
+        <link href='http://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+        <title></title>
+    </head>
+    <body>
+        <video id="video_background" preload="auto" autoplay="true" loop muted><!-- hier video source angeben-->
+         <source src="@routes.Assets.at("video/bg2.mp4")" type="video/mp4">
+         <source src="@routes.Assets.at("video/bg2.webm")" type="video/mp4">
+          Video not supported
+        </video>
+    <img src="@routes.Assets.at("images/icons/seapal_normal.png")" id="pic">
+        <div id="main_content">
+            <div id="white_text">
+                Die neue Art des Segelns
+            </div>
+                <button class="btn btn-success btn-large btn-block" type="button" id="but" onClick="self.location.href='/index.html'">Explore Seapal</button>
+        </div>
+        <div id="video_pattern"></div>
+    </body>
+</html>
