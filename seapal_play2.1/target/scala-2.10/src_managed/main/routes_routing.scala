@@ -1,6 +1,6 @@
 // @SOURCE:/home/stefano/Dokumente/Programming/Web/Seapal2/seapal_play2.1/conf/routes
-// @HASH:e7ed6284d6e379806aa87addef6482c11524c098
-// @DATE:Fri Jun 14 09:59:05 CEST 2013
+// @HASH:2d0429b43a11661642778876c4e8d2ae1bd5c3cb
+// @DATE:Sun Jun 16 22:37:04 CEST 2013
 
 
 import play.core._
@@ -116,10 +116,14 @@ private[this] lazy val controllers_Tripinfo_delete20 = Route("GET", PathPattern(
 private[this] lazy val controllers_Waypoint_index21 = Route("GET", PathPattern(List(StaticPart(Routes.prefix),StaticPart(Routes.defaultPrefix),StaticPart("app_waypoint.html"))))
         
 
-// @LINE:30
-private[this] lazy val controllers_Assets_at22 = Route("GET", PathPattern(List(StaticPart(Routes.prefix),StaticPart(Routes.defaultPrefix),StaticPart("assets/"),DynamicPart("file", """.+""",false))))
+// @LINE:28
+private[this] lazy val controllers_ShipSimulator_websocket22 = Route("GET", PathPattern(List(StaticPart(Routes.prefix),StaticPart(Routes.defaultPrefix),StaticPart("websocket"))))
         
-def documentation = List(("""GET""", prefix,"""controllers.Index.index()"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """index.html""","""controllers.Index.index()"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """contact.html""","""controllers.Contact.index()"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """about.html""","""controllers.About.index()"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """userguide.html""","""controllers.Userguide.index()"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """screenshots.html""","""controllers.Screenshots.index()"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """legal.html""","""controllers.Legal.index()"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """impressum.html""","""controllers.Impressum.index()"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """app_map.html""","""controllers.Map.index()"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """app_boatinfo.html""","""controllers.Boatinfo.index()"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """app_boatinfo_load.html""","""controllers.Boatinfo.load(bnr:Int)"""),("""POST""", prefix + (if(prefix.endsWith("/")) "" else "/") + """app_boatinfo_insert.html""","""controllers.Boatinfo.insert()"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """app_boatinfo_delete.html""","""controllers.Boatinfo.delete(bnr:Int)"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """app_trip.html""","""controllers.Trip.index()"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """app_trip_load.html""","""controllers.Trip.load(tnr:Int)"""),("""POST""", prefix + (if(prefix.endsWith("/")) "" else "/") + """app_trip_insert.html""","""controllers.Trip.insert()"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """app_trip_delete.html""","""controllers.Trip.delete(tnr:Int)"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """app_tripinfo.html""","""controllers.Tripinfo.index(tnr:Int)"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """app_tripinfo_load.html""","""controllers.Tripinfo.load(wnr:Int)"""),("""POST""", prefix + (if(prefix.endsWith("/")) "" else "/") + """app_tripinfo_insert.html""","""controllers.Tripinfo.insert()"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """app_tripinfo_delete.html""","""controllers.Tripinfo.delete(wnr:Int)"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """app_waypoint.html""","""controllers.Waypoint.index(wnr:Int)"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """assets/$file<.+>""","""controllers.Assets.at(path:String = "/public", file:String)""")).foldLeft(List.empty[(String,String,String)]) { (s,e) => e.asInstanceOf[Any] match {
+
+// @LINE:31
+private[this] lazy val controllers_Assets_at23 = Route("GET", PathPattern(List(StaticPart(Routes.prefix),StaticPart(Routes.defaultPrefix),StaticPart("assets/"),DynamicPart("file", """.+""",false))))
+        
+def documentation = List(("""GET""", prefix,"""controllers.Index.index()"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """index.html""","""controllers.Index.index()"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """contact.html""","""controllers.Contact.index()"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """about.html""","""controllers.About.index()"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """userguide.html""","""controllers.Userguide.index()"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """screenshots.html""","""controllers.Screenshots.index()"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """legal.html""","""controllers.Legal.index()"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """impressum.html""","""controllers.Impressum.index()"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """app_map.html""","""controllers.Map.index()"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """app_boatinfo.html""","""controllers.Boatinfo.index()"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """app_boatinfo_load.html""","""controllers.Boatinfo.load(bnr:Int)"""),("""POST""", prefix + (if(prefix.endsWith("/")) "" else "/") + """app_boatinfo_insert.html""","""controllers.Boatinfo.insert()"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """app_boatinfo_delete.html""","""controllers.Boatinfo.delete(bnr:Int)"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """app_trip.html""","""controllers.Trip.index()"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """app_trip_load.html""","""controllers.Trip.load(tnr:Int)"""),("""POST""", prefix + (if(prefix.endsWith("/")) "" else "/") + """app_trip_insert.html""","""controllers.Trip.insert()"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """app_trip_delete.html""","""controllers.Trip.delete(tnr:Int)"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """app_tripinfo.html""","""controllers.Tripinfo.index(tnr:Int)"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """app_tripinfo_load.html""","""controllers.Tripinfo.load(wnr:Int)"""),("""POST""", prefix + (if(prefix.endsWith("/")) "" else "/") + """app_tripinfo_insert.html""","""controllers.Tripinfo.insert()"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """app_tripinfo_delete.html""","""controllers.Tripinfo.delete(wnr:Int)"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """app_waypoint.html""","""controllers.Waypoint.index(wnr:Int)"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """websocket""","""controllers.ShipSimulator.websocket"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """assets/$file<.+>""","""controllers.Assets.at(path:String = "/public", file:String)""")).foldLeft(List.empty[(String,String,String)]) { (s,e) => e.asInstanceOf[Any] match {
   case r @ (_,_,_) => s :+ r.asInstanceOf[(String,String,String)]
   case l => s ++ l.asInstanceOf[List[(String,String,String)]] 
 }}
@@ -303,8 +307,16 @@ case controllers_Waypoint_index21(params) => {
 }
         
 
-// @LINE:30
-case controllers_Assets_at22(params) => {
+// @LINE:28
+case controllers_ShipSimulator_websocket22(params) => {
+   call { 
+        invokeHandler(controllers.ShipSimulator.websocket, HandlerDef(this, "controllers.ShipSimulator", "websocket", Nil,"GET", """""", Routes.prefix + """websocket"""))
+   }
+}
+        
+
+// @LINE:31
+case controllers_Assets_at23(params) => {
    call(Param[String]("path", Right("/public")), params.fromPath[String]("file", None)) { (path, file) =>
         invokeHandler(controllers.Assets.at(path, file), HandlerDef(this, "controllers.Assets", "at", Seq(classOf[String], classOf[String]),"GET", """ Map static resources from the /public folder to the /assets URL path""", Routes.prefix + """assets/$file<.+>"""))
    }

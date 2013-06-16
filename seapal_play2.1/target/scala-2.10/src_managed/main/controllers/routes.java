@@ -1,6 +1,6 @@
 // @SOURCE:/home/stefano/Dokumente/Programming/Web/Seapal2/seapal_play2.1/conf/routes
-// @HASH:e7ed6284d6e379806aa87addef6482c11524c098
-// @DATE:Fri Jun 14 09:59:05 CEST 2013
+// @HASH:2d0429b43a11661642778876c4e8d2ae1bd5c3cb
+// @DATE:Sun Jun 16 22:37:04 CEST 2013
 
 package controllers;
 
@@ -17,6 +17,7 @@ public static final controllers.ReverseMap Map = new controllers.ReverseMap();
 public static final controllers.ReverseTripinfo Tripinfo = new controllers.ReverseTripinfo();
 public static final controllers.ReverseBoatinfo Boatinfo = new controllers.ReverseBoatinfo();
 public static final controllers.ReverseUserguide Userguide = new controllers.ReverseUserguide();
+public static final controllers.ReverseShipSimulator ShipSimulator = new controllers.ReverseShipSimulator();
 public static final controllers.ReverseIndex Index = new controllers.ReverseIndex();
 public static class javascript {
 public static final controllers.javascript.ReverseLegal Legal = new controllers.javascript.ReverseLegal();
@@ -31,6 +32,7 @@ public static final controllers.javascript.ReverseMap Map = new controllers.java
 public static final controllers.javascript.ReverseTripinfo Tripinfo = new controllers.javascript.ReverseTripinfo();
 public static final controllers.javascript.ReverseBoatinfo Boatinfo = new controllers.javascript.ReverseBoatinfo();
 public static final controllers.javascript.ReverseUserguide Userguide = new controllers.javascript.ReverseUserguide();
+public static final controllers.javascript.ReverseShipSimulator ShipSimulator = new controllers.javascript.ReverseShipSimulator();
 public static final controllers.javascript.ReverseIndex Index = new controllers.javascript.ReverseIndex();    
 }   
 public static class ref {
@@ -46,6 +48,7 @@ public static final controllers.ref.ReverseMap Map = new controllers.ref.Reverse
 public static final controllers.ref.ReverseTripinfo Tripinfo = new controllers.ref.ReverseTripinfo();
 public static final controllers.ref.ReverseBoatinfo Boatinfo = new controllers.ref.ReverseBoatinfo();
 public static final controllers.ref.ReverseUserguide Userguide = new controllers.ref.ReverseUserguide();
+public static final controllers.ref.ReverseShipSimulator ShipSimulator = new controllers.ref.ReverseShipSimulator();
 public static final controllers.ref.ReverseIndex Index = new controllers.ref.ReverseIndex();    
 } 
 }

@@ -1,6 +1,6 @@
 // @SOURCE:/home/stefano/Dokumente/Programming/Web/Seapal2/seapal_play2.1/conf/routes
-// @HASH:e7ed6284d6e379806aa87addef6482c11524c098
-// @DATE:Fri Jun 14 09:59:05 CEST 2013
+// @HASH:2d0429b43a11661642778876c4e8d2ae1bd5c3cb
+// @DATE:Sun Jun 16 22:37:04 CEST 2013
 
 import Routes.{prefix => _prefix, defaultPrefix => _defaultPrefix}
 import play.core._
@@ -14,7 +14,8 @@ import play.api.mvc._
 import Router.queryString
 
 
-// @LINE:30
+// @LINE:31
+// @LINE:28
 // @LINE:27
 // @LINE:26
 // @LINE:25
@@ -52,11 +53,11 @@ def index(): Call = {
 }
                           
 
-// @LINE:30
+// @LINE:31
 class ReverseAssets {
     
 
-// @LINE:30
+// @LINE:31
 def at(file:String): Call = {
    Call("GET", _prefix + { _defaultPrefix } + "assets/" + implicitly[PathBindable[String]].unbind("file", file))
 }
@@ -258,6 +259,19 @@ def index(): Call = {
 }
                           
 
+// @LINE:28
+class ReverseShipSimulator {
+    
+
+// @LINE:28
+def websocket(): Call = {
+   Call("GET", _prefix + { _defaultPrefix } + "websocket")
+}
+                                                
+    
+}
+                          
+
 // @LINE:7
 // @LINE:6
 class ReverseIndex {
@@ -283,7 +297,8 @@ case () if true => Call("GET", _prefix + { _defaultPrefix } + "index.html")
                   
 
 
-// @LINE:30
+// @LINE:31
+// @LINE:28
 // @LINE:27
 // @LINE:26
 // @LINE:25
@@ -326,11 +341,11 @@ def index : JavascriptReverseRoute = JavascriptReverseRoute(
 }
               
 
-// @LINE:30
+// @LINE:31
 class ReverseAssets {
     
 
-// @LINE:30
+// @LINE:31
 def at : JavascriptReverseRoute = JavascriptReverseRoute(
    "controllers.Assets.at",
    """
@@ -632,6 +647,24 @@ def index : JavascriptReverseRoute = JavascriptReverseRoute(
 }
               
 
+// @LINE:28
+class ReverseShipSimulator {
+    
+
+// @LINE:28
+def websocket : JavascriptReverseRoute = JavascriptReverseRoute(
+   "controllers.ShipSimulator.websocket",
+   """
+      function() {
+      return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "websocket"})
+      }
+   """
+)
+                        
+    
+}
+              
+
 // @LINE:7
 // @LINE:6
 class ReverseIndex {
@@ -660,7 +693,8 @@ def index : JavascriptReverseRoute = JavascriptReverseRoute(
         
 
 
-// @LINE:30
+// @LINE:31
+// @LINE:28
 // @LINE:27
 // @LINE:26
 // @LINE:25
@@ -698,11 +732,11 @@ def index(): play.api.mvc.HandlerRef[_] = new play.api.mvc.HandlerRef(
 }
                           
 
-// @LINE:30
+// @LINE:31
 class ReverseAssets {
     
 
-// @LINE:30
+// @LINE:31
 def at(path:String, file:String): play.api.mvc.HandlerRef[_] = new play.api.mvc.HandlerRef(
    controllers.Assets.at(path, file), HandlerDef(this, "controllers.Assets", "at", Seq(classOf[String], classOf[String]), "GET", """ Map static resources from the /public folder to the /assets URL path""", _prefix + """assets/$file<.+>""")
 )
@@ -898,6 +932,19 @@ class ReverseUserguide {
 // @LINE:10
 def index(): play.api.mvc.HandlerRef[_] = new play.api.mvc.HandlerRef(
    controllers.Userguide.index(), HandlerDef(this, "controllers.Userguide", "index", Seq(), "GET", """""", _prefix + """userguide.html""")
+)
+                      
+    
+}
+                          
+
+// @LINE:28
+class ReverseShipSimulator {
+    
+
+// @LINE:28
+def websocket(): play.api.mvc.HandlerRef[_] = new play.api.mvc.HandlerRef(
+   controllers.ShipSimulator.websocket(), HandlerDef(this, "controllers.ShipSimulator", "websocket", Seq(), "GET", """""", _prefix + """websocket""")
 )
                       
     
