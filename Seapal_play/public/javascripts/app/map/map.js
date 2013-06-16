@@ -158,7 +158,7 @@ function initialize() {
             noToggleOfFollowCurrentPositionButton = false;
         }
         
-        //$.getScript("map_weather_data.js").getWeather(map.getCenter());
+        $.getScript("map_weather_data.js").getWeather(map.getCenter());
     });
     
     google.maps.event.addListener(map, 'zoom_changed', function() {
