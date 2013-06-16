@@ -47,7 +47,7 @@ function fillInData(data) {
 	//cloud data
 	if (data.clouds !== undefined
 			&& data.clouds.all !== undefined) {
-		setCloudSlider(Math.round(data.clouds.all));
+		setCloudSlider(Math.round(data.clouds.all / 100.0 * 8.0));
 	}
 
 	//temp data

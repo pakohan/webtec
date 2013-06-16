@@ -207,16 +207,17 @@ $(function () {
 
 			});
 
-    function setCloudSlider(value) {
-    	$('#cloudSlider').val(value);
-    	var currentCloudValue = $('#currentCloudValue');
-        currentCloudValue.html("Bew&ouml;lkungsgrad: " + this.value + "/8");
-    }
-    
-    function setTempSlider(value) {
-    	$('#tempSlider').val(value);
-    	var currentCloudValue = $('#currentTempValue');
-        currentCloudValue.html("Grad Celsius: " + this.value);
-    }  
-
 });
+
+function setCloudSlider(value) {
+    $('#cloudSlider').val(value);
+    var currentCloudValue = $('#currentCloudValue');
+    currentCloudValue.html("<nobr>Bew&ouml;lkungsgrad: " + value + "/8<nobr>");
+}
+    
+function setTempSlider(value) {
+   	$('#tempSlider').val(value);
+   	var currentCloudValue = $('#currentTempValue');
+    currentCloudValue.html("<nobr>Grad Celsius: " + value + "<nobr>");
+}
+    
