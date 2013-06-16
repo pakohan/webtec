@@ -1,9 +1,9 @@
-2013-06-16 22:37:00,984 - [INFO] - from play in main 
+2013-06-16 22:43:24,048 - [INFO] - from play in main 
 Listening for HTTP on /0:0:0:0:0:0:0:0:9000
 
-2013-06-16 22:37:31,323 - [INFO] - from play in New I/O worker #1 
+2013-06-16 22:43:29,622 - [INFO] - from play in New I/O worker #1 
 database [default] connected at jdbc:mysql://localhost:3306/seapal
 
-2013-06-16 22:37:31,420 - [INFO] - from play in New I/O worker #1 
+2013-06-16 22:43:29,721 - [INFO] - from play in New I/O worker #1 
 Application started (Dev)
 
