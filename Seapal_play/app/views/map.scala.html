@@ -11,6 +11,8 @@
         <!-- Header App -->
         @header_app
         
+        <script src="@routes.Assets.at("javascripts/app/map/map_weather_data.js")" type="text/javascript"></script>
+        
     </head>
     <body onload="initialize();">
     
@@ -25,12 +27,12 @@
 
 			<div class="row-fluid">
 			
-				<div class="span8">
+				<div id="mapDiv" class="span8">
 					<!-- Map -->
 					@map_content
 				</div>
 				
-				<div class="span4">
+				<div id="chartDiv" class="span4">
 					<!-- Weather Charts -->
 					@weather_chart
 				</div>
