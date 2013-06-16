@@ -12,15 +12,15 @@
 	margin: 2.4px;
 }
 
-#rainSlider {
+#tempSlider {
 	width: 250px;
 }
 
-#rainValues {
+#tempValues {
 	width: 270px;
 }
 
-.rainValue {
+.tempValue {
 	display: inline;
 }
 

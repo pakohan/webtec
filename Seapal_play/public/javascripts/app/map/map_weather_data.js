@@ -1,12 +1,13 @@
-function getWeather(data) {
+function getWeather(position) {
 
-	var time = 1361670000;
-	var day;
-	var month;
-	var year;
-
-	var weather = 'http://openweathermap.org/data/2.1/history/city/?id='
-			+ data.list[0].id + '&start=' + time + '&cnt=1';
+	var lat = position.lat();
+	var lon = position.lng();
+	
+	var weather = 'http://openweathermap.org/data/2.5/weather?'
+					+ 'lat='
+					+ lat
+					+ '&lon='
+					+ lon;
 
 	$.ajax({
 		dataType : "jsonp",
@@ -18,112 +19,124 @@ function getWeather(data) {
 
 function fillInData(data) {
 
-	var date = '';
-
-	if (data.list[0].wind !== undefined
-			&& data.list[0].wind.speed !== undefined) {
-		var id = '#wind_strength';
-		var value = msToBeauf(data.list[0].wind.speed);
-
-		$(id).val(value);
-		saveValue(id, value);
-	}
-
-	if (data.list[0].wind !== undefined && data.list[0].wind.deg !== undefined) {
-		var id = '#wind_direction';
-		var value = data.list[0].wind.deg;
-
-		$(id).val(value);
-		saveValue(id, value);
-	}
-
-	if (data.list[0].main !== undefined
-			&& data.list[0].main.pressure !== undefined) {
-		var id = '#air_pressure';
-		var value = data.list[0].main.pressure;
-
-		$(id).val(value);
-		saveValue(id, value);
-	}
-
-	if (data.list[0].clouds !== undefined
-			&& data.list[0].clouds.all !== undefined) {
-		var id = '#cloudiness';
-		var value = data.list[0].clouds.all / 10;
-
-		$(id).val(value);
-		saveValue(id, value);
-	}
-
-	if (data.list[0].rain !== undefined && data.list[0].rain.day !== undefined) {
-		var id = '#raininess';
-		var value = data.list[0].rain.day;
-
-		$(id).val(value);
-		saveValue(id, value);
-	}
+	//wind data
+	var winData = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+	var speed = 0;
+	var deg = 0;
 	
-	processWind();
+	if (data.wind !== undefined
+			&& data.wind.speed !== undefined) {
+		speed = msToBeauf(data.wind.speed);
+	}
+
+	if (data.wind !== undefined && data.wind.deg !== undefined) {
+		deg = degToDirection(data.wind.deg);
+	}
+	winData[deg] = speed;
+	$("#windContainer").highcharts().series[0].setData(winData);
+	processWind(speed, deg);
+	
+	//pressure data
+	if (data.main !== undefined
+			&& data.main.pressure !== undefined) {
+		
+		var date = [data.main.pressure];
+		$("#pressureContainer").highcharts().series[0].setData(date);
+	}
+
+	//cloud data
+	if (data.clouds !== undefined
+			&& data.clouds.all !== undefined) {
+		setCloudSlider(Math.round(data.clouds.all));
+	}
+
+	//temp data
+	if (data.main !== undefined && data.main.temp !== undefined) {
+		setTempSlider(Math.round(data.main.temp - 273.15));
+	}
 
 }
 
-function convertToUnixTime(date) {
-	var day = $("#day").val();
-	var month = $("#month").val();
-	var year = $("#year").val();
-	var date = new Date();
-	date.setFullYear(year, month, day)
-	var unixtimeMS = date.getTime();
-	var unixtime = parseInt(unixtimeMS / 1000);
-	alert(unixtime);
+function degToDirection(degree) {
+	if (degree >= 348.75 || degree < 11.25) {
+		return 0;
+	} else if (degree >= 11.25 && degree < 33.75) {
+		return 1;
+	} else if (degree >= 33.75 && degree < 56.25) {
+		return 2;
+	} else if (degree >= 56.25 && degree < 78.75) {
+		return 3;
+	} else if (degree >= 78.75 && degree < 101.25) {
+		return 4;
+	} else if (degree >= 101.25 && degree < 123.75) {
+		return 5;
+	} else if (degree >= 123.75 && degree < 146.25) {
+		return 6;
+	} else if (degree >= 146.25 && degree < 168.75) {
+		return 7;
+	} else if (degree >= 168.75 && degree < 191.25) {
+		return 8;
+	} else if (degree >= 191.25 && degree < 213.75) {
+		return 9;
+	} else if (degree >= 213.75 && degree < 236.25) {
+		return 10;
+	} else if (degree >= 236.25 && degree < 258.75) {
+		return 11;
+	} else if (degree >= 258.75 && degree < 281.25) {
+		return 12;
+	} else if (degree >= 281.25 && degree < 303.75) {
+		return 13;
+	} else if (degree >= 303.75 && degree < 326.25) {
+		return 14;
+	} else if (degree >= 326.25 && degree < 348.75) {
+		return 15;
+	}
 }
 
 function msToBeauf(ms) {
-	var beauf;
 
-	if (ms >= 0 && ms < 0.3) {
+	if (ms > 0 && ms < 0.3) {
 		return 0;
 	} else if (ms >= 0.3 && ms < 1.6) {
 		return 1;
 	} else if (ms >= 1.6 && ms < 3.4) {
-		return 1;
+		return 2;
 	} else if (ms >= 3.4 && ms < 5.5) {
-		return 1;
+		return 3;
 	} else if (ms >= 5.5 && ms < 8.0) {
-		return 1;
+		return 4;
 	} else if (ms >= 8.0 && ms < 10.8) {
-		return 1;
+		return 5;
 	} else if (ms >= 10.8 && ms < 13.9) {
-		return 1;
+		return 6;
 	} else if (ms >= 13.9 && ms < 17.2) {
-		return 1;
+		return 7;
 	} else if (ms >= 17.2 && ms < 20.8) {
-		return 1;
+		return 8;
 	} else if (ms >= 20.8 && ms < 24.5) {
-		return 1;
+		return 9;
+	} else if (ms >= 24.5 && ms < 28.5) {
+		return 10;
 	} else if (ms >= 28.5 && ms < 32.7) {
-		return 1;
+		return 11;
 	} else if (ms > 32.7) {
-		return 1;
+		return 12;
 	}
 
 }
 
-function processWind() {
-	
-	var strength = $('#wind_strength').val();
-	var direction = $('#wind_direction').val();
-	
-	var height = predictWaveHeight(strength);
+function processWind(speed, deg) {
 
-	$('#wave_height').val(height);
-	saveValue('#wave_height', height);
+	var height = predictWaveHeight(speed);
+	
+	var date = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+	
+	date[deg] = height;
 
-	$('#wave_direction').val(direction);
-	saveValue('#wave_direction', direction);
+	$("#waveContainer").highcharts().series[0].setData(date);
 
 }
 
 function predictWaveHeight(value) {
-	return 7;
+	return value / 2;
 }

@@ -151,14 +151,8 @@ function initialize() {
         }
     });
 
-    google.maps.event.addListener(map, 'center_changed', function () {
-        if (followCurrentPosition && !noToggleOfFollowCurrentPositionButton) {
-            toggleFollowCurrentPosition();
-        } else {
-            noToggleOfFollowCurrentPositionButton = false;
-        }
-        
-        $.getScript("map_weather_data.js").getWeather(map.getCenter());
+    google.maps.event.addListener(map, 'dragend', function () { 
+        getWeather(map.getCenter());
     });
     
     google.maps.event.addListener(map, 'zoom_changed', function() {
@@ -173,6 +167,8 @@ function initialize() {
         	google.maps.event.trigger(map, 'resize');
         }
     });
+    
+    getWeather(map.getCenter());
 
 }
 

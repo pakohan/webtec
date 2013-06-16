@@ -7,7 +7,23 @@ $(function () {
 	    
 	    chart: {
 	        polar: true,
-	        type: 'column'
+	        type: 'column',
+	        events: {
+                click: function(event) {
+                    var x = event.xAxis[0].value;
+                    var y = event.yAxis[0].value;
+                    
+                    var series = this.series[0];
+                    
+                    var xVal = Math.round(x);
+                    var yVal = Math.round(y);
+                    var data = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+                    
+                    data[xVal] = yVal;
+                    this.series[0].setData(data);
+                    alert(x);
+                }
+            }
 	    },
 	    
 	    title: {
@@ -190,4 +206,17 @@ $(function () {
 		        }
 
 			});
+
+    function setCloudSlider(value) {
+    	$('#cloudSlider').val(value);
+    	var currentCloudValue = $('#currentCloudValue');
+        currentCloudValue.html("Bew&ouml;lkungsgrad: " + this.value + "/8");
+    }
+    
+    function setTempSlider(value) {
+    	$('#tempSlider').val(value);
+    	var currentCloudValue = $('#currentTempValue');
+        currentCloudValue.html("Grad Celsius: " + this.value);
+    }  
+
 });
