@@ -178,6 +178,8 @@ function initialize() {
             noToggleOfFollowCurrentPositionButton = false;
         }
     });
+    
+    $('#routeMenuContainer').hide();
 }
 
 // temporary marker context menu ----------------------------------------- //
