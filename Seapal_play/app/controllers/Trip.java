@@ -10,6 +10,7 @@ import play.data.DynamicForm;
 import org.codehaus.jackson.node.ObjectNode; 
 import views.html.*;
 import views.html._include.*;
+import views.html._include.route.*;
 
 public class Trip extends Controller {
   
@@ -155,7 +156,11 @@ public class Trip extends Controller {
 	    	   e.printStackTrace();
 	       }
     }
-    return ok(trip.render(header.render(), navigation.render("app_map"), navigation_app.render("app_trip"), data));
+    return ok(trip.render(header.render(),
+    						navigation.render("app_map"),
+    						navigation_app.render("app_trip"),
+    						route_menu.render(data),
+    						route_map.render()));
   }
   
 }
