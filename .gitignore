@@ -64,3 +64,5 @@ Seapal_play/target
 Seapal_play/tmp
 Seapal_play/test-result
 Seapal_play/server.pid
+
+*.class
