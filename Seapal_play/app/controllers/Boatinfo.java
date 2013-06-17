@@ -140,11 +140,13 @@ public class Boatinfo extends Controller {
 			  		"</i></span></a><a class='btn btn-small remove' id='3'><span><i class='icon-remove'></i></span></a></div></td></tr></table>";
 		
 	  return ok(boatinfo.render(header.render(),
+			  					header_app_trip.render(),
     						    navigation.render("app_map"), 
     						    navigation_app.render("app_boatinfo"),
     						    logbook_boatinfo_menu.render(data),
     						    logbook_trip_menu.render(test),
     						    logbook_boatinfo.render(),
+    						    logbook_tripinfo.render(),
     						    logbook_weatherinfo.render(),
     						    simple_map.render()
     						    ));
