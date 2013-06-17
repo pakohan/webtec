@@ -6,7 +6,7 @@ label {
 
 #map_canvas {
     width: 100%;
-    height: 800px;
+    height: 750px;
     margin: auto;
 }
 
@@ -95,7 +95,7 @@ label {
 #weatherMode_choices {
     padding: 5px 5px 5px 5px;
     margin-top: 7px;
-    margin-left: 200px;
+    margin-left: 220px;
     position: absolute;
     z-index: 2;
 }
@@ -123,16 +123,34 @@ input[type=checkbox], input.checkbox {
    margin:3px 0 0 5px; 
 }
 
-/* load and store routes buttons */
+/* weather chart */
 
-#loadStoreButtons {
-	margin: 0 0 20px 0;
+#windContainer {
+	width: 250px;
+	height: 250px;
+	margin: 0 auto;
 }
 
-#load_button {
-	margin: 0 5px 0 0;
+#waveContainer {
+	width: 250px;
+	height: 250px;
+	margin: 0 auto;
 }
 
-#save_button {
-	margin: 0 0 0 5px;
+#pressureContainer {
+	width: 200px;
+	height: 200px;
+	margin: 0 auto;
+}
+
+#cloudContainer {
+	width: 200px;
+	height: 200px;
+	margin: 0 auto;
+}
+
+#tempContainer {
+	width: 200px;
+	height: 200px;
+	margin: 0 auto;
 }

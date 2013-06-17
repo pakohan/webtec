@@ -29,7 +29,13 @@
 		@logbook_trip_menu
 		
 		<div id="appWrapper" align="center">
-			<input class="btn" type="button" id="load_trip" value="Trip laden" class="button" />
+			<div class="span1">
+				<input class="btn" type="button" id="load_trip" value="Trip laden" class="button"/>
+				
+				<input class="btn" type="button" id="load_boat_info" value="Boot laden"
+				class="button" style="display: none" />
+			</div>
+
 			<br />
 			<!-- boat info form -->
 			@logbook_boatinfo
@@ -39,11 +45,9 @@
 			@logbook_tripinfo
 				
 			<br />
-			<br />
 			<!-- weather info form -->
 			@logbook_weatherinfo
-				
-			<br />
+
 			<br />
 			<!-- simple map to show trip -->
 			@simple_map

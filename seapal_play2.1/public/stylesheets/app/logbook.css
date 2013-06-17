@@ -1,0 +1,66 @@
+#map_canvas {
+    height: 500px;
+    width: 100%;
+}
+
+#mapContainer {
+	padding-left: 15%;
+}
+
+#chartContainer {
+	width: 70%;
+}
+
+#windContainer {
+	width: 280px;
+	height: 280px;
+	margin: 0 auto;
+}
+
+#waveContainer {
+	width: 280px;
+	height: 280px;
+	margin: 0 auto;
+}
+
+#pressureContainer {
+	width: 200px;
+	height: 200px;
+	margin: 0 auto;
+	margin-top: 30px;
+}
+
+#cloudContainer {
+	width: 200px;
+	height: 200px;
+	margin: 0 auto;
+	margin-top: 30px;
+}
+
+#tempContainer {
+	width: 200px;
+	height: 200px;
+	margin: 0 auto;
+	margin-top: 30px;
+}
+
+#boat_info_table {
+	padding-left: 15%;
+}
+
+#trip_info_table {
+	padding-left: 15%;
+}
+
+#load_trip {
+	float: left;
+}
+
+#load_boat_info {
+	float: left;
+	margin-top: 20px;
+}
+
+#weather_info_table {
+	padding-left: 15%;
+}
