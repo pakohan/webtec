@@ -1,4 +1,4 @@
-@(header: Html)(navigation: Html)(navigation_app: Html)(route_menu: Html)(route_map: Html)
+@(header: Html)(header_app_route: Html)(navigation: Html)(navigation_app: Html)(route_menu: Html)(route_map: Html)
 
 <!DOCTYPE html>
 
@@ -7,20 +7,7 @@
     
     	<!-- Header -->
         @header
-        
-		<link rel="stylesheet" media="screen" href="@routes.Assets.at("stylesheets/app/logbook_selection_menu.css")">
-		<link rel="stylesheet" media="screen" href="@routes.Assets.at("stylesheets/app/map.css")">
-		<link rel="stylesheet" media="screen" href="@routes.Assets.at("stylesheets/app/contextMenu.css")">
-
-		<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBCnaCuuuXCzfGbzbXN699vudQ4fWTNmiY&libraries=geometry&sensor=false"></script>
-		<script src="@routes.Assets.at("javascripts/app/route/route_menu.js")" type="text/javascript"></script>
-		<script src="@routes.Assets.at("javascripts/app/map/map_labels.js")" type="text/javascript"></script>
-		<script src="@routes.Assets.at("javascripts/app/map/map_validation.js")" type="text/javascript"></script>
-		<script src="@routes.Assets.at("javascripts/app/map/map_TxtOverlay.js")" type="text/javascript"></script>
-		<script src="@routes.Assets.at("javascripts/app/map/map_contextMenu.js")" type="text/javascript"></script>
-		<script src="@routes.Assets.at("javascripts/app/map/map_routes.js")" type="text/javascript"></script>
-		<script src="@routes.Assets.at("javascripts/app/route/route_map.js")" type="text/javascript"></script>
-		<script src="@routes.Assets.at("javascripts/app/route/route_print_route.js")" type="text/javascript" ></script>
+        @header_app_route
         
     </head>
     <body onload="initialize();">

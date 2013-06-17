@@ -157,6 +157,7 @@ public class Trip extends Controller {
 	       }
     }
     return ok(trip.render(header.render(),
+    						header_app_route.render(),
     						navigation.render("app_map"),
     						navigation_app.render("app_trip"),
     						route_menu.render(data),
