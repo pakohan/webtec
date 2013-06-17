@@ -2,7 +2,7 @@ $(function() {
 	
 	function loadEntry(boatnr) { 
 			        	
-	    jQuery.get("app_boatinfo_load.html", {'bnr': boatnr}, function(data) {
+	    jQuery.get("app_logbook_load.html", {'bnr': boatnr}, function(data) {
 
 	        $('#bootname').val(data['bootname']);
 	        $('#typ').val(data['typ']);
@@ -63,7 +63,7 @@ $(function() {
 		var buttonID = this;
 	 	var boatnr = $(this).attr('id');
 
-		jQuery.get("app_boatinfo_delete.html", { "bnr": boatnr }, function(data) {
+		jQuery.get("app_logbook_delete.html", { "bnr": boatnr }, function(data) {
 		 
 		 	if (data['bnr'].match(/Error/)) {
 		    	
@@ -75,7 +75,7 @@ $(function() {
 		    	$(buttonID).parents('tr').remove();  
 	    
 		    	$('#dialogTitle').text('Succes');
-		    	$('#dialogMessage').text("Eintrag wurde erfolgreich gelöscht.");
+		    	$('#dialogMessage').text("Eintrag wurde erfolgreich gel��scht.");
 	    	}
 			
 			$('#messageBox').modal('show');
@@ -113,7 +113,7 @@ $(function() {
 		        "spigroesse": $('#spigroesse').val()              
 	    };
 		
-		jQuery.post("app_boatinfo_insert.html", json, function(data) { 
+		jQuery.post("app_logbook_insert.html", json, function(data) { 
 			
 			if (data['bnr'].match(/Error/)) {
 		    	
