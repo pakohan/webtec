@@ -24,6 +24,9 @@ $(function () {
                     }
                     data[xVal] = yVal;
                     this.series[0].setData(data);
+                    saveValue('#wind_strength', yVal);
+                    saveValue('#wind_direction', xVal);
+                    setWaveValues(xVal, yVal);
                 }
             }
 	    },
@@ -101,6 +104,8 @@ $(function () {
                     }
                     data[xVal] = yVal;
                     this.series[0].setData(data);
+                    saveValue('#wave_height', yVal);
+                    saveValue('#wave_direction', yVal);
                 }
             }
 	    },
@@ -265,10 +270,6 @@ $(function () {
 					min : 0,
 					max : 8,
 					tickInterval : 1,
-					minorTickWidth : 1,
-					minorTickLength : 10,
-					minorTickPosition : 'inside',
-					minorTickColor : '#666',
 
 					tickPixelInterval : 30,
 					tickWidth : 2,
@@ -374,6 +375,47 @@ $(function () {
 
 			});
     
+    
+
+    $('#highcharts-4').click(function(e) {
+        var pos = findPos(this);
+        var x = e.pageX - pos.x;
+        var y = e.pageY - pos.y;
+        var divHeight = $('#highcharts-4').height();
+        var divWidth = $('#highcharts-4').width();
+        
+        var value = getGaugeValue(x, y, divHeight, divWidth, 300, 100, 1010);
+        var date = [value];
+		$("#pressureContainer").highcharts().series[0].setData(date);
+        saveValue('#air_pressure', value);
+    });
+    
+    $('#highcharts-6').click(function(e) {
+        var pos = findPos(this);
+        var x = e.pageX - pos.x;
+        var y = e.pageY - pos.y;
+        var divHeight = $('#highcharts-6').height();
+        var divWidth = $('#highcharts-6').width();
+        
+        var value = getGaugeValue(x, y, divHeight, divWidth, 300, 8, 4);
+        var date = [value];
+        $("#cloudContainer").highcharts().series[0].setData(date);
+        saveValue('#cloudiness', value);
+    });
+    
+    $('#highcharts-8').click(function(e) {
+        var pos = findPos(this);
+        var x = e.pageX - pos.x;
+        var y = e.pageY - pos.y;
+        var divHeight = $('#highcharts-8').height();
+        var divWidth = $('#highcharts-8').width();
+        
+        var value = getGaugeValue(x, y, divHeight, divWidth, 300, 50, 15);
+        var date = [value];
+        $("#tempContainer").highcharts().series[0].setData(date);
+        saveValue('#temperature', value);
+    });
+    
     function findPos(obj) {
         var curleft = 0, curtop = 0;
         if (obj.offsetParent) {
@@ -385,14 +427,27 @@ $(function () {
         }
         return undefined;
     }
-
-    $('#highcharts-4').click(function(e) {
-        var pos = findPos(this);
-        var x = e.pageX - pos.x;
-        var y = e.pageY - pos.y;
-        var coordinateDisplay = "x=" + x + ", y=" + y;
-        alert(coordinateDisplay);
-    });
+    
+    function getGaugeValue(x, y, divHeight, divWidth, degree, steps, middleValue) {
+    	var centerX = divWidth / 2;
+        var centerY = divHeight / 2;
+        var normX = x - centerX;
+        var normY = centerY - y;
+        
+        var phi = Math.atan2(normX, normY);
+        var phiGrad = phi * 180 / Math.PI;
+        
+        var value = Math.round(phiGrad * (steps / degree) + middleValue);
+        
+        return value;
+    }
+    
+    function setWaveValues(x, y) {
+    	var date = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+        var height = processWind(x, y);
+        date[x] = height;
+        $("#waveContainer").highcharts().series[0].setData(date);
+    }
 
 });
 

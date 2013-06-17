@@ -9,6 +9,7 @@ $(function() {
 				document.getElementById("trip_info_table").style.display = 'block';
 				document.getElementById("weather_info_table").style.display = 'block';
 				document.getElementById("map_canvas").style.visibility = 'visible';
+				google.maps.event.trigger(map, 'resize');
 				//TODO: delete this if ok: document.getElementById("save").style.visibility = 'visible';
 				
 				//TODO: should get coordinates from server

@@ -27,7 +27,9 @@ function registerWeatherFields(id) {
 
 function saveValue(field, value) {
 
-	$.ajax({
+	var save = "save " + field + "with value: " + value;
+	alert(save);
+	/*$.ajax({
 		type : "POST",
 		url : "../../../server/storeValues.php",
 		data : {
@@ -43,7 +45,7 @@ function saveValue(field, value) {
 				$('#wave_direction').val(data.value);
 			}
 		},
-	});
+	});*/
 }
 
 function getHistoricWeatherById(lat, lng) {
@@ -170,21 +172,19 @@ function msToBeauf(ms) {
 
 }
 
-function processWind() {
+function processWind(x, y) {
 
-	var strength = $('#wind_strength').val();
-	var direction = $('#wind_direction').val();
+	var direction = x;
+	var strength = y;
 
 	var height = predictWaveHeight(strength);
 
-	$('#wave_height').val(height);
 	saveValue('#wave_height', height);
-
-	$('#wave_direction').val(direction);
 	saveValue('#wave_direction', direction);
-
+	
+	return height;
 }
 
 function predictWaveHeight(value) {
-	return 7;
+	return Math.round(value / 2);
 }

@@ -37,23 +37,3 @@ function registerBoatFields(id) {
 
 }
 
-function saveValue(field, value) {
-
-	$.ajax({
-		type : "POST",
-		url : "../../../server/storeValues.php",
-		data : {
-			'action' : 'send',
-			'field' : field,
-			'value' : value
-		},
-		dataType : "json",
-		success : function(data) {
-			if (data.field == '#wind_strength') {
-				$('#wave_height').val(data.value);
-			} else if (data.field == '#wind_direction') {
-				$('#wave_direction').val(data.value);
-			}
-		},
-	});
-}
