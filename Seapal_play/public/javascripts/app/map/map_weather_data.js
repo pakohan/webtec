@@ -37,22 +37,22 @@ function fillInData(data) {
 	processWind(speed, deg);
 	
 	//pressure data
-	if (data.main !== undefined
-			&& data.main.pressure !== undefined) {
+	if (data.main !== undefined	&& data.main.pressure !== undefined) {
 		
 		var date = [data.main.pressure];
 		$("#pressureContainer").highcharts().series[0].setData(date);
 	}
 
 	//cloud data
-	if (data.clouds !== undefined
-			&& data.clouds.all !== undefined) {
-		setCloudSlider(Math.round(data.clouds.all / 100.0 * 8.0));
+	if (data.clouds !== undefined && data.clouds.all !== undefined) {
+		var date = [Math.round(data.clouds.all / 100.0 * 8.0)];
+		$("#cloudContainer").highcharts().series[0].setData(date);
 	}
 
 	//temp data
 	if (data.main !== undefined && data.main.temp !== undefined) {
-		setTempSlider(Math.round(data.main.temp - 273.15));
+		var date = [Math.round(data.main.temp - 273.15)];
+		$("#tempContainer").highcharts().series[0].setData(date);
 	}
 
 }

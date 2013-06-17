@@ -6,6 +6,7 @@ $(function() {
 				
 				document.getElementById("load_boat_info").style.display = 'block';
 				document.getElementById("boat_info_table").style.display = 'block';
+				document.getElementById("trip_info_table").style.display = 'block';
 				document.getElementById("weather_info_table").style.display = 'block';
 				document.getElementById("map_canvas").style.visibility = 'visible';
 				//TODO: delete this if ok: document.getElementById("save").style.visibility = 'visible';

@@ -145,6 +145,7 @@ public class Boatinfo extends Controller {
     						    logbook_boatinfo_menu.render(data),
     						    logbook_trip_menu.render(test),
     						    logbook_boatinfo.render(),
+    						    logbook_tripinfo.render(),
     						    logbook_weatherinfo.render(),
     						    simple_map.render()
     						    ));
