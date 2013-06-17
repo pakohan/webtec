@@ -1,0 +1,27 @@
+#cloudSlider {
+	width: 250px;
+}
+
+#cloudValues {
+	width: 270px;
+	margin-left: -5px;
+}
+
+.cloudValue {
+	display: inline;
+	margin: 2.4px;
+}
+
+#tempSlider {
+	width: 250px;
+}
+
+#tempValues {
+	width: 270px;
+}
+
+.tempValue {
+	display: inline;
+}
+
+

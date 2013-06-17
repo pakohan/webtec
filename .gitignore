@@ -23,7 +23,7 @@ dist
 
 
 ##OSX start
-.DS_Store
+*.DS_Store
 .AppleDouble
 .LSOverride
 Icon
@@ -34,3 +34,36 @@ Icon
 .Trashes
 ##OSX end
 config/count.txt
+*.mp4
+*.webm
+
+# Ignore Play! working directory #
+seapal_play2.1/db
+seapal_play2.1/eclipse
+seapal_play2.1/lib
+seapal_play2.1/log
+seapal_play2.1/logs
+seapal_play2.1/modules
+seapal_play2.1/precompiled
+seapal_play2.1/project/project
+seapal_play2.1/project/target
+seapal_play2.1/target
+seapal_play2.1/tmp
+seapal_play2.1/test-result
+seapal_play2.1/server.pid
+*.iml
+*.eml
+*.class
+Seapal_play/db
+Seapal_play/eclipse
+Seapal_play/lib
+Seapal_play/log
+Seapal_play/logs
+Seapal_play/modules
+Seapal_play/precompiled
+Seapal_play/project/project
+Seapal_play/project/target
+Seapal_play/target
+Seapal_play/tmp
+Seapal_play/test-result
+Seapal_play/server.pid
