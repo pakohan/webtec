@@ -12,7 +12,7 @@ import views.html._include.routeInc._
 import anorm._ 
 
 
-object Trip extends Controller {
+object Route extends Controller {
 	
 	def insert() = Action { implicit request =>
 		try {
