@@ -1,4 +1,4 @@
-@(header_app_trip: Html, navigation: Html, navigation_app: Html, logbook_boatinfo_menu: Html, logbook_trip_menu: Html, logbook_boatinfo: Html, logbook_tripinfo: Html, logbook_weatherinfo: Html, simple_map: Html, header: Html = views.html._include.header.render())
+@(header_app_logbook: Html, navigation: Html, navigation_app: Html, logbook_boatinfo_menu: Html, logbook_trip_menu: Html, logbook_boatinfo: Html, logbook_tripinfo: Html, logbook_weatherinfo: Html, simple_map: Html, header: Html = views.html._include.header.render())
 
 <!DOCTYPE html>
 
@@ -7,7 +7,7 @@
 
 		<!-- Header -->
         @header
-      	@header_app_trip
+      	@header_app_logbook
 
 </head>
 <body onload="initialize();">

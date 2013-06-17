@@ -26,7 +26,7 @@ object Logbook extends Controller {
 			  		"<td>12.11.2014</td><td>2</td><td>nein</td><td style='width:30px; text-align:left;'><div class='btn-group'><a class='btn btn-small view' id='3'><span><i class='icon-eye-open'>" +
 			  		"</i></span></a><a class='btn btn-small remove' id='3'><span><i class='icon-remove'></i></span></a></div></td></tr></table>";
 		
-	  	Ok(logbook(header_app_trip.render(),
+	  	Ok(logbook(header_app_logbook.render(),
 	  				navigation.render("app_map"), 
 				    navigation_app.render("app_boatinfo"), 
 				    logbook_boatinfo_menu.render(data),
