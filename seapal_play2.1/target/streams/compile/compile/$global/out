@@ -1,10 +1,1 @@
-[0m[[0minfo[0m] [0mCompiling 3 Scala sources and 1 Java source to /home/stefano/Dokumente/Programming/Web/Seapal2/seapal_play2.1/target/scala-2.10/classes...[0m
-[0m[[33mwarn[0m] [0m/home/stefano/Dokumente/Programming/Web/Seapal2/seapal_play2.1/conf/routes:7: unreachable code[0m
-[0m[[33mwarn[0m] [0mGET     /index.html                 controllers.Index.index()[0m
-[0m[[33mwarn[0m] [0mthere were 1 feature warnings; re-run with -feature for details[0m
-[0m[[33mwarn[0m] [0mtwo warnings found[0m
-[0m[[0minfo[0m] [0mCompiling 34 Scala sources and 1 Java source to /home/stefano/Dokumente/Programming/Web/Seapal2/seapal_play2.1/target/scala-2.10/classes...[0m
-[0m[[33mwarn[0m] [0m/home/stefano/Dokumente/Programming/Web/Seapal2/seapal_play2.1/conf/routes:7: unreachable code[0m
-[0m[[33mwarn[0m] [0mGET     /index.html                 controllers.Index.index()[0m
-[0m[[33mwarn[0m] [0mthere were 1 feature warnings; re-run with -feature for details[0m
-[0m[[33mwarn[0m] [0mtwo warnings found[0m
+[0m[[0minfo[0m] [0mCompiling 1 Scala source to /home/stefano/Dokumente/Programming/Web/Seapal2/seapal_play2.1/target/scala-2.10/classes...[0m

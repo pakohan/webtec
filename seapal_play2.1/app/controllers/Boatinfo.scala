@@ -4,7 +4,6 @@ import play.api.mvc._
 import play.api.db.DB
 import play.api.Play.current
 import play.api.libs.json._
-import play.data.DynamicForm
 
 import views.html._
 import views.html._include._

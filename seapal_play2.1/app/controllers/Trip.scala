@@ -3,7 +3,6 @@ package controllers
 import play.api.mvc._
 import play.api.db.DB
 import play.api.Play.current
-import play.data.DynamicForm
 import play.api.libs.json._
 
 import views.html._
