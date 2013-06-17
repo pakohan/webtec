@@ -13,13 +13,11 @@ dist
 /.project
 /RUNNING_PID
 /.settings
-=======
 # Extracted from https://github.com/ulrich/macaron-factory/blob/master/.gitignore
 # Ignore all dotfiles...
 .*
 # except for .gitignore
 !.gitignore
-
 
 ##OSX start
 *.DS_Store
