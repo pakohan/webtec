@@ -3,7 +3,7 @@
 # ~~~~
 
 # Home page
-GET     /                           controllers.Index.index()
+GET     /                           controllers.Landing.index()
 GET     /index.html                 controllers.Index.index()
 GET     /contact.html               controllers.Contact.index()
 GET     /about.html                 controllers.About.index()
@@ -26,6 +26,7 @@ POST    /app_tripinfo_insert.html   controllers.Tripinfo.insert()
 GET     /app_tripinfo_delete.html   controllers.Tripinfo.delete(wnr: Int)
 GET     /app_waypoint.html          controllers.Waypoint.index(wnr: Int)
 GET     /websocket                  controllers.ShipSimulator.websocket
+GET     /landing.html               controllers.Landing.index()
 
 # Map static resources from the /public folder to the /assets URL path
 GET     /assets/*file               controllers.Assets.at(path="/public", file)
