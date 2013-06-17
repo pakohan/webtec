@@ -21,6 +21,31 @@ var fixedMarkerArray = new Array();
 
 var selectedMarker = null;
 
+var greenTonMarker = new google.maps.MarkerImage('/assets/images/icons/tonne_gruen.png',
+	    new google.maps.Size(32, 32), //size
+	    new google.maps.Point(0, 0),  //origin point
+	    new google.maps.Point(9, 32)  //offset point
+	);
+
+var redTonMarker = new google.maps.MarkerImage('/assets/images/icons/tonne_rot.png',
+	    new google.maps.Size(32, 32), //size
+	    new google.maps.Point(0, 0),  //origin point
+	    new google.maps.Point(9, 32)  //offset point
+	);
+
+var purpleTonMarker = new google.maps.MarkerImage('/assets/images/icons/tonne_lila.png',
+	    new google.maps.Size(32, 32), //size
+	    new google.maps.Point(0, 0),  //origin point
+	    new google.maps.Point(9, 32)  //offset point
+	);
+
+var goalMarker = new google.maps.MarkerImage('/assets/images/icons/lila_tor.png',
+	    new google.maps.Size(80, 32), //size
+	    new google.maps.Point(0, 0),  //origin point
+	    new google.maps.Point(9, 32)  //offset point
+	);
+
+
 var currentPositionMarkerImage = new google.maps.MarkerImage('/assets/images/icons/boat.png',
     new google.maps.Size(50, 50), //size
     new google.maps.Point(0, 0),  //origin point
@@ -82,14 +107,9 @@ function initialize() {
     };
 
     //set route menu position
-    document.getElementById('followCurrentPositionContainer').style.width = document.body.offsetWidth + "px";
-    document.getElementById('routeMenuContainer').style.width = document.body.offsetWidth + "px";
-    document.getElementById('routeMenuContainer').style.display = "none";
+
     document.getElementById('distanceToolContainer').style.width = document.body.offsetWidth + "px";
     document.getElementById('distanceToolContainer').style.display = "none";
-    document.getElementById('navigationContainer').style.width = document.body.offsetWidth + "px";
-    document.getElementById('navigationContainer').style.display = "none";
-    document.getElementById('chat').style.display = "none";
 
     // initialize map
     map = new google.maps.Map(document.getElementById("map_canvas"), mapOptions);
@@ -151,25 +171,15 @@ function initialize() {
         }
     });
 
-    google.maps.event.addListener(map, 'dragend', function () { 
-        getWeather(map.getCenter());
-    });
-    
-    google.maps.event.addListener(map, 'zoom_changed', function() {
-        var level = map.getZoom();
-        if (level === 8) {
-        	document.getElementById("mapDiv").className = "span8";
-        	$("#chartDiv").show();
-        	google.maps.event.trigger(map, 'resize');
-        } else if (level === 7) {
-        	$("#chartDiv").hide();
-        	document.getElementById("mapDiv").className = "span12";
-        	google.maps.event.trigger(map, 'resize');
+    google.maps.event.addListener(map, 'center_changed', function () {
+        if (followCurrentPosition && !noToggleOfFollowCurrentPositionButton) {
+            toggleFollowCurrentPosition();
+        } else {
+            noToggleOfFollowCurrentPositionButton = false;
         }
     });
     
-    getWeather(map.getCenter());
-
+    $('#routeMenuContainer').hide();
 }
 
 // temporary marker context menu ----------------------------------------- //
@@ -183,25 +193,27 @@ $(function () {
         },
         callback: function (key, options) {
         
-            if (key == "marker") {
-                setFixedMarker(temporaryMarker.position)
-            } else if (key == "startroute") {
-                startNewRoute(temporaryMarker.position, false);
+            if (key == "red_ton") {
+                setFixedMarker(temporaryMarker.position, redTonMarker);
+            } else if (key == "purple_ton") {
+            	setFixedMarker(temporaryMarker.position, purpleTonMarker);
+            } else if (key == "green_ton") {
+            	setFixedMarker(temporaryMarker.position, greenTonMarker);
+            } else if (key == "goal") {
+            	setFixedMarker(temporaryMarker.position, goalMarker);
             } else if (key == "distance") {
                 startNewRoute(temporaryMarker.position, true);
-            } else if (key == "destination") {
-            	startNewNavigation(currentPositionMarker.position, temporaryMarker.position);
             } else if (key == "delete") {
                 temporaryMarker.setMap(null);
                 temporaryMarkerInfobox.setMap(null);
             }
         },
         items: {
-            "marker": { name: "Markierung setzen", icon: "marker" },
-            "startroute": { name: "Neue Route setzen", icon: "startroute" },
+            "red_ton": { name: "Rote Tonne setzen", icon: "marker" },
+            "purple_ton": { name: "Lila Tonne setzen", icon: "marker" },
+            "green_ton": { name: "Grüne Tonne setzen", icon: "marker" },
+            "goal": { name: "Tor setzen", icon: "marker" },
             "distance": { name: "Distanz messen", icon: "distance" },
-            "destination": { name: "Zum Ziel machen", icon: "destination" },
-            "sep1": "---------",
             "delete": { name: "L&ouml;schen", icon: "delete" }
         }
     });
@@ -223,8 +235,6 @@ $(function () {
             }
         },
         items: {
-            "destination": { name: "Zum Ziel machen", icon: "destination" },
-            "sep1": "---------",
             "delete": { name: "L&ouml;schen", icon: "delete" }
         }
     });
@@ -322,7 +332,7 @@ function setTemporaryMarker(position) {
     temporaryMarkerInfobox = drawTemporaryMarkerInfobox(position);
 }
 
-function setFixedMarker(position) {
+function setFixedMarker(position, type) {
 
     temporaryMarker.setMap(null);
     temporaryMarkerInfobox.setMap(null);
@@ -333,7 +343,7 @@ function setFixedMarker(position) {
         position: position,
         map: map,
         title: 'Markierung ' + fixedMarkerCount,
-        icon: fixedMarkerImage,
+        icon: type,
         draggable: true
     }
 
@@ -355,10 +365,17 @@ function setFixedMarker(position) {
         selectedMarker.infobox.setMap(null);
         selectedMarker.infobox = drawFixedMarkerInfobox(event.latLng, selectedMarker.counter);
     });
+    
+ // marker is dragged
+    google.maps.event.addListener(fixedMarker, 'dragend', function (event) {
+        alert("Marker speichern");
+    });
 
     fixedMarker.setMap(map);
     fixedMarkerInfoBox = drawFixedMarkerInfobox(temporaryMarker.position, fixedMarkerCount);
     fixedMarkerArray.push(new MarkerWithInfobox(fixedMarker, fixedMarkerInfoBox, fixedMarkerCount));
+    
+    alert("Marker speichern");
 }
 
 function getDistance(coord1, coord2) {
@@ -371,16 +388,4 @@ function fromLatLngToPixel(latLng) {
     pixel.x += document.getElementById('map_canvas').offsetLeft;
     pixel.y += document.getElementById('map_canvas').offsetTop;
     return pixel;
-}
-
-function toggleFollowCurrentPosition() {
-    followCurrentPosition = !followCurrentPosition;
-    if (followCurrentPosition) {
-        document.getElementById("followCurrentPositionbutton").value = "Eigener Position nicht mehr folgen";
-        noToggleOfFollowCurrentPositionButton = true;
-        map.setCenter(currentPositionMarker.getPosition());
-    } else {
-        document.getElementById("followCurrentPositionbutton").value = "Eigener Position folgen";
-    }
-    document.getElementById('followCurrentPositionContainer').style.width = document.body.offsetWidth + "px";
 }
