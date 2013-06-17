@@ -7,7 +7,7 @@ import play.api.libs.json._
 
 import views.html._
 import views.html._include._
-import views.html._include.route._
+import views.html._include.routeInc._
 
 import anorm._ 
 
@@ -100,7 +100,7 @@ object Trip extends Controller {
 		        data.append("</tr>")
 		    }
 		}
-		Ok(trip(header_app_route.render(),
+		Ok(route(header_app_route.render(),
 				navigation.render("app_map"),
 				navigation_app.render("app_trip"),
 				route_menu.render(data.toString()),

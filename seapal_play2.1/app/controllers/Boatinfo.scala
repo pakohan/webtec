@@ -7,7 +7,7 @@ import play.api.libs.json._
 
 import views.html._
 import views.html._include._
-import views.html._include.logbook._
+import views.html._include.logbookInc._
 
 import anorm._
 
