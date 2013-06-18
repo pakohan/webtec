@@ -60,7 +60,7 @@ $(function() {
 		    	$(buttonID).parents('tr').remove();  
 	    
 		    	$('#dialogTitle').text('Succes');
-		    	$('#dialogMessage').text("Eintrag wurde erfolgreich gelöscht.");
+		    	$('#dialogMessage').text("Eintrag wurde erfolgreich gel&ouml;scht.");
 	    	}
 		
 			$('#messageBox').modal('show');

@@ -28,5 +28,7 @@ GET     /app_waypoint.html          controllers.Waypoint.index(wnr: Int)
 GET     /websocket                  controllers.ShipSimulator.websocket
 GET     /landing.html               controllers.Landing.index()
 
+GET		/getShipPositions			controllers.ShipSimulator.getShipPositions()
+
 # Map static resources from the /public folder to the /assets URL path
 GET     /assets/*file               controllers.Assets.at(path="/public", file)
