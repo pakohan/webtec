@@ -14,13 +14,11 @@ dist
 /.project
 /RUNNING_PID
 /.settings
-=======
 # Extracted from https://github.com/ulrich/macaron-factory/blob/master/.gitignore
 # Ignore all dotfiles...
 .*
 # except for .gitignore
 !.gitignore
-
 
 ##OSX start
 *.DS_Store
@@ -67,3 +65,7 @@ Seapal_play/target
 Seapal_play/tmp
 Seapal_play/test-result
 Seapal_play/server.pid
+<<<<<<< HEAD
+=======
+
+>>>>>>> 848146299435d338e08094e9604a5311210c1f40
