@@ -24,12 +24,12 @@ $(function() {
 							editable : true
 						});
 
-						google.maps.event.addListener(tripPath, "mouseup", getPath);
+						google.maps.event.addListener(tripPath, "mouseup", getRoutePath);
 
-						function getPath() {
+						function getRoutePath() {
 							var path = tripPath.getPath();
-							var len = path.getLength();
 							alert("store route");
+							alert(path.getArray().toString());
 						}
 
 						tripPath.setMap(map);
