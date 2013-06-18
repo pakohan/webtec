@@ -10,23 +10,26 @@ $(function () {
 	        type: 'column',
             events: {
                 click: function(event) {
-                    var x = event.xAxis[0].value;
-                    var y = event.yAxis[0].value;
-                    
-                    var series = this.series[0];
-                    
-                    var xVal = Math.round(x);
-                    var yVal = Math.round(y);
-                    var data = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
-                    
-                    if (yVal > 12) {
-                    	yVal = 12;
-                    }
-                    data[xVal] = yVal;
-                    this.series[0].setData(data);
-                    saveValue('#wind_strength', yVal);
-                    saveValue('#wind_direction', xVal);
-                    setWaveValues(xVal, yVal);
+                	if (weatherChartEditable) {
+	                    var x = event.xAxis[0].value;
+	                    var y = event.yAxis[0].value;
+	                    
+	                    var series = this.series[0];
+	                    
+	                    var xVal = Math.round(x);
+	                    var yVal = Math.round(y);
+	                    var data = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+	                    
+	                    if (yVal > 12) {
+	                    	yVal = 12;
+	                    }
+	                    data[xVal] = yVal;
+	                    setWindValues(xVal, yVal);
+	                    //wave height is only set if the wave values have not been edited manually before
+	                    if (waveChanged === false) {
+	                    	setWaveValues(xVal, calculateWaveHeight(yVal));
+	                    }
+                	}
                 }
             }
 	    },
@@ -90,22 +93,24 @@ $(function () {
 	        type: 'column',
             events: {
                 click: function(event) {
-                    var x = event.xAxis[0].value;
-                    var y = event.yAxis[0].value;
-                    
-                    var series = this.series[0];
-                    
-                    var xVal = Math.round(x);
-                    var yVal = Math.round(y);
-                    var data = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
-                    
-                    if (yVal > 12) {
-                    	yVal = 12;
-                    }
-                    data[xVal] = yVal;
-                    this.series[0].setData(data);
-                    saveValue('#wave_height', yVal);
-                    saveValue('#wave_direction', yVal);
+                	if (weatherChartEditable) {
+	                    var x = event.xAxis[0].value;
+	                    var y = event.yAxis[0].value;
+	                    
+	                    var series = this.series[0];
+	                    
+	                    var xVal = Math.round(x);
+	                    var yVal = Math.round(y);
+	                    var data = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+	                    
+	                    if (yVal > 12) {
+	                    	yVal = 12;
+	                    }
+	                    setWaveValues(xVal, yVal);
+	                    //indicates that the wave direction and height are edited manually
+	                    // so no wave height prediction is needed any more.
+	                    waveChanged = true;
+                	}
                 }
             }
 	    },
@@ -353,7 +358,7 @@ $(function () {
 						rotation : 'auto'
 					},
 					title : {
-						text : '°C'
+						text : 'C'
 					}
 				},
 				
@@ -378,42 +383,45 @@ $(function () {
     
 
     $('#highcharts-4').click(function(e) {
-        var pos = findPos(this);
-        var x = e.pageX - pos.x;
-        var y = e.pageY - pos.y;
-        var divHeight = $('#highcharts-4').height();
-        var divWidth = $('#highcharts-4').width();
-        
-        var value = getGaugeValue(x, y, divHeight, divWidth, 300, 100, 1010);
-        var date = [value];
-		$("#pressureContainer").highcharts().series[0].setData(date);
-        saveValue('#air_pressure', value);
+    	if (weatherChartEditable) {
+	        var pos = findPos(this);
+	        var x = e.pageX - pos.x;
+	        var y = e.pageY - pos.y;
+	        var divHeight = $('#highcharts-4').height();
+	        var divWidth = $('#highcharts-4').width();
+	        
+	        var value = getGaugeValue(x, y, divHeight, divWidth, 300, 100, 1010);
+	
+			setPressure(value);
+    	}
     });
     
     $('#highcharts-6').click(function(e) {
-        var pos = findPos(this);
-        var x = e.pageX - pos.x;
-        var y = e.pageY - pos.y;
-        var divHeight = $('#highcharts-6').height();
-        var divWidth = $('#highcharts-6').width();
-        
-        var value = getGaugeValue(x, y, divHeight, divWidth, 300, 8, 4);
-        var date = [value];
-        $("#cloudContainer").highcharts().series[0].setData(date);
-        saveValue('#cloudiness', value);
+    	if (weatherChartEditable) {
+	        var pos = findPos(this);
+	        var x = e.pageX - pos.x;
+	        var y = e.pageY - pos.y;
+	        var divHeight = $('#highcharts-6').height();
+	        var divWidth = $('#highcharts-6').width();
+	        
+	        var value = getGaugeValue(x, y, divHeight, divWidth, 300, 8, 4);
+	        
+	        setClouds(value);
+    	}
     });
     
     $('#highcharts-8').click(function(e) {
-        var pos = findPos(this);
-        var x = e.pageX - pos.x;
-        var y = e.pageY - pos.y;
-        var divHeight = $('#highcharts-8').height();
-        var divWidth = $('#highcharts-8').width();
-        
-        var value = getGaugeValue(x, y, divHeight, divWidth, 300, 50, 15);
-        var date = [value];
-        $("#tempContainer").highcharts().series[0].setData(date);
-        saveValue('#temperature', value);
+    	if (weatherChartEditable) {
+	        var pos = findPos(this);
+	        var x = e.pageX - pos.x;
+	        var y = e.pageY - pos.y;
+	        var divHeight = $('#highcharts-8').height();
+	        var divWidth = $('#highcharts-8').width();
+	        
+	        var value = getGaugeValue(x, y, divHeight, divWidth, 300, 50, 15);
+		    
+	        setTemperature(value);
+    	}
     });
     
     function findPos(obj) {
@@ -441,13 +449,57 @@ $(function () {
         
         return value;
     }
-    
-    function setWaveValues(x, y) {
-    	var date = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
-        var height = processWind(x, y);
-        date[x] = height;
-        $("#waveContainer").highcharts().series[0].setData(date);
-    }
 
 });
 
+function setWindValues(direction, strength) {
+	var date = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+	date[direction] = strength;
+	
+	$("#windContainer").highcharts().series[0].setData(date);
+	
+	saveValue('#wind_strength', strength);
+	saveValue('#wind_direction', direction);
+}
+
+function setWaveValues(direction, height) {
+    var date = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+    date[direction] = height;
+    
+    $("#waveContainer").highcharts().series[0].setData(date);
+    
+    saveValue('#wave_height', height);
+    saveValue('#wave_direction', direction);
+}
+
+function setPressure(value) {
+	var date = [value];
+	
+	$("#pressureContainer").highcharts().series[0].setData(date);
+	
+	saveValue('#air_pressure', value);
+}
+
+function setClouds(value) {
+	var tmpValue = Math.round((value * 8) / 100);
+	var date = [tmpValue];
+    
+	$("#cloudContainer").highcharts().series[0].setData(date);
+    
+	saveValue('#cloudiness', tmpValue);
+}
+
+function setTemperature(value) {
+	tmpValue = Math.round(value);
+	
+	if (tmpValue > 40) {
+		tmpValue = 40;
+	} else if (tmpValue < -10) {
+		tmpValue = -10;
+	}
+	var date = [tmpValue];
+	
+	$("#tempContainer").highcharts().series[0].setData(date);
+    
+	saveValue('#temperature', tmpValue);
+}

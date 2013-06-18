@@ -24,6 +24,23 @@ $(function() {
 	registerBoatFields('#rufzeichen');
 	registerBoatFields('#rigart');
 	registerBoatFields('#spigroesse');
+	registerBoatFields('#titel');
+	registerBoatFields('#von');
+	registerBoatFields('#nach');
+	registerBoatFields('#tstart');
+	registerBoatFields('#tende');
+	registerBoatFields('#tdauer');
+	registerBoatFields('#skipper');
+	registerBoatFields('#crew');
+	registerBoatFields('#motor');
+	registerBoatFields('#tank');
+	
+	$('#boatAccordionHeading').click(function() {
+		$('#load_boat_info').toggle();
+	});
+	
+	//prevent weather charts from being edited manually without a marker being clicked before
+	weatherChartEditable = false;
 
 });
 
@@ -31,9 +48,15 @@ function registerBoatFields(id) {
 
 	$(id).change(function() {
 		var value = $(this).val();
-		alert(id + " " + value);
-		// saveValue(id, value);
+		
+		if (id !== "#tank") {
+			saveValue(id, value);
+		} else {
+			var checked = $(this)[0].checked;
+			saveValue(id, checked);
+		}
 	});
 
 }
+
 

@@ -10,8 +10,7 @@ $(function() {
 				document.getElementById("weather_info_table").style.display = 'block';
 				document.getElementById("map_canvas").style.visibility = 'visible';
 				google.maps.event.trigger(map, 'resize');
-				//TODO: delete this if ok: document.getElementById("save").style.visibility = 'visible';
-				
+
 				//TODO: should get coordinates from server
 
 				var tripCoordinates = [
@@ -20,6 +19,8 @@ $(function() {
 						new google.maps.LatLng(47.656080, 9.254681),
 						new google.maps.LatLng(47.656369, 9.288326),
 						new google.maps.LatLng(47.521780, 9.719282) ];
+				
+				var time = 1360938650;
 
 				var tripPath = new google.maps.Polyline({
 					path : tripCoordinates,
@@ -40,7 +41,10 @@ $(function() {
 						var lng = this.getPosition().lng();
 
 						map.setCenter(new google.maps.LatLng(lat, lng));
-						getHistoricWeatherById(lat, lng);
+						getHistoricWeatherById(lat, lng, time);
+						
+						//weather charts can now be edited manually
+						weatherChartEditable = true;
 					});
 				}
 

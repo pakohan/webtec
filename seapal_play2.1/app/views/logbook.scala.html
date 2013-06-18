@@ -36,19 +36,21 @@
 				class="button" style="display: none" />
 			</div>
 
-			<br />
-			<!-- boat info form -->
-			@logbook_boatinfo
-			<br />
-			
-			<!-- Trip info form -->
-			@logbook_tripinfo
+			<div class="accordion" id="accordion2">
+				<!-- boat info form -->
+				@logbook_boatinfo
 				
-			<br />
-			<!-- weather info form -->
-			@logbook_weatherinfo
+				<br />
+				
+				<!-- Trip info form -->				
+				@logbook_tripinfo
+				
+				<br />
+				
+				<!-- weather info form -->				
+				@logbook_weatherinfo
+			</div>
 
-			<br />
 			<!-- simple map to show trip -->
 			@simple_map
 		</div>
