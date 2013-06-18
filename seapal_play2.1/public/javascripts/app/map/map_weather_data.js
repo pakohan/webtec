@@ -38,8 +38,13 @@ function fillInData(data) {
 	
 	//pressure data
 	if (data.main !== undefined	&& data.main.pressure !== undefined) {
-		
-		var date = [data.main.pressure];
+		var value = data.main.pressure;
+		if (value < 960) {
+			value = 960;
+		} else if (value > 1060) {
+			value = 1060;
+		}
+		var date = [value];
 		$("#pressureContainer").highcharts().series[0].setData(date);
 	}
 
@@ -51,7 +56,14 @@ function fillInData(data) {
 
 	//temp data
 	if (data.main !== undefined && data.main.temp !== undefined) {
-		var date = [Math.round(data.main.temp - 273.15)];
+		var value = data.main.temp;
+		value = Math.round(value - 273.15);
+		if (value < -10) {
+			value = -10;
+		} else if (value > 40) {
+			value = 40;
+		}
+		var date = [value];
 		$("#tempContainer").highcharts().series[0].setData(date);
 	}
 

@@ -7,9 +7,11 @@
     
     	<!-- Header -->
         @header
+        <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBCnaCuuuXCzfGbzbXN699vudQ4fWTNmiY&libraries=geometry&sensor=false"></script>
+		<script src="@routes.Assets.at("javascripts/site/index_map_init.js")" type="text/javascript"></script>
         
     </head>
-    <body>
+    <body onload="initialize();">
     
     	<!-- Navigation -->
     	@navigation
@@ -35,7 +37,12 @@
 						<div class="post" id="welcome">
 							<h2>Welcome to SeaPal</h2>
 	                    	<div class="entry">
-	                        	<p><img src="@routes.Assets.at("images/screenshots/SeaPal-Horiz2.jpg")" alt="" class="img-rounded" height="200" width="620"></p>
+	                    	
+	                    		<!-- Map -->
+								<div id="map_canvas" style="height: 300px; width: 100%;"></div>
+								</br >
+								
+	                        	<!-- <p><img src="@routes.Assets.at("images/screenshots/SeaPal-Horiz2.jpg")" alt="" class="img-rounded" height="200" width="620"></p>-->
 	                        	<p>
 		                            <b>SeaPal</b> is an App for sailors and other water sport fanatics that support the skipper in his tasks for navigation, route planing and logbook keeping. The central view shows a map with the current position and forward line. Waypoint and routes can easily be created, distances and courses can quickly be determined and documented in the logbook. The touch interface allows for fast and intuitive interaction.
 		                        </p>

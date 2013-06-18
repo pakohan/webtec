@@ -231,10 +231,8 @@ $(function () {
 					min : 0,
 					max : 8,
 					tickInterval : 1,
-					minorTickWidth : 1,
-					minorTickLength : 10,
-					minorTickPosition : 'inside',
-					minorTickColor : '#666',
+					minorTickWidth : 0,
+					minorTickLength : 0,
 
 					tickPixelInterval : 30,
 					tickWidth : 2,
@@ -319,7 +317,7 @@ $(function () {
 						rotation : 'auto'
 					},
 					title : {
-						text : '°C'
+						text : 'C'
 					}
 				},
 				

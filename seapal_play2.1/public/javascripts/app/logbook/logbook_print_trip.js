@@ -4,7 +4,7 @@ $(function() {
 			
 			function printTrip(coordinates) {
 				
-				document.getElementById("load_boat_info").style.display = 'block';
+				document.getElementById("load_boat").style.display = 'block';
 				document.getElementById("boat_info_table").style.display = 'block';
 				document.getElementById("trip_info_table").style.display = 'block';
 				document.getElementById("weather_info_table").style.display = 'block';

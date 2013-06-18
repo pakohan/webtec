@@ -3,10 +3,6 @@
     width: 100%;
 }
 
-#chartContainer {
-	width: 70%;
-}
-
 #windContainer {
 	width: 280px;
 	height: 280px;
@@ -40,11 +36,11 @@
 	margin-top: 30px;
 }
 
-#sideButtons {
-	float: left;
+#load_boat {
+	margin-top: 20px;
+	width: 100px;
 }
 
-#load_boat_info {
-	float: left;
-	margin-top: 20px;
+#load_trip {
+	width: 100px;
 }
