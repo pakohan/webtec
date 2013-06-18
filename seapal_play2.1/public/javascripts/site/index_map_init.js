@@ -43,16 +43,39 @@ function initialize() {
 	connect();
 }
 
+var marker = [];
+var i = 0;
+
 function connect() {
+	var boat = new google.maps.MarkerImage('/assets/images/icons/boat.png',
+		    new google.maps.Size(50, 50), //size
+		    new google.maps.Point(0, 0),  //origin point
+		    new google.maps.Point(25, 40)  //offset point
+		);
+	
 	$.ajax({
 		type : 'get',
-		url : server_url,
+		url : 'getShipPositions',
 		dataType : 'json',
-		data : {
-			'timestamp' : timestamp
-		},
+		
 		success : function(response) {
-			alert(response);
+			
+			var pos = [new google.maps.LatLng(response.ship1Lat, response.ship1Lng),
+			           new google.maps.LatLng(response.ship2Lat, response.ship2Lng),
+			           new google.maps.LatLng(response.ship3Lat, response.ship3Lng)];
+			
+			for (var j in marker) {
+				marker[j].setMap(null);
+			}
+			
+			for (var k = 0; k < 3; k++) {
+				marker[k] = new google.maps.Marker({
+				      position: pos[k],
+				      map: map,
+				      icon: boat
+				});
+			}
+			
 			noerror = true;
 		},
 		complete : function(response) {
