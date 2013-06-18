@@ -95,7 +95,7 @@ label {
 #weatherMode_choices {
     padding: 5px 5px 5px 5px;
     margin-top: 7px;
-    margin-left: 220px;
+    margin-left: 10px;
     position: absolute;
     z-index: 2;
 }
@@ -153,4 +153,9 @@ input[type=checkbox], input.checkbox {
 	width: 200px;
 	height: 200px;
 	margin: 0 auto;
+}
+
+#windHeading, #windHeading2, #waveHeading, #waveHeading2,
+#pressureHeading, #cloudHeading, #temperatureHeading {
+	text-align: center;
 }

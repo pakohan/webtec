@@ -158,12 +158,12 @@ function initialize() {
     google.maps.event.addListener(map, 'zoom_changed', function() {
         var level = map.getZoom();
         if (level === 8) {
-        	document.getElementById("mapDiv").className = "span8";
+        	$("#mapDiv").attr('class', 'span7');
         	$("#chartDiv").show();
         	google.maps.event.trigger(map, 'resize');
         } else if (level === 7) {
         	$("#chartDiv").hide();
-        	document.getElementById("mapDiv").className = "span12";
+        	$("#mapDiv").attr('class', 'span12');
         	google.maps.event.trigger(map, 'resize');
         }
     });
