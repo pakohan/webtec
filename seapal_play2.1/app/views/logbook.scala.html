@@ -29,30 +29,34 @@
 		@logbook_trip_menu
 		
 		<div id="appWrapper" align="center">
-			<div class="span1">
-				<input class="btn" type="button" id="load_trip" value="Trip laden" class="button"/>
-				
-				<input class="btn" type="button" id="load_boat_info" value="Boot laden"
-				class="button" style="display: none" />
-			</div>
+			<div class="row-fluid">
+				<div class="span1">
+					<input class="btn" type="button" id="load_trip" value="Trip laden" class="button"/>
+					
+					<input class="btn" type="button" id="load_boat_info" value="Boot laden"
+						class="button" style="display: none" />
+				</div>
 
-			<div class="accordion" id="accordion2">
-				<!-- boat info form -->
-				@logbook_boatinfo
-				
-				<br />
-				
-				<!-- Trip info form -->				
-				@logbook_tripinfo
-				
-				<br />
-				
-				<!-- weather info form -->				
-				@logbook_weatherinfo
+				<div class="span11">
+					<div class="accordion" id="accordion2">
+						<!-- boat info form -->
+						@logbook_boatinfo
+						
+						<br />
+						
+						<!-- Trip info form -->				
+						@logbook_tripinfo
+						
+						<br />
+						
+						<!-- weather info form -->				
+						@logbook_weatherinfo
+					</div>
+		
+					<!-- simple map to show trip -->
+					@simple_map
+				</div>
 			</div>
-
-			<!-- simple map to show trip -->
-			@simple_map
 		</div>
 		<!-- Content -->
 	</div>

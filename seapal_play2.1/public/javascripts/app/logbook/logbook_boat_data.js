@@ -35,10 +35,6 @@ $(function() {
 	registerBoatFields('#motor');
 	registerBoatFields('#tank');
 	
-	$('#boatAccordionHeading').click(function() {
-		$('#load_boat_info').toggle();
-	});
-	
 	//prevent weather charts from being edited manually without a marker being clicked before
 	weatherChartEditable = false;
 
