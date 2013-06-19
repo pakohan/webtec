@@ -3,7 +3,7 @@ function getWeather(position) {
 	var lat = position.lat();
 	var lon = position.lng();
 	
-	var weather = 'http://openweathermap.org/data/2.5/weather?'
+	var weather = 'http://api.openweathermap.org/data/2.5/weather?'
 					+ 'lat='
 					+ lat
 					+ '&lon='
@@ -12,9 +12,43 @@ function getWeather(position) {
 	$.ajax({
 		dataType : "jsonp",
 		url : weather,
-		success : fillInData
+		success : storeWeatherData
 	});
 
+}
+
+function getWeatherForecast(position) {
+	var lat = position.lat();
+	var lon = position.lng();
+	
+	var weather = 'http://api.openweathermap.org/data/2.5/forecast?'
+					+ 'lat='
+					+ lat
+					+ '&lon='
+					+ lon;
+
+	$.ajax({
+		dataType : "jsonp",
+		url : weather,
+		success : storeWeatherForecast
+	});
+}
+
+var weatherForecast = [];
+var currentWeather = [];
+
+function storeWeatherForecast(data) {
+
+	weatherForecast[0] = data.list[0];
+	weatherForecast[1] = data.list[1];
+	weatherForecast[2] = data.list[7];
+	weatherForecast[3] = data.list[15];
+	weatherForecast[4] = data.list[34];
+}
+
+function storeWeatherData(data) {
+	currentWeather[0] = data;
+	fillInData(data);
 }
 
 function fillInData(data) {

@@ -339,5 +339,28 @@ $(function () {
 
 			});
 
+    $("#btnAkt").click(function() {
+    	fillInData(currentWeather[0]);
+    });
+    
+	$("#btn3h").click(function() {
+		fillInData(weatherForecast[0]);
+	});
+	
+	$("#btn6h").click(function() {
+		fillInData(weatherForecast[1]);
+	});
+	
+	$("#btn1D").click(function() {
+		fillInData(weatherForecast[2]);
+	});
+	
+	$("#btn2D").click(function() {
+		fillInData(weatherForecast[3]);
+	});
+	
+	$("#btn5D").click(function() {
+		fillInData(weatherForecast[4]);
+	});
 });
  

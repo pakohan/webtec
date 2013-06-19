@@ -153,6 +153,7 @@ function initialize() {
 
     google.maps.event.addListener(map, 'dragend', function () { 
         getWeather(map.getCenter());
+        getWeatherForecast(map.getCenter());
     });
     
     google.maps.event.addListener(map, 'zoom_changed', function() {
@@ -160,15 +161,18 @@ function initialize() {
         if (level === 8) {
         	$("#mapDiv").attr('class', 'span7');
         	$("#chartDiv").show();
+        	$("#weatherMode_choices").hide();
         	google.maps.event.trigger(map, 'resize');
         } else if (level === 7) {
         	$("#chartDiv").hide();
+        	$("#weatherMode_choices").show();
         	$("#mapDiv").attr('class', 'span12');
         	google.maps.event.trigger(map, 'resize');
         }
     });
     
     getWeather(map.getCenter());
+    getWeatherForecast(map.getCenter());
 
 }
 

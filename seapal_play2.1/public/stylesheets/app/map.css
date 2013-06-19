@@ -102,6 +102,7 @@ label {
     margin-left: 10px;
     position: absolute;
     z-index: 2;
+    display: none;
 }
 
 ul{
@@ -157,6 +158,11 @@ input[type=checkbox], input.checkbox {
 	width: 200px;
 	height: 200px;
 	margin: 0 auto;
+}
+
+#foreCastContainer {
+	text-align: center;
+	padding-top: 20px;
 }
 
 #windHeading, #windHeading2, #waveHeading, #waveHeading2,
