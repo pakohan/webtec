@@ -1,55 +1,55 @@
 $(function() {
 
-	registerBoatFields('#bootname');
-	registerBoatFields('#typ');
-	registerBoatFields('#baujahr');
-	registerBoatFields('#registernummer');
-	registerBoatFields('#konstrukteur');
-	registerBoatFields('#motor');
-	registerBoatFields('#segelzeichen');
-	registerBoatFields('#laenge');
-	registerBoatFields('#tankgroesse');
-	registerBoatFields('#heimathafen');
-	registerBoatFields('#breite');
-	registerBoatFields('#wassertankgroesse');
-	registerBoatFields('#yachtclub');
-	registerBoatFields('#tiefgang');
-	registerBoatFields('#abwassertankgroesse');
-	registerBoatFields('#eigner');
-	registerBoatFields('#masthoehe');
-	registerBoatFields('#grosssegelgroesse');
-	registerBoatFields('#versicherung');
-	registerBoatFields('#verdraengung');
-	registerBoatFields('#genuagroesse');
-	registerBoatFields('#rufzeichen');
-	registerBoatFields('#rigart');
-	registerBoatFields('#spigroesse');
-	registerBoatFields('#titel');
-	registerBoatFields('#von');
-	registerBoatFields('#nach');
-	registerBoatFields('#tstart');
-	registerBoatFields('#tende');
-	registerBoatFields('#tdauer');
-	registerBoatFields('#skipper');
-	registerBoatFields('#crew');
-	registerBoatFields('#motor');
-	registerBoatFields('#tank');
+	registerTripFields('bootname');
+	registerTripFields('typ');
+	registerTripFields('baujahr');
+	registerTripFields('registernummer');
+	registerTripFields('konstrukteur');
+	registerTripFields('motor');
+	registerTripFields('segelzeichen');
+	registerTripFields('laenge');
+	registerTripFields('tankgroesse');
+	registerTripFields('heimathafen');
+	registerTripFields('breite');
+	registerTripFields('wassertankgroesse');
+	registerTripFields('yachtclub');
+	registerTripFields('tiefgang');
+	registerTripFields('abwassertankgroesse');
+	registerTripFields('eigner');
+	registerTripFields('masthoehe');
+	registerTripFields('grosssegelgroesse');
+	registerTripFields('versicherung');
+	registerTripFields('verdraengung');
+	registerTripFields('genuagroesse');
+	registerTripFields('rufzeichen');
+	registerTripFields('rigart');
+	registerTripFields('spigroesse');
+	registerTripFields('titel');
+	registerTripFields('von');
+	registerTripFields('nach');
+	registerTripFields('tstart');
+	registerTripFields('tende');
+	registerTripFields('tdauer');
+	registerTripFields('skipper');
+	registerTripFields('crew');
+	registerTripFields('motor');
+	registerTripFields('tank');
 	
 	//prevent weather charts from being edited manually without a marker being clicked before
 	weatherChartEditable = false;
 
 });
 
-function registerBoatFields(id) {
+function registerTripFields(id) {
 
-	$(id).change(function() {
+	$('#' + id).change(function() {
 		var value = $(this).val();
 		
-		if (id !== "#tank") {
-			saveValue(id, value);
+		if (id !== "tank") {
+			saveTripValue(id, value);
 		} else {
 			var checked = $(this)[0].checked;
-			saveValue(id, checked);
+			saveTripValue(id, checked);
 		}
 	});
 

@@ -3,8 +3,7 @@ $(function() {
 	$('a.view').click(
 			
 			function printTrip(coordinates) {
-				
-				document.getElementById("load_boat").style.display = 'block';
+
 				document.getElementById("boat_info_table").style.display = 'block';
 				document.getElementById("trip_info_table").style.display = 'block';
 				document.getElementById("weather_info_table").style.display = 'block';
@@ -33,7 +32,8 @@ $(function() {
 
 					marker = new google.maps.Marker({
 						position : tripCoordinates[x],
-						map : map
+						map : map,
+						title : x
 					});
 
 					google.maps.event.addListener(marker, 'click', function() {
@@ -41,7 +41,7 @@ $(function() {
 						var lng = this.getPosition().lng();
 
 						map.setCenter(new google.maps.LatLng(lat, lng));
-						getHistoricWeatherById(lat, lng, time);
+						getHistoricWeatherById(lat, lng, time, this.getTitle());
 						
 						//weather charts can now be edited manually
 						weatherChartEditable = true;

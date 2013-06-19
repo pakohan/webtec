@@ -452,44 +452,44 @@ $(function () {
 
 });
 
-function setWindValues(direction, strength) {
+function setWindValues(direction, strength, markerID) {
 	var date = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
 	date[direction] = strength;
 	
 	$("#windContainer").highcharts().series[0].setData(date);
 	
-	saveValue('#wind_strength', strength);
-	saveValue('#wind_direction', direction);
+	saveWeatherValue('wind_strength', strength, markerID);
+	saveWeatherValue('wind_direction', direction, markerID);
 }
 
-function setWaveValues(direction, height) {
+function setWaveValues(direction, height, markerID) {
     var date = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
     date[direction] = height;
     
     $("#waveContainer").highcharts().series[0].setData(date);
     
-    saveValue('#wave_height', height);
-    saveValue('#wave_direction', direction);
+    saveWeatherValue('wave_height', height, markerID);
+    saveWeatherValue('wave_direction', direction, markerID);
 }
 
-function setPressure(value) {
+function setPressure(value, markerID) {
 	var date = [value];
 	
 	$("#pressureContainer").highcharts().series[0].setData(date);
 	
-	saveValue('#air_pressure', value);
+	saveWeatherValue('air_pressure', value, markerID);
 }
 
-function setClouds(value) {
+function setClouds(value, markerID) {
 	var tmpValue = Math.round((value * 8) / 100);
 	var date = [tmpValue];
     
 	$("#cloudContainer").highcharts().series[0].setData(date);
     
-	saveValue('#cloudiness', tmpValue);
+	saveWeatherValue('cloudiness', tmpValue, markerID);
 }
 
-function setTemperature(value) {
+function setTemperature(value, markerID) {
 	tmpValue = Math.round(value);
 	
 	if (tmpValue > 40) {
@@ -501,5 +501,5 @@ function setTemperature(value) {
 	
 	$("#tempContainer").highcharts().series[0].setData(date);
     
-	saveValue('#temperature', tmpValue);
+	saveWeatherValue('temperature', tmpValue, markerID);
 }

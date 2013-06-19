@@ -2,7 +2,7 @@ $(function() {
 	
 	function loadEntry(boatnr) { 
 			        	
-	    jQuery.get("app_logbook_load.html", {'bnr': boatnr}, function(data) {
+	    jQuery.get("app_logbook_loadTrip.html", function(data) {
 
 	        $('#bootname').val(data['bootname']);
 	        $('#typ').val(data['typ']);
@@ -28,110 +28,29 @@ $(function() {
 	        $('#rufzeichen').val(data['rufzeichen']);
 	        $('#rigart').val(data['rigart']);
 	        $('#spigroesse').val(data['spigroesse']);
+	        $('#titel').val(data['titel']);
+	    	$('#von').val(data['von']);
+	    	$('#nach').val(data['nach']);
+	    	$('#tstart').val(data['tstart']);
+	    	$('#tende').val(data['tende']);
+	    	$('#tdauer').val(data['tdauer']);
+	    	$('#skipper').val(data['skipper']);
+	    	$('#crew').val(data['crew']);
+	    	$('#motor').val(data['motor']);
+	    	$('#tank').val(data['tank']);
 	
 	    } , "json");
 	}
-	
-	function addEntry(bnr, json) {
-		
-		var entry = ""; 
-			
-		entry += "<tr class='selectable' id='" + bnr + "'>";
-		entry += "<td>" + json.bootname + "</td>";
-		entry += "<td>" + json.typ + "</td>";
-        entry += "<td>" + json.konstrukteur + "</td>";
-        entry += "<td>" + json.baujahr + "</td>";
-        entry += "<td>" + json.heimathafen + "</td>";
-        entry += "<td>" + json.laenge + "</td>";
-        entry += "<td>" + json.breite + "</td>";
-        entry += "<td>" + json.tiefgang + "</td>";
-        entry += "<td>" + json.eigner + "</td>";
-        entry += "<td style='width:30px; text-align:left;'><div class='btn-group'>";
-        entry += "<a class='btn btn-small view' id='" + bnr + "'><span><i class='icon-eye-open'></i></span></a>";
-        entry += "<a class='btn btn-small remove' id='" + bnr + "'><span><i class='icon-remove'></i></span></a>";
-        entry += "</div></td>";
-        entry += "</tr>";
 
-		$('#entries').append(entry);
-	}
-
-	$('a.view').live("click", function(event) {
+	$('a.view').click(function(event) {
 		loadEntry($(this).attr('id'));
 	});
 
-	$('a.remove').live("click", function(event) {
-		var buttonID = this;
-	 	var boatnr = $(this).attr('id');
+	$('a.remove').click(function(event) {
 
-		jQuery.get("app_logbook_delete.html", { "bnr": boatnr }, function(data) {
-		 
-		 	if (data['bnr'].match(/Error/)) {
-		    	
-		    	$('#dialogTitle').text('Error');
-		    	$('#dialogMessage').text(data['bnr'].replace(/Error: /, ""));
-		    	
-	    	} else {
-		    	
-		    	$(buttonID).parents('tr').remove();  
-	    
-		    	$('#dialogTitle').text('Succes');
-		    	$('#dialogMessage').text("Eintrag wurde erfolgreich gel��scht.");
-	    	}
+		jQuery.get("app_logbook_deleteTrip.html", function(data) {
 			
-			$('#messageBox').modal('show');
 		}, "json");
-	});
-
-	$('#save').click(function(event) {
-	
-		event.preventDefault();
-		
-		var json = {
-	          "bootname": $('#bootname').val(),
-	          "typ": $('#typ').val(),
-	          "baujahr": $('#baujahr').val(),
-		        "registernummer": $('#registernummer').val(),
-		        "konstrukteur": $('#konstrukteur').val(),
-		        "motor": $('#motor').val(),
-		        "segelzeichen": $('#segelzeichen').val(),
-		        "laenge": $('#laenge').val(),
-		        "tankgroesse": $('#tankgroesse').val(),
-		        "heimathafen": $('#heimathafen').val(),
-		        "breite": $('#breite').val(),
-		        "wassertankgroesse": $('#wassertankgroesse').val(),
-		        "yachtclub": $('#yachtclub').val(),
-		        "tiefgang": $('#tiefgang').val(),
-		        "abwassertankgroesse": $('#abwassertankgroesse').val(),
-		        "eigner": $('#eigner').val(),
-		        "masthoehe": $('#masthoehe').val(),
-		        "grosssegelgroesse": $('#grosssegelgroesse').val(),
-		        "versicherung": $('#versicherung').val(),
-		        "verdraengung": $('#verdraengung').val(),
-		        "genuagroesse": $('#genuagroesse').val(),
-		        "rufzeichen": $('#rufzeichen').val(),
-		        "rigart": $('#rigart').val(),
-		        "spigroesse": $('#spigroesse').val()              
-	    };
-		
-		jQuery.post("app_logbook_insert.html", json, function(data) { 
-			
-			if (data['bnr'].match(/Error/)) {
-		    	
-		    	$('#dialogTitle').text('Error');
-		    	$('#dialogMessage').text(data['bnr'].replace(/Error: /, ""));
-		    	
-	    	} else {
-		    	
-		    	addEntry( data['bnr'], json ); 
-	    
-		    	$('#dialogTitle').text('Success');
-		    	$('#dialogMessage').text("Eintrag wurde erfolgreich gespeichert.");
-	    	}
-			
-			$('#messageBox').modal('show');
-		
-		}, "json");
-	
 	});
 
 });
