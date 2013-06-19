@@ -396,7 +396,16 @@ function deleteRoute() {
 }
 
 function saveRoute() {
-    alert('Save Route!')
+	
+	
+	for (var i = 0; i < currentRoute.markerArray.length; i++) {
+        alert(currentRoute.markerArray[i].getPosition());
+    }
+	//jQuery.post("app_route_insert.html", json, function(data) { 
+	//    
+	//	currentRoute;
+    //
+    //}, "json");
 }
 
 function toggleDraggable(route) {

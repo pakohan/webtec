@@ -85,9 +85,6 @@ object Route {
 		          + "'><span><i class='icon-eye-open'></i></span></a>")
 		        data.append("<a class='btn btn-small remove' id='" + result.getString("tnr")
 		          + "'><span><i class='icon-remove'></i></span></a>")
-		        data.append("<a class='btn btn-small redirect' id='" + result.getString("tnr")
-		          + "' href='app_tripinfo.html?tnr=" + result.getString("tnr")
-		          + "'><span><i class='icon-chevron-right'></i></span></a>")
 		        data.append("</div></td>")
 		        data.append("</tr>")
 		    }
