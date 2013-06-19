@@ -53,12 +53,6 @@ object Logbook {
 
 	def loadRoute = {
 
-		// val jsonreturn = Json.toJson("0" -> ("lat" -> 47.655733, "lng" -> 9.206272, "time" -> 1360938650),
-		// 								"1" -> ("lat" -> 47.656196, "lng" -> 9.223953, "time" -> 1360938700),
-		// 								"2" -> ("lat" -> 47.656080, "lng" -> 9.254681, "time" -> 1360938750),
-		// 								"3" -> ("lat" -> 47.656369, "lng" -> 9.288326, "time" -> 1360938800),
-		// 								"4" -> ("lat" -> 47.521780, "lng" -> 9.719282, "time" -> 1360938850))
-		// Json.stringify(jsonreturn)
 		"ok"
 	}
 
@@ -74,7 +68,7 @@ object Logbook {
 
 	def tripMenu = {
 
-		"<tbody id='entries_boat_info'><tr class='selectable' id='1'><td>Reise nach Jerusalem</td><td>Captain Kirk</td><td>11.11.2014</td><td>12.11.2014</td><td>2</td>" +
+		"<tbody id='entries_boat_info'><tr class='selectable' id='1'><td>Reise nach Jerusalem</td><td>Captain Kirk</td><td>11.11.2011</td><td>12.11.2011</td><td>2</td>" +
 		"<td>nein</td><td style='width:30px; text-align:left;'><div class='btn-group'><a class='btn btn-small view' id='1'><span><i class='icon-eye-open'></i></span>" +
 		"</a><a class='btn btn-small remove' id='1'><span><i class='icon-remove'></i></span></a></div></td></tr></table>";
 	}

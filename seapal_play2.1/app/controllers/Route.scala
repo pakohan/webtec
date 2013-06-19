@@ -10,20 +10,24 @@ import anorm._
 
 object Route extends Controller {
 	
-	def insert = Action { implicit request =>
-		Ok(models.Route.insert)
+	def insertRoute = Action { implicit request =>
+		Ok(models.Route.insertRoute)
 	}
 
-	def delete(tnr: Int) = Action {
-		Ok(models.Route.delete(tnr))
+	def deleteRoute() = Action {
+		Ok(models.Route.deleteRoute)
 	}
   
-	def load(tnr: Int) = Action {
+	def loadRoute() = Action {
 		try {
-			Ok(models.Route.load(tnr))
+			Ok(models.Route.loadRoute)
 		} catch {
   		  case e: Exception => BadRequest("Error: " + e.toString)
   		}
+	}
+
+	def insertMarker = Action { implicit request =>
+		Ok(models.Route.insertMarker)
 	}
 
 	def index() = Action {

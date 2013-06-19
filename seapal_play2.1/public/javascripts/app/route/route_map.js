@@ -211,7 +211,7 @@ $(function () {
         items: {
             "red_ton": { name: "Rote Tonne setzen", icon: "marker" },
             "purple_ton": { name: "Lila Tonne setzen", icon: "marker" },
-            "green_ton": { name: "Grüne Tonne setzen", icon: "marker" },
+            "green_ton": { name: "Gr&uuml;ne Tonne setzen", icon: "marker" },
             "goal": { name: "Tor setzen", icon: "marker" },
             "distance": { name: "Distanz messen", icon: "distance" },
             "delete": { name: "L&ouml;schen", icon: "delete" }
@@ -368,14 +368,16 @@ function setFixedMarker(position, type) {
     
  // marker is dragged
     google.maps.event.addListener(fixedMarker, 'dragend', function (event) {
-        alert("Marker speichern");
+		var data = "marker";
+		$.post('app_marker_insert.html', data, "json");
     });
 
     fixedMarker.setMap(map);
     fixedMarkerInfoBox = drawFixedMarkerInfobox(temporaryMarker.position, fixedMarkerCount);
     fixedMarkerArray.push(new MarkerWithInfobox(fixedMarker, fixedMarkerInfoBox, fixedMarkerCount));
     
-    alert("Marker speichern");
+    var data = "marker";
+	$.post('app_marker_insert.html', data, "json");
 }
 
 function getDistance(coord1, coord2) {

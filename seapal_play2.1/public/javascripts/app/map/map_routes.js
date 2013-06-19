@@ -399,13 +399,11 @@ function saveRoute() {
 	
 	
 	for (var i = 0; i < currentRoute.markerArray.length; i++) {
-        alert(currentRoute.markerArray[i].getPosition());
+        //currentRoute.markerArray[i].getPosition());
     }
-	//jQuery.post("app_route_insert.html", json, function(data) { 
-	//    
-	//	currentRoute;
-    //
-    //}, "json");
+
+	var data = "route";
+	$.post('app_route_insert.html', data, "json");
 }
 
 function toggleDraggable(route) {

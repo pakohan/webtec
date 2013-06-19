@@ -1,3 +1,5 @@
+var currentPath = null;
+
 $(function() {
 
 	$('a.view')
@@ -7,8 +9,10 @@ $(function() {
 
 						document.getElementById("map_canvas").style.visibility = 'visible';
 
-						// TODO: should get coordinates from server
-
+						if (currentPath !== null) {
+							currentPath.setMap(null);
+						}
+							
 						var tripCoordinates = [
 								new google.maps.LatLng(47.655733, 9.206272),
 								new google.maps.LatLng(47.656196, 9.223953),
@@ -23,13 +27,15 @@ $(function() {
 							strokeWeight : 2,
 							editable : true
 						});
+						
+						currentPath = tripPath;
 
 						google.maps.event.addListener(tripPath, "mouseup", getRoutePath);
 
 						function getRoutePath() {
 							var path = tripPath.getPath();
-							alert("store route");
-							alert(path.getArray().toString());
+							var data = "route";
+							$.post('app_route_insert.html', data, "json");
 						}
 
 						tripPath.setMap(map);
