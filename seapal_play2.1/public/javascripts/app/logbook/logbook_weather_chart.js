@@ -24,10 +24,10 @@ $(function () {
 	                    	yVal = 12;
 	                    }
 	                    data[xVal] = yVal;
-	                    setWindValues(xVal, yVal);
+	                    setWindValues(xVal, yVal, currentMarkerID);
 	                    //wave height is only set if the wave values have not been edited manually before
 	                    if (waveChanged === false) {
-	                    	setWaveValues(xVal, calculateWaveHeight(yVal));
+	                    	setWaveValues(xVal, calculateWaveHeight(yVal), currentMarkerID);
 	                    }
                 	}
                 }
@@ -106,7 +106,7 @@ $(function () {
 	                    if (yVal > 12) {
 	                    	yVal = 12;
 	                    }
-	                    setWaveValues(xVal, yVal);
+	                    setWaveValues(xVal, yVal, currentMarkerID);
 	                    //indicates that the wave direction and height are edited manually
 	                    // so no wave height prediction is needed any more.
 	                    waveChanged = true;
@@ -275,7 +275,8 @@ $(function () {
 					min : 0,
 					max : 8,
 					tickInterval : 1,
-
+					minorTickWidth : 0,
+					minorTickLength : 0,
 					tickPixelInterval : 30,
 					tickWidth : 2,
 					tickPosition : 'inside',
@@ -392,7 +393,7 @@ $(function () {
 	        
 	        var value = getGaugeValue(x, y, divHeight, divWidth, 300, 100, 1010);
 	
-			setPressure(value);
+			setPressure(value, currentMarkerID);
     	}
     });
     
@@ -406,7 +407,7 @@ $(function () {
 	        
 	        var value = getGaugeValue(x, y, divHeight, divWidth, 300, 8, 4);
 	        
-	        setClouds(value);
+	        setClouds(value, currentMarkerID);
     	}
     });
     
@@ -420,7 +421,7 @@ $(function () {
 	        
 	        var value = getGaugeValue(x, y, divHeight, divWidth, 300, 50, 15);
 		    
-	        setTemperature(value);
+	        setTemperature(value, currentMarkerID);
     	}
     });
     
@@ -481,12 +482,17 @@ function setPressure(value, markerID) {
 }
 
 function setClouds(value, markerID) {
-	var tmpValue = Math.round((value * 8) / 100);
-	var date = [tmpValue];
+	
+	if (value < 0) {
+		value = 0;
+	} else if (value > 8) {
+		value = 8;
+	}
+	var date = [value];
     
 	$("#cloudContainer").highcharts().series[0].setData(date);
     
-	saveWeatherValue('cloudiness', tmpValue, markerID);
+	saveWeatherValue('cloudiness', value, markerID);
 }
 
 function setTemperature(value, markerID) {

@@ -1,8 +1,10 @@
+currentMarkerID = 0;
+
 $(function() {
 
 	$('a.view').click(
 			
-			function printTrip(coordinates) {
+			function printTrip(wp) {
 
 				document.getElementById("boat_info_table").style.display = 'block';
 				document.getElementById("trip_info_table").style.display = 'block';
@@ -10,7 +12,6 @@ $(function() {
 				document.getElementById("map_canvas").style.visibility = 'visible';
 				google.maps.event.trigger(map, 'resize');
 
-				//TODO: should get coordinates from server
 
 				var tripCoordinates = [
 						new google.maps.LatLng(47.655733, 9.206272),
@@ -42,6 +43,7 @@ $(function() {
 
 						map.setCenter(new google.maps.LatLng(lat, lng));
 						getHistoricWeatherById(lat, lng, time, this.getTitle());
+						currentMarkerID = this.getTitle();
 						
 						//weather charts can now be edited manually
 						weatherChartEditable = true;

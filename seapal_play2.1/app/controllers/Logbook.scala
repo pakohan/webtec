@@ -41,6 +41,10 @@ object Logbook extends Controller {
 	  Ok(models.Logbook.loadTrip)
 	}
 	
+	def loadRoute() = Action {
+	  Ok(models.Logbook.loadRoute)
+	}
+	
 	def loadBoat() = Action {
 	  Ok(models.Logbook.loadBoat)
 	}

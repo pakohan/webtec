@@ -71,7 +71,7 @@ function fillInData(data, markerID) {
 	if (data.list[0].clouds !== undefined
 			&& data.list[0].clouds.all !== undefined) {
 		var value = data.list[0].clouds.all;
-
+		value = Math.round((value * 8) / 100);
 		setClouds(value, markerID);
 	}
 

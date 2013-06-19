@@ -51,6 +51,17 @@ object Logbook {
 	  				"tstart" -> "01-07-2012", "tende" -> "02-07-2012", "tdauer" -> 300, "motor" -> 1241, "tank" -> true).toString
 	}
 
+	def loadRoute = {
+
+		// val jsonreturn = Json.toJson("0" -> ("lat" -> 47.655733, "lng" -> 9.206272, "time" -> 1360938650),
+		// 								"1" -> ("lat" -> 47.656196, "lng" -> 9.223953, "time" -> 1360938700),
+		// 								"2" -> ("lat" -> 47.656080, "lng" -> 9.254681, "time" -> 1360938750),
+		// 								"3" -> ("lat" -> 47.656369, "lng" -> 9.288326, "time" -> 1360938800),
+		// 								"4" -> ("lat" -> 47.521780, "lng" -> 9.719282, "time" -> 1360938850))
+		// Json.stringify(jsonreturn)
+		"ok"
+	}
+
 	def loadBoat = {
 
 		Json.obj("bootname" -> "MS Deutschland", "registernummer" -> 101, "segelzeichen" -> "TI101", "heimathafen" -> "New York",

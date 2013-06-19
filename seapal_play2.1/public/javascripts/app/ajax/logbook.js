@@ -41,16 +41,24 @@ $(function() {
 	
 	    } , "json");
 	}
+	
+	function loadRoute() {
+		var waypoints = [];
+		
+		jQuery.get("app_logbook_loadRoute.html", function(data) {
+			
+			
+		}, "json");
+	}
 
 	$('a.view').click(function(event) {
 		loadEntry($(this).attr('id'));
+		loadRoute();
 	});
 
 	$('a.remove').click(function(event) {
 
-		jQuery.get("app_logbook_deleteTrip.html", function(data) {
-			
-		}, "json");
+		jQuery.get("app_logbook_deleteTrip.html", "json");
 	});
 
 });
