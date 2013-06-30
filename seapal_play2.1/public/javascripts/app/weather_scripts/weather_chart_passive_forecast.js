@@ -141,6 +141,9 @@ $(function () {
 	$("#btn5D").click(function() {
 		fillInData(weatherForecast[4]);
 	});
+	
+	//initialise basic charts (pressure, clouds, temperature)
+	init_basic_charts();
 });
 
 function setWindValues(direction, strength) {

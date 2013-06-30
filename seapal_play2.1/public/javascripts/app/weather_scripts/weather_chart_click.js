@@ -184,15 +184,18 @@ $(function() {
 					enabled : false
 				}
 			});
+	
+	//initialise basic charts (pressure, clouds, temperature)
+	init_basic_charts();
 
-	$('#highcharts-0').click(
+	$('#highcharts-4').click(
 			function(e) {
 				if (weatherChartEditable) {
 					var pos = findPos(this);
 					var x = e.pageX - pos.x;
 					var y = e.pageY - pos.y;
-					var divHeight = $('#highcharts-0').height();
-					var divWidth = $('#highcharts-0').width();
+					var divHeight = $('#highcharts-4').height();
+					var divWidth = $('#highcharts-4').width();
 
 					var value = getGaugeValue(x, y, divHeight, divWidth, 300,
 							100, 1010);
@@ -201,13 +204,13 @@ $(function() {
 				}
 			});
 
-	$('#highcharts-2').click(function(e) {
+	$('#highcharts-6').click(function(e) {
 		if (weatherChartEditable) {
 			var pos = findPos(this);
 			var x = e.pageX - pos.x;
 			var y = e.pageY - pos.y;
-			var divHeight = $('#highcharts-2').height();
-			var divWidth = $('#highcharts-2').width();
+			var divHeight = $('#highcharts-6').height();
+			var divWidth = $('#highcharts-6').width();
 
 			var value = getGaugeValue(x, y, divHeight, divWidth, 300, 8, 4);
 
@@ -215,13 +218,13 @@ $(function() {
 		}
 	});
 
-	$('#highcharts-4').click(function(e) {
+	$('#highcharts-8').click(function(e) {
 		if (weatherChartEditable) {
 			var pos = findPos(this);
 			var x = e.pageX - pos.x;
 			var y = e.pageY - pos.y;
-			var divHeight = $('#highcharts-4').height();
-			var divWidth = $('#highcharts-4').width();
+			var divHeight = $('#highcharts-8').height();
+			var divWidth = $('#highcharts-8').width();
 
 			var value = getGaugeValue(x, y, divHeight, divWidth, 300, 50, 15);
 

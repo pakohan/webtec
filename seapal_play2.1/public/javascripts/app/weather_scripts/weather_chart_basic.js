@@ -1,4 +1,4 @@
-$(function() {
+function init_basic_charts() {
 
 	$('#pressureContainer').highcharts({
 		series : [ {
@@ -214,4 +214,4 @@ $(function() {
 		}
 
 	});
-});
+}
