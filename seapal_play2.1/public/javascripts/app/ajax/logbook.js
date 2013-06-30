@@ -63,3 +63,18 @@ $(function() {
 
 });
 
+function saveTripValue(id, value) {
+
+	var data = {"id": id, "value": value};
+	
+	$.post('app_logbook_insertTripValue.html', data, "json");
+}
+
+function saveWeatherValue(id, value, markerID) {
+	
+	var data = {"id": id, "value": value, "markerID": markerID};
+
+	$.post('app_logbook_insertWeatherValue.html', data, "json");
+}
+
+

@@ -1,17 +1,3 @@
-function saveTripValue(id, value) {
-
-	var data = {"id": id, "value": value};
-	
-	$.post('app_logbook_insertTripValue.html', data, "json");
-}
-
-function saveWeatherValue(id, value, markerID) {
-	
-	var data = {"id": id, "value": value, "markerID": markerID};
-
-	$.post('app_logbook_insertWeatherValue.html', data, "json");
-}
-
 function getHistoricWeatherById(lat, lng, time, markerID) {
 
 	var find = 'http://api.openweathermap.org/data/2.1/find/city?' + 'lat='
