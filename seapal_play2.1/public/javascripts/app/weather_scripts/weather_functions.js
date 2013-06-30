@@ -20,3 +20,11 @@ function convertToUnixTime(date) {
 	var unixtime = parseInt(unixtimeMS / 1000);
 	alert(unixtime);
 }
+
+function degToDirection(degree) {
+	if (degree >= 348.75 || degree < 11.25) {
+		return 0;
+	} else {
+		return Math.round((degree / 360) * 16);
+	}
+}

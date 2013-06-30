@@ -53,37 +53,36 @@ function storeWeatherData(data) {
 
 function fillInData(data) {
 
-	//wind data
-	var winData = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
-	var speed = 0;
-	var deg = 0;
-	
+	// wind and wave data
 	if (data.wind !== undefined
-			&& data.wind.speed !== undefined) {
-		speed = msToBeauf(data.wind.speed);
-	}
+			&& data.wind.speed !== undefined
+			&& data.wind !== undefined
+			&& data.wind.deg !== undefined) {
 
-	if (data.wind !== undefined && data.wind.deg !== undefined) {
-		deg = degToDirection(data.wind.deg);
+		var strength = msToBeauf(data.wind.speed);
+		var direction = degToDirection(data.wind.deg);
+
+		setWindValues(direction, strength);
+		setWaveValues(direction, calculateWaveHeight(strength));
 	}
-	setWindValues(deg, speed);
-	var waveHeight = processWind(speed);
-	setWaveValues(deg, waveHeight);
 	
 	//pressure data
 	if (data.main !== undefined	&& data.main.pressure !== undefined) {
 		var value = data.main.pressure;
+		
 		if (value < 960) {
 			value = 960;
 		} else if (value > 1060) {
 			value = 1060;
 		}
+		
 		setPressure(value);
 	}
 
 	//cloud data
 	if (data.clouds !== undefined && data.clouds.all !== undefined) {
-		var date = [Math.round(data.clouds.all / 100.0 * 8.0)];
+		var value = data.clouds.all;
+		value = Math.round((value * 8) / 100);
 		setClouds(value);
 	}
 
@@ -102,16 +101,3 @@ function fillInData(data) {
 
 }
 
-function degToDirection(degree) {
-	if (degree >= 348.75 || degree < 11.25) {
-		return 0;
-	} else {
-		return Math.round((degree / 360) * 16);
-	}
-}
-
-function processWind(speed) {
-
-	return calculateWaveHeight(speed);
-	
-}

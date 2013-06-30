@@ -44,15 +44,14 @@ function getWeather(data, time, markerID) {
 
 function fillInData(data, markerID) {
 
-	var date = '';
-
+	//wind and wave data
 	if (data.list[0].wind !== undefined
 			&& data.list[0].wind.speed !== undefined
 			&& data.list[0].wind !== undefined
 			&& data.list[0].wind.deg !== undefined) {
 
 		var strength = msToBeauf(data.list[0].wind.speed);
-		var direction = data.list[0].wind.deg;
+		var direction = degToDirection(data.list[0].wind.deg);
 		
 		setWindValues(direction, strength, markerID);
 		setWaveValues(direction, calculateWaveHeight(strength), markerID);
@@ -60,23 +59,37 @@ function fillInData(data, markerID) {
 		waveChanged = false;
 	}
 
+	//pressure data
 	if (data.list[0].main !== undefined
 			&& data.list[0].main.pressure !== undefined) {
 		var value = data.list[0].main.pressure;
+		
+		if (value < 960) {
+			value = 960;
+		} else if (value > 1060) {
+			value = 1060;
+		}
 
 		setPressure(value, markerID);
 	}
 
+	//cloud data
 	if (data.list[0].clouds !== undefined
 			&& data.list[0].clouds.all !== undefined) {
+		
 		var value = data.list[0].clouds.all;
 		value = Math.round((value * 8) / 100);
 		setClouds(value, markerID);
 	}
 
+	//temp data
 	if (data.list[0].main !== undefined && data.list[0].main.temp !== undefined) {
 		var value = data.list[0].main.temp - 273.15;
-
+		if (value < -10) {
+			value = -10;
+		} else if (value > 40) {
+			value = 40;
+		}
 		setTemperature(value, markerID);
 	}
 
