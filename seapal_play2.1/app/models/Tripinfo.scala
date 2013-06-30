@@ -8,6 +8,7 @@ import play.api.libs.json._
 import anorm._ 
 
 object Tripinfo {
+	//totally unused right now
 	
 	def insert(implicit request: Request[AnyContent]) = {
 		try {
