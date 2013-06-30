@@ -25,6 +25,11 @@ $(function() {
 								if (yVal > 12) {
 									yVal = 12;
 								}
+								
+								if (xVal >= 15.5) {
+									xVal = 0;
+								}
+								
 								data[xVal] = yVal;
 								setWindValues(xVal, yVal, currentMarkerID);
 								// wave height is only set if the wave values
@@ -114,6 +119,11 @@ $(function() {
 								if (yVal > 12) {
 									yVal = 12;
 								}
+
+								if (xVal >= 15.5) {
+									xVal = 0;
+								}
+								
 								setWaveValues(xVal, yVal, currentMarkerID);
 								// indicates that the wave direction and height
 								// are edited manually
@@ -175,14 +185,14 @@ $(function() {
 				}
 			});
 
-	$('#highcharts-4').click(
+	$('#highcharts-0').click(
 			function(e) {
 				if (weatherChartEditable) {
 					var pos = findPos(this);
 					var x = e.pageX - pos.x;
 					var y = e.pageY - pos.y;
-					var divHeight = $('#highcharts-4').height();
-					var divWidth = $('#highcharts-4').width();
+					var divHeight = $('#highcharts-0').height();
+					var divWidth = $('#highcharts-0').width();
 
 					var value = getGaugeValue(x, y, divHeight, divWidth, 300,
 							100, 1010);
@@ -191,13 +201,13 @@ $(function() {
 				}
 			});
 
-	$('#highcharts-6').click(function(e) {
+	$('#highcharts-2').click(function(e) {
 		if (weatherChartEditable) {
 			var pos = findPos(this);
 			var x = e.pageX - pos.x;
 			var y = e.pageY - pos.y;
-			var divHeight = $('#highcharts-6').height();
-			var divWidth = $('#highcharts-6').width();
+			var divHeight = $('#highcharts-2').height();
+			var divWidth = $('#highcharts-2').width();
 
 			var value = getGaugeValue(x, y, divHeight, divWidth, 300, 8, 4);
 
@@ -205,13 +215,13 @@ $(function() {
 		}
 	});
 
-	$('#highcharts-8').click(function(e) {
+	$('#highcharts-4').click(function(e) {
 		if (weatherChartEditable) {
 			var pos = findPos(this);
 			var x = e.pageX - pos.x;
 			var y = e.pageY - pos.y;
-			var divHeight = $('#highcharts-8').height();
-			var divWidth = $('#highcharts-8').width();
+			var divHeight = $('#highcharts-4').height();
+			var divWidth = $('#highcharts-4').width();
 
 			var value = getGaugeValue(x, y, divHeight, divWidth, 300, 50, 15);
 
