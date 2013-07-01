@@ -1,5 +1,6 @@
 $(function() {
 
+	//load trip information
 	function loadEntry(waypnr) { 
 		
 		jQuery.get("app_tripinfo_load.html", {'wnr': waypnr}, function(data) {
@@ -20,6 +21,7 @@ $(function() {
 	    }, "json");
 	}
 	
+	//add trip information
 	function addEntry(wnr, json) {
 		
 		var entry = "";
@@ -41,10 +43,12 @@ $(function() {
 		$('#entries').append(entry);
 	}	
 	
+	//load and show trip information
 	$('a.view').live("click", function(event) {
 		loadEntry($(this).attr('id'));
 	});
 	
+	//delete trip information
 	$('a.remove').live("click", function(event) {
 		var buttonID = this;
 	 	var waypnr = $(this).attr('id');
@@ -67,6 +71,7 @@ $(function() {
 		}, "json");		
 	});
 	
+	//store trip information
 	$('#save').click(function(event) {
 	
 		event.preventDefault();

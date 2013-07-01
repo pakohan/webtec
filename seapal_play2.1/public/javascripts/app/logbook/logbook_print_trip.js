@@ -2,6 +2,7 @@ currentMarkerID = 0;
 
 $(function() {
 
+	//show trip on map and load historic weather data
 	$('a.view').click(
 			
 			function printTrip(wp) {

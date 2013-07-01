@@ -1,3 +1,4 @@
+//fade-in menu for trip selection
 $(function() {
     $('#load_trip').click(function(){
         $('#overlay_trip_info').fadeIn('fast',function(){

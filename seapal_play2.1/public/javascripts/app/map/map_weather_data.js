@@ -1,3 +1,4 @@
+//fetches current weather data for position in lat and lng
 function getWeather(position) {
 
 	var lat = position.lat();
@@ -17,6 +18,7 @@ function getWeather(position) {
 
 }
 
+//fetches weather forecast for position in lat and lng
 function getWeatherForecast(position) {
 	var lat = position.lat();
 	var lon = position.lng();
@@ -34,9 +36,12 @@ function getWeatherForecast(position) {
 	});
 }
 
+//storage of forecast data
 var weatherForecast = [];
+//storage of current weather data
 var currentWeather = [];
 
+//store weather forecast
 function storeWeatherForecast(data) {
 
 	weatherForecast[0] = data.list[0];
@@ -46,11 +51,13 @@ function storeWeatherForecast(data) {
 	weatherForecast[4] = data.list[34];
 }
 
+//store weather data
 function storeWeatherData(data) {
 	currentWeather[0] = data;
 	fillInData(data);
 }
 
+//fill weather data into weather charts
 function fillInData(data) {
 
 	// wind and wave data

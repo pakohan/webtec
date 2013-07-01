@@ -2,6 +2,7 @@ $(function() {
 
 	function loadEntry(routenr) { 
 			        	
+		//load trip information
 	    jQuery.get("app_trip_load.html", {'tnr': routenr}, function(data) {
 		
 	        $('#titel').val(data['titel']);
@@ -18,6 +19,7 @@ $(function() {
 	    }, "json");
 	}
 	
+	//add route information
 	function addEntry(tnr, json) {
 		
 		var entry = "";
@@ -39,10 +41,12 @@ $(function() {
 		$('#entries').append(entry);
 	}
 
+	//load and show route information
 	$('a.view').live("click", function(event) {
 		loadEntry($(this).attr('id'));
 	});
 	
+	//delete route information
 	$('a.remove').live("click", function(event) {
 		var buttonID = this;
 	 	var tripnr = $(this).attr('id');
@@ -58,13 +62,14 @@ $(function() {
 		    	$(buttonID).parents('tr').remove();  
 	    
 		    	$('#dialogTitle').text('Succes');
-		    	$('#dialogMessage').text("Eintrag wurde erfolgreich gelöscht.");
+		    	$('#dialogMessage').text("Eintrag wurde erfolgreich gel��scht.");
 	    	}
 			
 			$('#messageBox').modal('show');
 		}, "json");		
 	});
 	
+	//store route information
 	$('#save').click(function(event) {
 	
 		event.preventDefault();

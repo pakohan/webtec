@@ -1,3 +1,4 @@
+//fade-in menu for route selection
 $(function() {
     $('#load_route').click(function(){
         $('#overlay_route').fadeIn('fast',function(){

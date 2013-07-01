@@ -1,3 +1,4 @@
+//get historic weather data by lat and lng; calls getWeather
 function getHistoricWeatherById(lat, lng, time, markerID) {
 
 	var find = 'http://api.openweathermap.org/data/2.1/find/city?' + 'lat='
@@ -13,6 +14,7 @@ function getHistoricWeatherById(lat, lng, time, markerID) {
 
 }
 
+//fetches historic weather data by city id; calls fillInData
 function getWeather(data, time, markerID) {
 
 	var weather = 'http://openweathermap.org/data/2.1/history/city/?id='
@@ -28,6 +30,7 @@ function getWeather(data, time, markerID) {
 
 }
 
+//fills in historic weather data into weather charts
 function fillInData(data, markerID) {
 
 	//wind and wave data

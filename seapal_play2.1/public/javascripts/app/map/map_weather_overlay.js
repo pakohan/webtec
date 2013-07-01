@@ -7,7 +7,8 @@ $(function() {
         TEMPERATURE : {name: "air_temperature", number: 5},
         RAIN : {name: "precipitation", number: 6}
     };
-
+    
+    //sailor overlays (wind, pressure, wave height)
     $('#sailor_mode').click(function () {
 
         $('#checkbox_form').hide();
@@ -19,6 +20,7 @@ $(function() {
         addMapOverlay(OVERLAY.WAVE_HEIGHT.name, OVERLAY.WAVE_HEIGHT.number);
     });
 
+    //tourist overlays (temperature, rain)
     $('#tourist_mode').click(function () {
                     
         $('#checkbox_form').hide();
@@ -29,6 +31,7 @@ $(function() {
         addMapOverlay(OVERLAY.RAIN.name, OVERLAY.RAIN.number);
     });
 
+    //expert mode (all overlays possible)
     $('#expert_mode').click(function () {
         
         $('#exp_mode_chkbx_Wind').prop('checked', false);
@@ -53,6 +56,7 @@ $(function() {
     registerCheckboxes('#exp_mode_chkbx_Wind', OVERLAY.WIND);
 });
 
+//register checkboxes to load specific overlays if checked
 function registerCheckboxes(id, overlay) {
     $(id).change(function () {
         if ($(this).is(':checked')) {
@@ -63,6 +67,7 @@ function registerCheckboxes(id, overlay) {
     });
 }
 
+//add specific overlay
 function addMapOverlay(name, number) {
                 
     map.overlayMapTypes.setAt(number, new google.maps.ImageMapType({
@@ -76,6 +81,7 @@ function addMapOverlay(name, number) {
     }));
 }
 
+//add standard seamark overlay
 function addSeamarkOverlay() {
     map.overlayMapTypes.setAt(1, new google.maps.ImageMapType({
         getTileUrl: function(coord, zoom) {
@@ -88,10 +94,12 @@ function addSeamarkOverlay() {
     }));
 }
 
+//remove specific overlay
 function removeMapOverlay(number) {
     map.overlayMapTypes.setAt(number, null);
 }
 
+//remove all overlays
 function removeAllOverlays() {
     map.overlayMapTypes.clear();
 }

@@ -1,5 +1,7 @@
+//normal wind rose and wave wind rose
 $(function () {
 	
+	//wind rose
 	$('#windContainer').highcharts({
         series: [{
             data: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
@@ -59,6 +61,7 @@ $(function () {
         }
 	});
     
+	//wave wind rose
     $('#waveContainer').highcharts({
         series: [{
             data: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
@@ -118,6 +121,7 @@ $(function () {
         }
 	});
 
+    //forecast buttons
 	$("#btnAkt").click(function() {
     	fillInData(currentWeather[0]);
     });
@@ -146,6 +150,7 @@ $(function () {
 	init_basic_charts();
 });
 
+//set and store wind strength and direction
 function setWindValues(direction, strength) {
 	var date = [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ];
 	date[direction] = strength;
@@ -153,6 +158,7 @@ function setWindValues(direction, strength) {
 	$("#windContainer").highcharts().series[0].setData(date);
 }
 
+//set wave and store height and direction
 function setWaveValues(direction, height) {
 	var date = [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ];
 	date[direction] = height;
@@ -160,12 +166,14 @@ function setWaveValues(direction, height) {
 	$("#waveContainer").highcharts().series[0].setData(date);
 }
 
+//set and store air pressure
 function setPressure(value) {
 	var date = [ value ];
 
 	$("#pressureContainer").highcharts().series[0].setData(date);
 }
 
+//set and store clouds
 function setClouds(value) {
 
 	if (value < 0) {
@@ -178,6 +186,7 @@ function setClouds(value) {
 	$("#cloudContainer").highcharts().series[0].setData(date);
 }
 
+//set and store temperature
 function setTemperature(value) {
 	tmpValue = Math.round(value);
 

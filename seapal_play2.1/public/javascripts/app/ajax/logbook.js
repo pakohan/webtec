@@ -1,5 +1,6 @@
 $(function() {
 	
+	//load trip information
 	function loadEntry(boatnr) { 
 			        	
 	    jQuery.get("app_logbook_loadTrip.html", function(data) {
@@ -42,6 +43,7 @@ $(function() {
 	    } , "json");
 	}
 	
+	//load route information
 	function loadRoute() {
 		var waypoints = [];
 		
@@ -51,11 +53,13 @@ $(function() {
 		}, "json");
 	}
 
+	//load route information and show on map
 	$('a.view').click(function(event) {
 		loadEntry($(this).attr('id'));
 		loadRoute();
 	});
 
+	//delete route
 	$('a.remove').click(function(event) {
 
 		jQuery.get("app_logbook_deleteTrip.html", "json");
@@ -63,6 +67,7 @@ $(function() {
 
 });
 
+//store single trip information value (boatname, type, etc.)
 function saveTripValue(id, value) {
 
 	var data = {"id": id, "value": value};
@@ -70,6 +75,7 @@ function saveTripValue(id, value) {
 	$.post('app_logbook_insertTripValue.html', data, "json");
 }
 
+//store single weather value (temperature, wind strength, etc.)
 function saveWeatherValue(id, value, markerID) {
 	
 	var data = {"id": id, "value": value, "markerID": markerID};

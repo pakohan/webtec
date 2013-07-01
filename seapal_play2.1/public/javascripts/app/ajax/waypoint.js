@@ -1,5 +1,6 @@
 $(function() {
 	
+	//load waypoint information
 	function loadEntry() { 
 	
 		var query = window.location.search;

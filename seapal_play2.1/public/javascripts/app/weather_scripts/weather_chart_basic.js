@@ -1,3 +1,5 @@
+//standard weather charts (pressure, clouds and temperature)
+//do not have to be changed to make clickable
 function init_basic_charts() {
 
 	$('#pressureContainer').highcharts({

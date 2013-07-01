@@ -2,6 +2,7 @@ var currentPath = null;
 
 $(function() {
 
+	//show route on map
 	$('a.view')
 			.click(
 

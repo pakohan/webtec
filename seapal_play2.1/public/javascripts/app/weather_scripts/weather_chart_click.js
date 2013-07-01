@@ -1,5 +1,9 @@
+//clickable wind and wave roses
+//makes standard gauges clickable
+//calls weather_chart_basic initialise function
 $(function() {
 
+	//wind rose
 	$('#windContainer').highcharts(
 			{
 				series : [ {
@@ -94,6 +98,7 @@ $(function() {
 				}
 			});
 
+	//wave wind rose
 	$('#waveContainer').highcharts(
 			{
 				series : [ {
@@ -188,6 +193,7 @@ $(function() {
 	//initialise basic charts (pressure, clouds, temperature)
 	init_basic_charts();
 
+	//make pressure gauge clickable
 	$('#highcharts-4').click(
 			function(e) {
 				if (weatherChartEditable) {
@@ -204,6 +210,7 @@ $(function() {
 				}
 			});
 
+	//make clouds gauge clickable
 	$('#highcharts-6').click(function(e) {
 		if (weatherChartEditable) {
 			var pos = findPos(this);
@@ -218,6 +225,7 @@ $(function() {
 		}
 	});
 
+	//make temperature gauge clickable
 	$('#highcharts-8').click(function(e) {
 		if (weatherChartEditable) {
 			var pos = findPos(this);
@@ -232,6 +240,7 @@ $(function() {
 		}
 	});
 
+	//find position of left upper corner of object
 	function findPos(obj) {
 		var curleft = 0, curtop = 0;
 		if (obj.offsetParent) {
@@ -247,6 +256,7 @@ $(function() {
 		return undefined;
 	}
 
+	//calculates gauge value of click position with polar coordinates
 	function getGaugeValue(x, y, divHeight, divWidth, degree, steps,
 			middleValue) {
 		var centerX = divWidth / 2;
@@ -264,6 +274,7 @@ $(function() {
 
 });
 
+//set wind strength and direction
 function setWindValues(direction, strength, markerID) {
 	var date = [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ];
 	date[direction] = strength;
@@ -274,6 +285,7 @@ function setWindValues(direction, strength, markerID) {
 	saveWeatherValue('wind_direction', direction, markerID);
 }
 
+//set wave height and direction
 function setWaveValues(direction, height, markerID) {
 	var date = [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ];
 	date[direction] = height;
@@ -284,6 +296,7 @@ function setWaveValues(direction, height, markerID) {
 	saveWeatherValue('wave_direction', direction, markerID);
 }
 
+//set air pressure
 function setPressure(value, markerID) {
 	var date = [ value ];
 
@@ -292,6 +305,7 @@ function setPressure(value, markerID) {
 	saveWeatherValue('air_pressure', value, markerID);
 }
 
+//set clouds
 function setClouds(value, markerID) {
 
 	if (value < 0) {
@@ -306,6 +320,7 @@ function setClouds(value, markerID) {
 	saveWeatherValue('cloudiness', value, markerID);
 }
 
+//set temperature
 function setTemperature(value, markerID) {
 	tmpValue = Math.round(value);
 
