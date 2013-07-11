@@ -1,0 +1,57 @@
+@(header_app_route: Html, navigation: Html, navigation_app: Html, route_menu: Html, route_map: Html, header: Html = views.html._include.header.render())
+
+<!DOCTYPE html>
+
+<html>
+    <head>
+    
+    	<!-- Header -->
+        @header
+        @header_app_route
+        
+    </head>
+    <body onload="initialize();">
+    
+    	<!-- Navigation -->
+    	@navigation
+    	
+    	<!-- Container -->
+    	<div class="container-fluid">
+    	
+	    	<!-- Navigation -->
+	    	@navigation_app
+
+	    	<!-- route selection menu -->
+	    	@route_menu
+
+			<!-- Content -->
+			<div id="appWrapper" align="center">
+				<div class="row-fluid">
+					<div class="span1">
+						<input class="btn" type="button" id="load_route" value="Route" class="button" />
+					</div>
+				
+					<div class="span11">
+	            		<!-- simple map to show trip -->
+						@route_map
+					</div>
+				</div>
+	        </div><!-- Content --> 
+		</div><!-- Container -->
+		
+		<!-- Menu Modal -->
+		<div class="modal hide fade" id="messageBox">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+				<h3 id="dialogTitle"></h3>
+			</div>
+			<div class="modal-body">
+				<p id="dialogMessage"></p>
+			</div>
+			<div class="modal-footer">
+				<a href="#" class="btn" data-dismiss="modal"><i class="icon-ok"></i> ok</a>
+			</div>
+		</div>
+		
+    </body>
+</html>

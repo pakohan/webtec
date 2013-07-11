@@ -1,7 +1,71 @@
+logs
+project/project
+project/target
+target
+tmp
+.history
+dist
+*.class
+/.idea
+/*.iml
+/out
+/.idea_modules
+/.classpath
+/.project
+/RUNNING_PID
+/.settings
 # Extracted from https://github.com/ulrich/macaron-factory/blob/master/.gitignore
 # Ignore all dotfiles...
 .*
 # except for .gitignore
 !.gitignore
 
+##OSX start
+*.DS_Store
+.AppleDouble
+.LSOverride
+Icon
+# Thumbnails
+._*
+# Files that might appear on external disk
+.Spotlight-V100
+.Trashes
+##OSX end
+config/count.txt
+*.mp4
+*.webm
+
 # Ignore Play! working directory #
+seapal_play2.1/db
+seapal_play2.1/eclipse
+seapal_play2.1/lib
+seapal_play2.1/log
+seapal_play2.1/logs
+seapal_play2.1/modules
+seapal_play2.1/precompiled
+seapal_play2.1/project/project
+seapal_play2.1/project/target
+seapal_play2.1/target
+seapal_play2.1/tmp
+seapal_play2.1/test-result
+seapal_play2.1/server.pid
+*.iml
+*.eml
+*.class
+Seapal_play/db
+Seapal_play/eclipse
+Seapal_play/lib
+Seapal_play/log
+Seapal_play/logs
+Seapal_play/modules
+Seapal_play/precompiled
+Seapal_play/project/project
+Seapal_play/project/target
+Seapal_play/target
+Seapal_play/tmp
+Seapal_play/test-result
+Seapal_play/server.pid
+<<<<<<< HEAD
+=======
+
+>>>>>>> 848146299435d338e08094e9604a5311210c1f40

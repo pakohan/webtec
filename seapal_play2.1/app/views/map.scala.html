@@ -1,0 +1,43 @@
+@(header_app: Html, header_app_map: Html, navigation: Html, navigation_app: Html, map_content: Html, weather_chart: Html, header: Html = views.html._include.header.render())
+
+<!DOCTYPE html>
+
+<html>
+    <head>
+    
+    	<!-- Header -->
+        @header
+        
+        <!-- Header App -->
+        @header_app
+        @header_app_map
+        
+    </head>
+    <body onload="initialize();">
+    
+    	<!-- Navigation -->
+    	@navigation
+    	
+    	<!-- Container -->
+    	<div class="container-fluid">
+    	
+    		<!-- Navigation -->
+    		@navigation_app
+
+			<div class="row-fluid">
+			
+				<div id="mapDiv" class="span7">
+					<!-- Map -->
+					@map_content
+				</div>
+				
+				<div id="chartDiv" class="span5">
+					<!-- Weather Charts -->
+					@weather_chart
+				</div>
+
+			</div>
+			
+		</div><!-- Container -->
+	</body>
+</html>

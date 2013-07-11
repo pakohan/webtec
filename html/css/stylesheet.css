@@ -1,0 +1,97 @@
+@font-face {
+  font-family: myWoffFont;
+  src: url('../../font/LinLibertine_R.woff') format('woff');
+}
+
+body {
+	margin: 1em;
+	padding: 0px;
+	background: #fffed3;
+	font-family: myWoffFont, Geneva, Arial, Helvetica, sans-serif;
+	font-size: 13px;
+	color: #accb00;
+}
+
+a {
+	text-decoration:none;
+	color: #5fae13;
+}
+
+a:visited {
+	color: #007e1a;
+}
+
+.navbar {
+	background: white;
+	border-style: double;
+	padding: 10px;
+	padding-bottom: 3em;
+}
+
+li {
+    list-style: none;
+    float: left;
+    width: 8.6em;
+    position: relative;
+    margin: 0.4em; padding: 0;
+}
+
+h1, h2, h3, h4 {
+	margin-bottom: 0.4em;
+	padding: 0;
+	text-transform: uppercase;
+	font-weight: 300;
+}
+
+h1 {
+	font-size: 3em;
+}
+
+h2 {
+	font-size: 2.8em;
+}
+
+h3 {
+	font-size: 1.6em;
+}
+
+h3 {
+	font-size: 1.3em;
+}
+
+label {
+    float: left;
+    width: 150px;
+    text-align: left;
+}
+
+input, select {
+	width: 150px;
+	text-align: right;
+	margin-left : 2em;
+}
+
+select {
+	padding: 5px;
+	border: 0;
+	border-radius: 0;
+}
+
+input[type="submit"] {
+	color: #ffffff;
+	text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+	background-color: #006dcc;
+	border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
+	padding: 11px 19px;
+	font-size: 17.5px;
+	-webkit-border-radius: 6px;
+	border-radius: 6px;
+	display: inline-block;
+	margin-bottom: 0;
+	line-height: 20px;
+	text-align: center;
+	vertical-align: middle;
+	cursor: pointer;
+	border: 1px solid #cccccc;
+	box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.05);
+}

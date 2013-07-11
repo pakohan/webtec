@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="de">
+    <head>
+    <script type='text/javascript'  src='../js/jquery-1.9.1.min.js'>
+    </script>
+    </head>
+    <body>
+        
+        <form>
+            <div>
+                <label>Koordinaten</label> <input type="text" name="koordinaten">
+            </div>
+            <input type="submit">
+
+        </form>
+         <span></span>
+        <script>
+            $("form").submit(function() {
+                var re = /\b\d\d°\d\d\.\d\d'[N|S|W|O][\d]{1,3}°\d\d\.\d\d'[N|S|W|O]\b/i;
+                var result = re.test($("input:first").val());
+
+                if (result) {
+                    $("span").text("Verfied!").show();
+                } else {
+                    $("span").text("Not valid!").show();
+                }
+                return false;
+            });
+
+        </script>
+    </body>
+</html>
+
+

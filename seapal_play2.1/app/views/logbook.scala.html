@@ -1,0 +1,79 @@
+@(header_app_logbook: Html, navigation: Html, navigation_app: Html, logbook_boatinfo_menu: Html, logbook_trip_menu: Html, logbook_boatinfo: Html, logbook_tripinfo: Html, logbook_weatherinfo: Html, simple_map: Html, header: Html = views.html._include.header.render())
+
+<!DOCTYPE html>
+
+<html>
+<head>
+
+		<!-- Header -->
+        @header
+      	@header_app_logbook
+
+</head>
+<body onload="initialize();">
+
+	<!-- Navigation -->
+	@navigation
+
+	<!-- Container -->
+	<div class="container-fluid">
+
+		<!-- Navigation -->
+		@navigation_app
+
+		<!-- Content -->
+		<!-- selection menu for boat infos -->
+		@logbook_boatinfo_menu
+
+		<!-- selection menu for trips -->
+		@logbook_trip_menu
+		
+		<div id="appWrapper" align="center">
+			<div class="row-fluid">
+				<div class="span1">
+					<input class="btn" type="button" id="load_trip" value="Trip" class="button"/>
+				</div>
+
+				<div class="span11">
+					<div class="accordion" id="accordion2">
+						<!-- boat info form -->
+						@logbook_boatinfo
+						
+						<br />
+						
+						<!-- Trip info form -->				
+						@logbook_tripinfo
+						
+						<br />
+						
+						<!-- weather info form -->				
+						@logbook_weatherinfo
+					</div>
+		
+					<!-- simple map to show trip -->
+					@simple_map
+				</div>
+			</div>
+		</div>
+		<!-- Content -->
+	</div>
+	<!-- Container -->
+
+	<!-- Menu Modal -->
+	<div class="modal hide fade" id="messageBox">
+		<div class="modal-header">
+			<button type="button" class="close" data-dismiss="modal"
+				aria-hidden="true">&times;</button>
+			<h3 id="dialogTitle"></h3>
+		</div>
+		<div class="modal-body">
+			<p id="dialogMessage"></p>
+		</div>
+		<div class="modal-footer">
+			<a href="#" class="btn" data-dismiss="modal"><i class="icon-ok"></i>
+				ok</a>
+		</div>
+	</div>
+
+</body>
+</html>

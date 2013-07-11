@@ -1,0 +1,46 @@
+#map_canvas {
+    height: 500px;
+    width: 100%;
+}
+
+#windContainer {
+	width: 280px;
+	height: 280px;
+	margin: 0 auto;
+}
+
+#waveContainer {
+	width: 280px;
+	height: 280px;
+	margin: 0 auto;
+}
+
+#pressureContainer {
+	width: 200px;
+	height: 200px;
+	margin: 0 auto;
+	margin-top: 30px;
+}
+
+#cloudContainer {
+	width: 200px;
+	height: 200px;
+	margin: 0 auto;
+	margin-top: 30px;
+}
+
+#tempContainer {
+	width: 200px;
+	height: 200px;
+	margin: 0 auto;
+	margin-top: 30px;
+}
+
+#load_boat {
+	margin-top: 20px;
+	width: 100px;
+}
+
+#load_trip {
+	width: 100px;
+}

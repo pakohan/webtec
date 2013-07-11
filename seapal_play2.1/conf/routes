@@ -1,0 +1,37 @@
+# Routes
+# This file defines all application routes (Higher priority routes first)
+# ~~~~
+
+# Home page
+GET     /                           			controllers.Landing.index()
+GET     /index.html               	  			controllers.Index.index()
+GET     /contact.html               			controllers.Contact.index()
+GET     /about.html                 			controllers.About.index()
+GET     /userguide.html             			controllers.Userguide.index()
+GET     /screenshots.html           			controllers.Screenshots.index()
+GET     /legal.html                 			controllers.Legal.index()
+GET     /impressum.html             			controllers.Impressum.index()
+GET     /app_map.html               			controllers.Map.index()
+GET     /app_logbook.html          				controllers.Logbook.index()
+GET     /app_logbook_loadTrip.html 				controllers.Logbook.loadTrip()
+GET		/app_logbook_loadRoute.html				controllers.Logbook.loadRoute()
+POST    /app_logbook_insertTripValue.html 		controllers.Logbook.insertTripValue()
+POST    /app_logbook_insertWeatherValue.html   	controllers.Logbook.insertWeatherValue()
+GET     /app_logbook_deleteTrip.html			controllers.Logbook.deleteTrip()
+GET     /app_route.html          				controllers.Route.index()
+GET     /app_route_load.html     				controllers.Route.loadRoute()
+POST    /app_route_insert.html   				controllers.Route.insertRoute()
+GET     /app_route_delete.html   				controllers.Route.deleteRoute()
+POST	/app_marker_insert.html					controllers.Route.insertMarker()
+GET     /app_tripinfo.html          			controllers.Tripinfo.index(tnr: Int)
+GET     /app_tripinfo_load.html     			controllers.Tripinfo.load(wnr: Int)
+POST    /app_tripinfo_insert.html   			controllers.Tripinfo.insert()
+GET     /app_tripinfo_delete.html   			controllers.Tripinfo.delete(wnr: Int)
+GET     /app_waypoint.html          			controllers.Waypoint.index(wnr: Int)
+GET     /websocket                  			controllers.ShipSimulator.websocket
+GET     /landing.html               			controllers.Landing.index()
+
+GET		/getShipPositions						controllers.ShipSimulator.getShipPositions()
+
+# Map static resources from the /public folder to the /assets URL path
+GET     /assets/*file               			controllers.Assets.at(path="/public", file)
