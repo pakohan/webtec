@@ -5,7 +5,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta name='keywords' content='sailing, app, navigation, sea map, boat, skipper'/>
 	<meta name='description' content='SeaPal is a mobile app for sailors to do navigation, tracking and more.'/>
-	<meta name="author" content="Prof. Dr. Marko Boger, Dominic Eschbach und Timo Partl">
+	<meta name="author" content="Prof. Dr. Marko Boger, Dominic E. und Timo P.">
 	<title>Seapal</title>
 	
 	<!-- Favicon -->
